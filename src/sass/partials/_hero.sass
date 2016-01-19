@@ -1,0 +1,46 @@
+.hero
+  height: 100vh
+  background: black img-url('hero-1.jpg') no-repeat center
+  background-size: cover
+  color: white
+
+.hero__inner
+  padding-top: 40px
+  padding-bottom: 110px
+  height: 100%
+  box-sizing: border-box
+  position: relative
+  +vertical
+  white-space: nowrap
+
+.hero__center
+  display: inline-block
+  vertical-align: middle
+  white-space: normal
+  text-align: left
+  +f(16)
+
+.hero__logo
+  svg path
+    fill: rgba(white, 0)
+    +trans
+    transition-property: fill, stroke
+  &:hover
+    svg path
+      fill: $color-red
+      stroke: $color-red
+
+.hero__title
+  margin-top: 27px
+  +f(24,36,20)
+  text-transform: uppercase
+  max-width: em(620,24)
+
+.hero__buttons
+  position: absolute
+  bottom: 60px
+  left: 0
+  right: 0
+  text-align: center
+  .btn
+    margin: 0 5px

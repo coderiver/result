@@ -17,6 +17,16 @@
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
+=f($size: 16, $line: false, $spacing: false)
+  $line-height: $size/$line
+  font-size: $size + px
+  font-size: $size/10 + rem
+  @if $line
+    line-height: $line/$size
+  @if $spacing
+    letter-spacing: $spacing/1000 + em
+
+
 =gpu
   transform: translate3d(0,0,0)
 

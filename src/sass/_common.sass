@@ -1,5 +1,61 @@
+html
+  font-size: 62.5%
+
 body
   background: #FFF
-  font-size: 16px
-  line-height: 1.4
+  font: normal 16px/1.4 Arial
+  font-size: 1.6rem
+  +smooth-font
+  min-width: 1040px
 
+.l
+  max-width: 1040px
+  padding: 0 20px
+  margin: auto
+  box-sizing: border-box
+
+.align-center
+  text-align: center
+
+.align-right
+  text-align: right
+
+.btn
+  display: inline-block
+  box-sizing: border-box
+  background: none
+  border: 1px solid
+  color: inherit
+  height: 48px
+  text-align: center
+  +f(18, false, 20)
+  line-height: 46px
+  font-weight: 700
+  text-decoration: none
+  cursor: pointer
+  +trans
+  &:hover,
+  &:focus
+    background: #ff0000
+    border-color: #ff0000
+    color: white
+
+  &:active
+    background: #f10000
+    border-color: #f10000
+    color: white
+
+  &.is-active
+    background: black
+    border-color: black
+    color: white
+
+  &[disabled],
+  &.is-disabled
+    background: none
+    color: black
+    opacity: 0.2
+    cursor: not-allowed
+
+  &_hero
+    min-width: 303px
