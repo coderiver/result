@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="169px" height="210px" viewBox="0 0 169 210" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>letter-e</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="letter-e" sketch:type="MSArtboardGroup" fill="#ED1C23">
+            <path d="M84.261,168.094 C66.961,168.094 59.578,156.22 59.578,141.571 L167.578,141.571 C168.202544,137.593439 168.516493,133.573294 168.517,129.547 C168.517,85.062 130.793,49 84.259,49 C37.725,49 -5.68434189e-14,85.062 -5.68434189e-14,129.547 C-5.68434189e-14,174.032 37.725,210.07 84.26,210.07 C118.814,209.427333 145.025,195.819333 162.893,169.246 L112.693,148.822 C109.343,155.15 105.552667,159.943667 101.322,163.203 C97.085,166.47 90.943,168.094 84.261,168.094 Z M62.128,108.745 C62.269143,96.622063 72.136742,86.868681 84.2605,86.868681 C96.384258,86.868681 106.251857,96.622063 106.393,108.745 L62.128,108.745 Z" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

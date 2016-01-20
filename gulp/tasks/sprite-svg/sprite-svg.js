@@ -46,7 +46,7 @@ gulp.task('sprite:svg', function() {
                 var stroke = $(this).find('[stroke]').attr('stroke');
                 return {
                     name: name,
-                    ratio: ratio,
+                    ratio: +ratio.toFixed(2),
                     fill: fill || 'initial',
                     stroke: stroke || 'initial'
                 };

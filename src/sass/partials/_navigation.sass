@@ -15,6 +15,7 @@
 
 .language
   position: fixed
+  z-index: 11
   top: 50%
   right: 5px
   +f(10)
@@ -56,3 +57,121 @@
       right: 0
       height: 3px
       background: currentColor
+
+
+.menu
+  position: fixed
+  z-index: 11
+  top: 0
+  left: 0
+  bottom: 0
+  width: 100px
+  overflow: hidden
+  &:hover
+    &:not(.is-active)
+      .menu__tile:first-child
+        opacity: 1
+        transform: scale(1)
+        transition-delay: 0s
+  &.is-active
+    width: 100%
+
+.menu__inner
+  position: absolute
+  z-index: 1
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.menu__tiles
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.menu__tile
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100px
+  background: white
+  transition: all 0.3s ease
+  opacity: 0
+  transform: scale(0.9)
+  @for $i from 1 through 25
+    &:nth-child(#{$i})
+      $from-end: 25 - $i
+      left: (($i - 1) * 100) + px
+      transition-delay: (($from-end) * 0.03) + s
+  .menu.is-active &
+    opacity: 1
+    transform: scale(1)
+    @for $i from 1 through 25
+      &:nth-child(#{$i})
+        transition-delay: (($i - 1) * 0.03) + s
+
+.menu-button
+  position: absolute
+  top: 50%
+  left: 37px
+  font-size: 0
+  margin: -12px -2px -3px 0
+  color: red
+  width: 28px
+  box-sizing: border-box
+  background: none
+
+.menu-button__piece
+  display: inline-block
+  vertical-align: top
+  width: 8px
+  height: 6px
+  margin: 0 2px 3px 0
+  background: currentColor
+  &_wide
+    width: 16px
+
+.menu-logo
+  position: absolute
+  top: 20px
+  left: 32px
+  height: 36px
+  font-size: 0
+  .icon
+    position: absolute
+    top: 0
+    left: 0
+    font-size: 36px
+    transition: all 0.5s ease
+    &:not(:first-child)
+      opacity: 0
+      visibility: hidden
+    $pos: 0, 33, 64, 94, 126, 141, 157
+    @for $i from 1 through length($pos)
+      &:nth-child(#{$i})
+        $val: nth($pos, $i)
+        left: #{$val}px
+        transform: translateX(#{-$val}px)
+  .menu.is-active &
+    .icon
+      transform: translateX(0)
+      opacity: 1
+      visibility: visible
+  // .icon-letter-r
+  //   left: 0
+  // .icon-letter-e
+  //   left: 33px
+  // .icon-letter-z
+  //   left: 64px
+  // .icon-letter-u
+  //   left: 94px
+  // .icon-letter-l
+  //   left: 126px
+  // .icon-letter-t
+  //   left: 141px
+  // .icon-letter-dot
+  //   left: 157px

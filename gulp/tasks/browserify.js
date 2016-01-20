@@ -17,7 +17,7 @@ var appBundleName = 'app.js';
 var props = {
     dest: [config.dest.js],
     entries: path.join(config.src.js, 'app.js'),
-    transform: [],
+    transform: ['babelify'],
     noParse: ['jquery'],
     extensions: ['.js'],
     debug: true,
