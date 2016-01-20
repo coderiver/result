@@ -1,0 +1,58 @@
+.nav-links
+  position: fixed
+  z-index: 10
+  top: 0
+  right: 0
+  left: 0
+  color: white
+  padding: 34px 40px 0 40px
+  +f(14)
+  font-weight: 700
+  text-align: right
+  a
+    &:not(:first-child)
+      margin-left: 25px
+
+.language
+  position: fixed
+  top: 50%
+  right: 5px
+  +f(10)
+  font-weight: 700
+  color: white
+  height: em(150,10)
+  margin-top: em(-75,10)
+  width: em(15,10)
+  text-align: center
+
+.language__inner
+  position: absolute
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg)
+  transform-origin: center center
+  text-align: center
+  width: em(150,10)
+
+.language__link
+  display: inline-block
+  vertical-align: top
+  padding-bottom: 5px
+  color: inherit
+  text-decoration: none
+  position: relative
+  line-height: 1
+  margin: 0 8px
+  +trans(color)
+  &:hover,
+  &:focus
+    color: red
+  &.is-active
+    &:after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      height: 3px
+      background: currentColor

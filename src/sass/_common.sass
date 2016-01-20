@@ -8,6 +8,13 @@ body
   +smooth-font
   min-width: 1040px
 
+a:not([class])
+  color: inherit
+  +trans(color)
+  text-decoration: none
+  &:hover
+    color: red
+
 .l
   max-width: 1040px
   padding: 0 20px
@@ -23,6 +30,8 @@ body
 .btn
   display: inline-block
   box-sizing: border-box
+  position: relative
+  z-index: auto
   background: none
   border: 1px solid
   color: inherit
@@ -34,28 +43,57 @@ body
   text-decoration: none
   cursor: pointer
   +trans
+  > span
+    position: relative
+    z-index: 1
+  &:before
+    content: ""
+    position: absolute
+    z-index: 0
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: none
+    transform: scale(0.5)
+    opacity: 0
+    visibility: hidden
+    +trans
+
   &:hover,
   &:focus
-    background: #ff0000
     border-color: #ff0000
     color: white
+    &:before
+      opacity: 1
+      visibility: visible
+      background: #ff0000
+      transform: scale(1)
 
   &:active
-    background: #f10000
     border-color: #f10000
     color: white
+    &:before
+      background: #f10000
 
   &.is-active
-    background: black
     border-color: black
     color: white
+    &:before
+      background: black
+      opacity: 1
+      visibility: visible
+      transform: scale(1)
 
   &[disabled],
   &.is-disabled
     background: none
     color: black
+    border-color: black
     opacity: 0.2
     cursor: not-allowed
+    &:before
+      display: none
 
   &_hero
     min-width: 303px

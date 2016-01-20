@@ -6,7 +6,7 @@ function build(prod) {
     if (prod) config.production = true;
     runSequence(
         'clean',
-        'iconfont',
+        'sprite:svg',
         'svgo',
         'sass',
         'swig',

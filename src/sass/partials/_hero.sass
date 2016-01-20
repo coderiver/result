@@ -21,12 +21,16 @@
   +f(16)
 
 .hero__logo
-  svg path
+  .icon
+    +f(212)
+    transform: translate(0.5px, 0.5px)
+    stroke: white
+  svg path, .icon
     fill: rgba(white, 0)
     +trans
     transition-property: fill, stroke
   &:hover
-    svg path
+    svg path, .icon
       fill: $color-red
       stroke: $color-red
 

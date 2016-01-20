@@ -3,7 +3,7 @@ var config = require('../config');
 
 gulp.task('watch', [
     'swig:watch',
-    'iconfont:watch',
+    'sprite:svg:watch',
     'browserify:watch',
     'sass:watch',
     'svgo:watch'
