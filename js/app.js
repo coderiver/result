@@ -9834,15 +9834,62 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 'use strict';
 
+require('./modules/menu');
+
+},{"./modules/menu":3}],3:[function(require,module,exports){
+'use strict';
+
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery2.default)('.menu').on('click', function () {
-    (0, _jquery2.default)(this).toggleClass('is-active');
-});
+var $menu = (0, _jquery2.default)('.menu');
+var $panel = $menu.find('.menu__panel');
+var $menuButton = $menu.find('.menu-button');
+var $body = (0, _jquery2.default)('body');
+
+var classes = {
+    menuOpen: 'menu-open',
+    active: 'is-active',
+    animate: 'is-animate',
+    ready: 'is-ready'
+};
+
+var opened = false;
+var timeout = undefined;
+
+/**
+ * dur + n * delay Duration of open menu animation
+ * dur - tile animation diration
+ * n - count of tiles - 1
+ * delay - deley for animation for next tile
+ */
+var openAnimationDuration = 400 + 11 * 20;
+
+$panel.on('click', toggleMenu);
+
+function toggleMenu() {
+    $body.toggleClass(classes.menuOpen);
+    $menuButton.toggleClass(classes.active);
+    clearTimeout(timeout);
+
+    if (opened) {
+        $menu.removeClass(classes.ready).removeClass(classes.animate);
+        opened = false;
+        timeout = setTimeout(function () {
+            $menu.removeClass(classes.active);
+        }, openAnimationDuration);
+        return;
+    }
+
+    $menu.addClass(classes.active).addClass(classes.animate);
+    timeout = setTimeout(function () {
+        $menu.addClass(classes.ready);
+    }, openAnimationDuration);
+    opened = true;
+}
 
 },{"jquery":1}]},{},[2])
 
