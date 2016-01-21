@@ -9834,9 +9834,26 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 'use strict';
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 require('./modules/menu');
 
-},{"./modules/menu":3}],3:[function(require,module,exports){
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var clickCount = 0;
+
+(0, _jquery2.default)('.controll-btn-volume').on('click', function (e) {
+    var className = this.className;
+    this.className = className.replace(/level-\d/, 'level-' + ++clickCount % 3);
+});
+
+(0, _jquery2.default)('.controll-btn-close').on('click', function () {
+    (0, _jquery2.default)('.modal-video').fadeOut(500);
+});
+
+},{"./modules/menu":3,"jquery":1}],3:[function(require,module,exports){
 'use strict';
 
 var _jquery = require('jquery');
