@@ -6,7 +6,23 @@ body
   font: normal 16px/1.4 Arial
   font-size: 1.6rem
   +smooth-font
-  min-width: 1040px
+  min-width: $min-width
+  color: black
+
+h1:not([class]), .h1
+  +f(36,42,100)
+
+h2:not([class]), .h2
+  +f(48)
+
+h3:not([class]), .h3
+  +f(24,24,100)
+
+h4:not([class]), .h4
+  +f(24,36)
+
+h5:not([class]), .h5
+  +f(16,24,100)
 
 a:not([class])
   color: inherit

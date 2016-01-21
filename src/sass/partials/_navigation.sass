@@ -15,7 +15,7 @@
 
 .language
   position: fixed
-  z-index: 11
+  z-index: 12
   top: 50%
   right: 5px
   +f(10)
@@ -25,6 +25,11 @@
   margin-top: em(-75,10)
   width: em(15,10)
   text-align: center
+  .menu-open &
+    color: black
+    .language__link
+      &:after
+        color: red
 
 .language__inner
   position: absolute
@@ -44,11 +49,15 @@
   position: relative
   line-height: 1
   margin: 0 8px
-  +trans(color)
+  +trans()
+  transition-property: opacity, color
+  opacity: 0.5
   &:hover,
   &:focus
-    color: red
+    color: $color-red
+    opacity: 1
   &.is-active
+    opacity: 1
     &:after
       content: ""
       position: absolute
@@ -58,7 +67,6 @@
       height: 3px
       background: currentColor
 
-
 .menu
   position: fixed
   z-index: 11
@@ -67,12 +75,6 @@
   bottom: 0
   width: 100px
   overflow: hidden
-  &:hover
-    &:not(.is-active)
-      .menu__tile:first-child
-        opacity: 1
-        transform: scale(1)
-        transition-delay: 0s
   &.is-active
     width: 100%
 
@@ -80,9 +82,59 @@
   position: absolute
   z-index: 1
   top: 0
-  left: 0
-  width: 100%
+  left: 100px
+  right: 0
   height: 100%
+  padding: 50px percentage(100/1400) 0 percentage(70/1400)
+  box-sizing: border-box
+  white-space: nowrap
+  overflow: auto
+  +vertical
+
+.menu__inner-center
+  display: inline-block
+  vertical-align: middle
+  text-align: left
+  width: 100%
+  white-space: normal
+  +f(16)
+
+.menu__list-container
+  font-size: 0
+  & + &
+    margin-top: 30px
+    padding-top: 30px
+    border-top: 1px solid rgba(black, 0.2)
+
+.menu__list
+  display: inline-block
+  vertical-align: top
+  box-sizing: border-box
+  width: 25%
+  min-width: 200px
+  padding-right: 2%
+  +f(16)
+  transition: all 0.3s ease
+  transform: translateX(-50px)
+  opacity: 0
+  visibility: hidden
+  @for $i from 1 through 4
+    $from-end: 4 - $i
+    &:nth-child(#{$i})
+      transition-delay: ($from-end * 0.05) + s
+  .menu.is-animate &
+    opacity: 1
+    visibility: visible
+    transform: translateX(0)
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        transition-delay: ($i * 0.05) + s
+
+.menu__list-item
+  h4
+    +f(28)
+  &:not(:first-child)
+    margin-top: 15px
 
 .menu__tiles
   position: absolute
@@ -97,22 +149,45 @@
   top: 0
   left: 0
   height: 100%
-  width: 100px
+  width: 8.34%
   background: white
-  transition: all 0.3s ease
+  transition: all 0.4s ease
   opacity: 0
   transform: scale(0.9)
-  @for $i from 1 through 25
+  $tile-count: 12
+  @for $i from 1 through $tile-count
     &:nth-child(#{$i})
-      $from-end: 25 - $i
-      left: (($i - 1) * 100) + px
-      transition-delay: (($from-end) * 0.03) + s
-  .menu.is-active &
+      $from-end: $tile-count - $i
+      left: (($i - 1) * 8.33) + %
+      transition-delay: (($from-end) * 0.02) + s
+  .menu.is-animate &
     opacity: 1
     transform: scale(1)
-    @for $i from 1 through 25
+    @for $i from 1 through $tile-count
       &:nth-child(#{$i})
-        transition-delay: (($i - 1) * 0.03) + s
+        transition-delay: (($i - 1) * 0.02) + s
+
+.menu__panel
+  position: absolute
+  z-index: 2
+  top: 0
+  left: 0
+  height: 100%
+  width: 100px
+  cursor: pointer
+  color: white
+  .menu__tile
+    width: 100%
+    transition-delay: 0s
+  &:hover
+    color: $color-red
+    .menu__tile
+      opacity: 1
+      transform: scale(1)
+  .menu.is-active &
+    color: black
+    &:hover
+      color: $color-red
 
 .menu-button
   position: absolute
@@ -120,10 +195,24 @@
   left: 37px
   font-size: 0
   margin: -12px -2px -3px 0
-  color: red
+  color: inherit
   width: 28px
   box-sizing: border-box
   background: none
+  +trans(color)
+  &.is-active
+    .menu-button__piece
+      &:nth-child(1),
+      &:nth-child(3),
+      &:nth-child(5)
+        transform: translateX(-5px) scaleX(0)
+        transform-origin: left
+      &:nth-child(4),
+        transform: translateX(5px) scaleX(0)
+      &:nth-child(2)
+        transform: translateY(-2px) rotate(-45deg) scaleX(1.77)
+      &:nth-child(6)
+        transform: translateY(2px) rotate(45deg) scaleX(1.77)
 
 .menu-button__piece
   display: inline-block
@@ -132,8 +221,20 @@
   height: 6px
   margin: 0 2px 3px 0
   background: currentColor
+  transition: transform 0.3s ease
+  &:nth-child(1),
+  &:nth-child(3),
+  &:nth-child(5)
+    transform-origin: left
+  &:nth-child(4),
+    transform-origin: right
+  &:nth-child(2)
+    transform-origin: right bottom
+  &:nth-child(6)
+    transform-origin: right top
   &_wide
     width: 16px
+
 
 .menu-logo
   position: absolute
@@ -141,12 +242,14 @@
   left: 32px
   height: 36px
   font-size: 0
+  +trans(color)
   .icon
     position: absolute
     top: 0
     left: 0
     font-size: 36px
     transition: all 0.5s ease
+    fill: currentColor
     &:not(:first-child)
       opacity: 0
       visibility: hidden
@@ -157,21 +260,9 @@
         left: #{$val}px
         transform: translateX(#{-$val}px)
   .menu.is-active &
+    color: $color-red
+  .menu.is-animate &
     .icon
       transform: translateX(0)
       opacity: 1
       visibility: visible
-  // .icon-letter-r
-  //   left: 0
-  // .icon-letter-e
-  //   left: 33px
-  // .icon-letter-z
-  //   left: 64px
-  // .icon-letter-u
-  //   left: 94px
-  // .icon-letter-l
-  //   left: 126px
-  // .icon-letter-t
-  //   left: 141px
-  // .icon-letter-dot
-  //   left: 157px

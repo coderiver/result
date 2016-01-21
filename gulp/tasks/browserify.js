@@ -10,6 +10,7 @@ var sourcemaps  = require('gulp-sourcemaps');
 var size        = require('gulp-size');
 var gulpif      = require('gulp-if');
 var path        = require('path');
+var browserSync = require('browser-sync');
 var config      = require('../config');
 
 var appBundleName = 'app.js';
@@ -37,7 +38,8 @@ function bundle(bundler, outputName) {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest.js))
         .pipe(gulpif(config.production, filter(['*.js'])))
-        .pipe(gulpif(config.production, size()));
+        .pipe(gulpif(config.production, size()))
+        .pipe(browserSync.stream());
 }
 
 gulp.task('browserify', function() {
