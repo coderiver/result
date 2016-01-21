@@ -1,6 +1,6 @@
 .nav-links
   position: fixed
-  z-index: 10
+  z-index: 9
   top: 0
   right: 0
   left: 0
@@ -15,7 +15,7 @@
 
 .language
   position: fixed
-  z-index: 12
+  z-index: 9
   top: 50%
   right: 5px
   +f(10)
@@ -27,6 +27,7 @@
   text-align: center
   .menu-open &
     color: black
+    z-index: 12
     .language__link
       &:after
         color: red
@@ -101,10 +102,20 @@
 
 .menu__list-container
   font-size: 0
-  & + &
-    margin-top: 30px
-    padding-top: 30px
-    border-top: 1px solid rgba(black, 0.2)
+
+.menu__hr
+  display: block
+  margin: 30px 0
+  height: 1px
+  background: rgba(black, 0.2)
+  border: none
+  transition: all 0.5s ease
+  width: 0
+  opacity: 0
+  .menu.is-animate &
+    width: 100%
+    opacity: 1
+    transition-delay: 0.5s
 
 .menu__list
   display: inline-block
@@ -128,7 +139,7 @@
     transform: translateX(0)
     @for $i from 1 through 4
       &:nth-child(#{$i})
-        transition-delay: ($i * 0.05) + s
+        transition-delay: 0.3 + ($i * 0.05) + s
 
 .menu__list-item
   h4
