@@ -5,15 +5,13 @@
   <div class="modal-video__content">
     <div class="video-section">
       <div class="video-section__center">
-        <div class="step-0">
-          <div class="step-0-logo">
-            {{mixins.icon('r-dot-o')}}
-            <h3 class="h3 uppercase">Stand<br> on<br> Quality</h3>
-          </div>
-          <p>Как производится ламинат?</p>
-          <p>Cкролль чтобы начать историю</p>
-          {{mixins.icon('mouse')}}
-        </div>
+
+        {# {% include "_step-1.html" %} #}
+        {# {% include "_step-2.html" %} #}
+        {# {% include "_step-3.html" %} #}
+        {# {% include "_step-4.html" %} #}
+        {% include "_step-5.html" %}
+
       </div>
     </div>
   </div>
@@ -23,9 +21,6 @@
   </button>
   <button class="controll-btn controll-btn-volume level-1">
     {{mixins.icon('sound')}}
-    {# {{mixins.icon('sound-0')}} #}
-    {# {{mixins.icon('sound-50')}} #}
-    {# {{mixins.icon('sound-100')}} #}
   </button>
 </div>
 <!-- BEGIN modal video -->
