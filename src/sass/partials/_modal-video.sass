@@ -188,6 +188,12 @@
   +vertical
   cursor: pointer
   +gpu
+  .icon-do
+    position: absolute
+    font-size: 45px
+    top: 55px
+    left: 12px
+    fill: white
   &:hover
     .step-action-button__tiles
       > div
@@ -256,11 +262,6 @@
     position: relative
     right: -8px
     margin-bottom: 20px
-  .icon-do
-    position: absolute
-    font-size: 45px
-    top: 55px
-    left: 12px
   .icon-squares
     +f(56)
   .h5
@@ -379,3 +380,93 @@
     &:last-child
       position: relative
       top: -15px
+
+.video-timeline
+  position: absolute
+  z-index: 1
+  bottom: 30px
+  left: 83px
+  right: 83px
+  height: 2px
+  background: rgba(white, 0.15)
+
+.video-timeline__progress-bar
+  position: relative
+  z-index: 2
+  height: 100%
+  width: 0
+  background: $color-red
+
+.video-timeline__points
+  position: absolute
+  top: 50%
+  left: 0
+  right: 0
+  height: 0
+  pointer-events: none
+
+.video-timeline__point
+  position: absolute
+  z-index: 3
+  top: 50%
+  width: 26px
+  height: 26px
+  border-radius: 50%
+  margin: -13px 0 0 -13px
+  cursor: pointer
+  pointer-events: all
+  +trans
+  &:before
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    width: 6px
+    height: 6px
+    margin: -3px 0 0 -3px
+    border-radius: 50%
+    background: $color-red
+    box-shadow: 0 0 0 2px black
+    +trans
+  .tooltip
+    opacity: 0
+    visibility: hidden
+    transform: translateX(-50%) scale(0.6)
+    left: 50%
+    bottom: 50%
+    margin-bottom: 10px
+  &:hover
+    .tooltip
+      opacity: 1
+      visibility: visible
+      transform: translateX(-50%) scale(1)
+    &:before
+      box-shadow: 0 0 0 10px rgba(white, 0.2)
+  &:first-child
+    left: 0
+    .tooltip
+      left: 50%
+      transform: scale(0.6)
+    &:hover
+      .tooltip
+        transform: scale(1)
+  &:nth-child(2)
+    left: 25%
+  &:nth-child(3)
+    left: 50%
+  &:nth-child(4)
+    left: 75%
+  &:last-child
+    left: 100%
+    .tooltip
+      left: auto
+      right: 50%
+      transform: scale(0.6)
+    &:hover
+      .tooltip
+        transform: scale(1)
+  &.is-active
+    &:before
+      background: white
+      box-shadow: 0 0 0 2px white

@@ -9,6 +9,21 @@ $('.controll-btn-volume').on('click', function(e) {
     this.className = className.replace(/level-\d/, `level-${++clickCount % 3}`);
 });
 
+$('.modal-video').hide();
 $('.controll-btn-close').on('click', function() {
     $('.modal-video').fadeOut(500);
+});
+
+const videoSection = $('.video-section');
+
+videoSection.hide().first().show();
+
+videoSection.on('click', function() {
+    $(this).fadeOut(300);
+    $(this).next('.video-section').fadeIn(300);
+});
+
+$('.hero__logo').on('click', function() {
+    $('.modal-video').fadeIn(500);
+    videoSection.hide().first().show();
 });

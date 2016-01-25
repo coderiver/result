@@ -1,1 +1,115 @@
+.parallax-logotype
+  position: absolute
+  z-index: 0
+  top: 600px
+  right: -5px
+  height: 1003px
+  width: 212px
+  font-size: 212px
+  .icon-rezult-logotype
+    position: absolute
+    top: 0
+    right: 100%
+    fill: $color-red
+    stroke: $color-red
+    transform: rotate(-90deg)
+    transform-origin: right top
 
+.promo-text
+  margin: 145px 0 235px 0
+  max-width: 800px
+
+.promo-text__item
+  margin: 70px 0
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+.gallery
+  display: table
+  table-layout: fixed
+  border-spacing: 0
+  width: 100%
+  height: 100vh
+  max-height: 1000px
+  min-height: 500px
+
+.gallery__left,
+.gallery__right
+  display: table-cell
+  vertical-align: middle
+  width: 50%
+  position: relative
+
+.gallery__left
+  overflow: hidden
+  > img
+    display: block
+
+.gallery__right
+  padding-left: 130px
+
+.gallery__text-container
+  display: inline-block
+  vertical-align: middle
+  text-align: left
+
+.gallery__text
+  max-width: 400px
+  +f(16,36)
+  .h2
+    margin-bottom: 40px
+    line-height: 1.2
+
+.products
+  margin: 170px 0 0
+  padding: 0 100px
+  +r(1200)
+    padding: 0 20px
+
+.products__footer
+  text-align: center
+  margin-top: 40px
+
+
+.section-header
+  text-align: center
+  margin-bottom: 32px
+
+.section-header__list
+  margin-top: 20px
+
+.section-header__list-item
+  display: inline-block
+  &:not(:last-child)
+    margin-right: 25px
+
+.section-header__link
+  display: inline-block
+  position: relative
+  +f(16,28,100)
+  text-transform: uppercase
+  font-weight: 700
+  text-decoration: none
+  color: rgba(black, 0.4)
+  +trans
+  &:hover
+    color: $color-red
+  &.is-active
+    color: inherit
+    &:before
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      border-top: 1px solid $color-red
+
+.map
+  margin: 115px 0 0
+
+.map__container
+  height: 520px
+  background: img-url('map.jpg') no-repeat center
+  background-size: cover

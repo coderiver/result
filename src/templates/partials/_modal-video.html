@@ -3,17 +3,34 @@
   <div class="modal-video__container"></div>
 
   <div class="modal-video__content">
-    <div class="video-section">
-      <div class="video-section__center">
 
-        {# {% include "_step-1.html" %} #}
-        {# {% include "_step-2.html" %} #}
-        {# {% include "_step-3.html" %} #}
-        {# {% include "_step-4.html" %} #}
-        {% include "_step-5.html" %}
+    {% include "_step-1.html" %}
+    {% include "_step-2.html" %}
+    {% include "_step-3.html" %}
+    {% include "_step-4.html" %}
+    {% include "_step-5.html" %}
 
-      </div>
-    </div>
+  </div>
+
+  <div class="video-timeline">
+    <div class="video-timeline__progress-bar" style="width: 50%"></div>
+    <ul class="video-timeline__points">
+      <li class="video-timeline__point">
+        <span class="tooltip tooltip_arr-left">Контроль качества</span>
+      </li>
+      <li class="video-timeline__point">
+        <span class="tooltip">Контроль качества</span>
+      </li>
+      <li class="video-timeline__point is-active">
+        <span class="tooltip">Контроль качества</span>
+      </li>
+      <li class="video-timeline__point">
+        <span class="tooltip">Контроль качества</span>
+      </li>
+      <li class="video-timeline__point">
+        <span class="tooltip tooltip_arr-right">Контроль качества</span>
+      </li>
+    </ul>
   </div>
 
   <button class="controll-btn controll-btn-close">

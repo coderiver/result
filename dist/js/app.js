@@ -9849,8 +9849,23 @@ var clickCount = 0;
     this.className = className.replace(/level-\d/, 'level-' + ++clickCount % 3);
 });
 
+(0, _jquery2.default)('.modal-video').hide();
 (0, _jquery2.default)('.controll-btn-close').on('click', function () {
     (0, _jquery2.default)('.modal-video').fadeOut(500);
+});
+
+var videoSection = (0, _jquery2.default)('.video-section');
+
+videoSection.hide().first().show();
+
+videoSection.on('click', function () {
+    (0, _jquery2.default)(this).fadeOut(300);
+    (0, _jquery2.default)(this).next('.video-section').fadeIn(300);
+});
+
+(0, _jquery2.default)('.hero__logo').on('click', function () {
+    (0, _jquery2.default)('.modal-video').fadeIn(500);
+    videoSection.hide().first().show();
 });
 
 },{"./modules/menu":3,"jquery":1}],3:[function(require,module,exports){
