@@ -9868,6 +9868,13 @@ videoSection.on('click', function () {
     videoSection.hide().first().show();
 });
 
+(0, _jquery2.default)('.select__button').each(function (index, button) {
+    var btn = (0, _jquery2.default)(button);
+    btn.on('click', function (e) {
+        btn.parent().toggleClass('is-active');
+    });
+});
+
 },{"./modules/menu":3,"jquery":1}],3:[function(require,module,exports){
 'use strict';
 

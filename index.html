@@ -18,7 +18,7 @@
 
     <!-- BEGIN navigation -->
     <div class="nav-links">
-      <a href="#">Каталог продукции</a>
+      <a href="catalog.html">Каталог продукции</a>
       <a href="#">Где купить</a>
     </div>
 
@@ -50,35 +50,37 @@
         <div class="menu__tile"></div>
 
         <div class="menu-logo">
+          <a href="index.html">
 
-          <svg class="icon icon-letter-r">
-            <use xlink:href="img/sprite.svg#icon-letter-r"></use>
-          </svg>
+            <svg class="icon icon-letter-r">
+              <use xlink:href="img/sprite.svg#icon-letter-r"></use>
+            </svg>
 
-          <svg class="icon icon-letter-e">
-            <use xlink:href="img/sprite.svg#icon-letter-e"></use>
-          </svg>
+            <svg class="icon icon-letter-e">
+              <use xlink:href="img/sprite.svg#icon-letter-e"></use>
+            </svg>
 
-          <svg class="icon icon-letter-z">
-            <use xlink:href="img/sprite.svg#icon-letter-z"></use>
-          </svg>
+            <svg class="icon icon-letter-z">
+              <use xlink:href="img/sprite.svg#icon-letter-z"></use>
+            </svg>
 
-          <svg class="icon icon-letter-u">
-            <use xlink:href="img/sprite.svg#icon-letter-u"></use>
-          </svg>
+            <svg class="icon icon-letter-u">
+              <use xlink:href="img/sprite.svg#icon-letter-u"></use>
+            </svg>
 
-          <svg class="icon icon-letter-l">
-            <use xlink:href="img/sprite.svg#icon-letter-l"></use>
-          </svg>
+            <svg class="icon icon-letter-l">
+              <use xlink:href="img/sprite.svg#icon-letter-l"></use>
+            </svg>
 
-          <svg class="icon icon-letter-t">
-            <use xlink:href="img/sprite.svg#icon-letter-t"></use>
-          </svg>
+            <svg class="icon icon-letter-t">
+              <use xlink:href="img/sprite.svg#icon-letter-t"></use>
+            </svg>
 
-          <svg class="icon icon-letter-dot">
-            <use xlink:href="img/sprite.svg#icon-letter-dot"></use>
-          </svg>
+            <svg class="icon icon-letter-dot">
+              <use xlink:href="img/sprite.svg#icon-letter-dot"></use>
+            </svg>
 
+          </a>
         </div>
 
         <button class="menu-button">
@@ -122,7 +124,7 @@
             <ul class="menu__list">
               <li class="menu__list-item">
                 <h4><a href="#">Решения</a></h4></li>
-              <li class="menu__list-item"><a href="#"><em>Продукция REZULT в жизни</em></a></li>
+              <li class="menu__list-item"><a href="#"><em><small>Продукция REZULT в жизни</small></em></a></li>
             </ul>
           </div>
 
@@ -137,7 +139,7 @@
             </ul>
 
             <ul class="menu__list">
-              <li class="menu__list-item"><a href="#">Инструкция по сборке<br> ламината</a></li>
+              <li class="menu__list-item"><a href="#">Инструкция по сборке<br> ламината</a></li>
             </ul>
           </div>
         </div>
@@ -157,7 +159,7 @@
       <div class="content-wrapper">
         <!-- BEGIN hero -->
         <div class="hero">
-          <div class="hero__inner l">
+          <div class="hero__inner l-center">
             <div class="hero__center">
               <div class="hero__logo">
 
@@ -181,7 +183,7 @@
         <!-- END hero -->
 
         <!-- BEGIN promo-text -->
-        <div class="l">
+        <div class="l-center">
           <div class="promo-text">
             <p class="promo-text__item h4">
               <strong>
@@ -202,116 +204,158 @@
         </div>
         <!-- BEGIN promo-text -->
 
-      </div>
-
-      <!-- BEGIN gallery -->
-      <div class="gallery">
-        <div class="gallery__left">
-          <img src="../img/video-placeholder.jpg">
-        </div>
-        <div class="gallery__right">
-          <div class="gallery__text">
-            <h2 class="h2"><span class="uppercase">Rezult PRO</span> Quality</h2>
-            <strong>Абсолютный контроль</strong>
-            <p>Международная команда специалистов по качеству обеспечивает контроль на всех стадиях процесса — от поступления сырьядо поставки конечного продукта потребителю</p>
+        <!-- BEGIN gallery -->
+        <div class="gallery">
+          <div class="gallery__left">
+            <img src="../img/video-placeholder.jpg">
+          </div>
+          <div class="gallery__right">
+            <div class="gallery__text">
+              <h2 class="h2"><span class="uppercase">Rezult PRO</span> Quality</h2>
+              <strong>Абсолютный контроль</strong>
+              <p>Международная команда специалистов по качеству обеспечивает контроль на всех стадиях процесса — от поступления сырьядо поставки конечного продукта потребителю</p>
+            </div>
           </div>
         </div>
+        <!-- BEGIN gallery -->
+
+        <!-- BEGIN products -->
+        <section class="products l">
+          <div class="section-header">
+            <h2 class="h1 uppercase">Продукция</h2>
+            <ul class="section-header__list">
+              <li class="section-header__list-item">
+                <a class="section-header__link is-active" href="#">Ламинат.</a>
+              </li>
+              <li class="section-header__list-item">
+                <a class="section-header__link" href="#">МДФ.</a>
+              </li>
+              <li class="section-header__list-item">
+                <a class="section-header__link" href="#">Настенные панели.</a>
+              </li>
+              <li class="section-header__list-item">
+                <a class="section-header__link" href="#">Комплектующие.</a>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix">
+            <a href="#" class="tile" style="background-image: url('img/tile-1.jpg')">
+              <div class="tile__inner">
+                <strong class="tile__title">Elegant</strong>
+                <span class="tile__subtitle">дуб</span>
+                <span class="tile__number">2</span>
+                <span class="tile__info">32 класс (АС4)</span>
+              </div>
+            </a>
+
+            <a href="#" class="tile" style="background-image: url('img/tile-2.jpg')">
+              <div class="tile__inner">
+                <strong class="tile__title">Legna</strong>
+                <span class="tile__subtitle">дуб</span>
+                <span class="tile__number">5</span>
+                <span class="tile__info">32 класс (АС4)</span>
+              </div>
+            </a>
+
+            <a href="#" class="tile tile_2x2 tile_pull-right" style="background-image: url('img/tile-3.jpg')">
+              <div class="tile__inner">
+                <strong class="tile__title">Premium</strong>
+                <span class="tile__subtitle">дуб, монтана</span>
+                <span class="tile__number">6</span>
+                <span class="tile__info">32 класс (АС4)</span>
+              </div>
+            </a>
+
+            <a href="#" class="tile" style="background-image: url('img/tile-4.jpg')">
+              <div class="tile__inner">
+                <strong class="tile__title">Floor</strong>
+                <span class="tile__subtitle">дуб, афцелия</span>
+                <span class="tile__number">10</span>
+                <span class="tile__info">32 класс (АС4)</span>
+              </div>
+            </a>
+
+            <a href="#" class="tile" style="background-image: url('img/tile-3.jpg')">
+              <div class="tile__inner">
+                <strong class="tile__title">Diamond</strong>
+                <span class="tile__subtitle">дуб</span>
+                <span class="tile__number">7</span>
+                <span class="tile__info">32 класс (АС4)</span>
+              </div>
+            </a>
+          </div>
+          <div class="products__footer">
+            <a href="#" class="btn btn_lg"><span>Все коллекции</span></a>
+          </div>
+        </section>
+        <!-- BEGIN products -->
+
+        <!-- BEGIN map -->
+        <section class="map">
+          <div class="section-header">
+            <h3 class="h4 uppercase spacing-100">Где купить</h3>
+          </div>
+          <div id="map" class="map__container"></div>
+        </section>
+        <!-- BEGIN map -->
+
+        <!-- BEGIN footer -->
+        <footer class="footer">
+          <div class="footer__logo">
+
+            <svg class="icon icon-rezult-logotype">
+              <use xlink:href="img/sprite.svg#icon-rezult-logotype"></use>
+            </svg>
+
+            <span>Stand <br>on <br>quality</span>
+          </div>
+
+          <div class="footer__row">
+            <ul class="footer__list">
+              <li class="footer__list-item"><strong class="h4"><a href="#">Rezult</a></strong></li>
+              <li class="footer__list-item"><a href="#">Стандарты качества</a></li>
+              <li class="footer__list-item"><a href="#">Завод</a></li>
+              <li class="footer__list-item"><a href="#">Миссия Rezult</a></li>
+            </ul>
+
+            <ul class="footer__list">
+              <li class="footer__list-item"><strong class="h4"><a href="#">Продукция</a></strong></li>
+              <li class="footer__list-item"><a href="#">Ламинат</a></li>
+              <li class="footer__list-item"><a href="#">МДФ</a></li>
+              <li class="footer__list-item"><a href="#">Настенные панели</a></li>
+              <li class="footer__list-item"><a href="#">Комплектующие</a></li>
+            </ul>
+
+            <ul class="footer__list">
+              <li class="footer__list-item"><strong class="h4"><a href="#">Для партнеров</a></strong></li>
+              <li class="footer__list-item"><a href="#">Условия для партнёров</a></li>
+              <li class="footer__list-item"><a href="#">Нормы отгрузки</a></li>
+              <li class="footer__list-item"><a href="#">Раздаточные материалы</a></li>
+            </ul>
+
+            <ul class="footer__list">
+              <li class="footer__list-item"><strong class="h4"><a href="#">Решения</a></strong></li>
+              <li class="footer__list-item"><a href="#"><em><small>Продукция REZULT в жизни</small></em></a></li>
+            </ul>
+          </div>
+
+          <div class="footer__row">
+            <ul class="footer__list">
+              <li class="footer__list-item"><strong class="h4"><a href="#">Контакты</a></strong></li>
+              <li class="footer__list-item"><strong class="h4"><a href="#">Где купить</a></strong></li>
+            </ul>
+
+            <ul class="footer__list">
+              <li class="footer__list-item"><a href="#">Инструкция по сборке <br>ламината</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__copyright">© Rezult, 2015</div>
+          <div class="footer__made-by">made by <a href="#">MadCats</a> in Kyiv</div>
+        </footer>
+        <!-- BEGIN footer -->
+
       </div>
-      <!-- BEGIN gallery -->
-
-      <!-- BEGIN products -->
-      <section class="products">
-        <div class="section-header">
-          <h2 class="h1 uppercase">Продукция</h2>
-          <ul class="section-header__list">
-            <li class="section-header__list-item">
-              <a class="section-header__link is-active" href="#">Ламинат.</a>
-            </li>
-            <li class="section-header__list-item">
-              <a class="section-header__link" href="#">МДФ.</a>
-            </li>
-            <li class="section-header__list-item">
-              <a class="section-header__link" href="#">Настенные панели.</a>
-            </li>
-            <li class="section-header__list-item">
-              <a class="section-header__link" href="#">Комплектующие.</a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfix">
-          <a href="#" class="tile" style="background-image: url('img/tile-1.jpg')">
-            <div class="tile__inner">
-              <strong class="tile__title">Elegant</strong>
-              <span class="tile__subtitle">дуб</span>
-              <span class="tile__number">2</span>
-              <span class="tile__info">32 класс (АС4)</span>
-            </div>
-          </a>
-
-          <a href="#" class="tile" style="background-image: url('img/tile-2.jpg')">
-            <div class="tile__inner">
-              <strong class="tile__title">Legna</strong>
-              <span class="tile__subtitle">дуб</span>
-              <span class="tile__number">5</span>
-              <span class="tile__info">32 класс (АС4)</span>
-            </div>
-          </a>
-
-          <a href="#" class="tile tile_2x2 tile_pull-right" style="background-image: url('img/tile-3.jpg')">
-            <div class="tile__inner">
-              <strong class="tile__title">Premium</strong>
-              <span class="tile__subtitle">дуб, монтана</span>
-              <span class="tile__number">6</span>
-              <span class="tile__info">32 класс (АС4)</span>
-            </div>
-          </a>
-
-          <a href="#" class="tile" style="background-image: url('img/tile-4.jpg')">
-            <div class="tile__inner">
-              <strong class="tile__title">Floor</strong>
-              <span class="tile__subtitle">дуб, афцелия</span>
-              <span class="tile__number">10</span>
-              <span class="tile__info">32 класс (АС4)</span>
-            </div>
-          </a>
-
-          <a href="#" class="tile" style="background-image: url('img/tile-3.jpg')">
-            <div class="tile__inner">
-              <strong class="tile__title">Diamond</strong>
-              <span class="tile__subtitle">дуб</span>
-              <span class="tile__number">7</span>
-              <span class="tile__info">32 класс (АС4)</span>
-            </div>
-          </a>
-        </div>
-        <div class="products__footer">
-          <a href="#" class="btn btn_lg"><span>Все коллекции</span></a>
-        </div>
-      </section>
-      <!-- BEGIN products -->
-
-      <!-- BEGIN map -->
-      <section class="map">
-        <div class="section-header">
-          <h3 class="h4 uppercase spacing-100">Где купить</h3>
-        </div>
-        <div id="map" class="map__container"></div>
-      </section>
-      <!-- BEGIN map -->
-
-      <!-- BEGIN footer -->
-      <footer class="footer">
-        <div class="footer__logo">
-
-          <svg class="icon icon-rezult-logotype">
-            <use xlink:href="img/sprite.svg#icon-rezult-logotype"></use>
-          </svg>
-
-          <span>Stand <br>on <br>quality</span>
-        </div>
-      </footer>
-      <!-- BEGIN footer -->
-
     </div>
 
     <!-- BEGIN modal video -->
