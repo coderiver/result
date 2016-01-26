@@ -32,8 +32,12 @@ a:not([class])
     color: red
 
 .l
-  max-width: 1040px
-  padding: 0 20px
+  padding: 0 100px
+  box-sizing: border-box
+
+.l-center
+  max-width: 1200px
+  padding: 0 100px
   margin: auto
   box-sizing: border-box
 
@@ -257,3 +261,185 @@ a:not([class])
   transform: rotate(-90deg)
   transform-origin: 0 100%
   white-space: nowrap
+
+.select
+  display: inline-block
+  position: relative
+  z-index: 1
+  max-width: 230px
+  &.is-active
+    z-index: 5
+    .select__button-overlay
+      opacity: 1
+      visibility: visible
+      transform: none
+      color: $color-red
+      &:before
+        transform: none
+        opacity: 1
+        transition-delay: 0.2s
+    .select__button
+      color: $color-red
+      &:before
+        transform: translateY(10px)
+        opacity: 0
+      &:after
+        transform: scale(0, 1)
+        opacity: 0
+    .select__list
+      opacity: 1
+      visibility: visible
+      transform: none
+
+.select__button
+  display: block
+  position: relative
+  z-index: 1
+  background: none
+  +f(16)
+  font-weight: 700
+  max-width: 100%
+  box-sizing: border-box
+  cursor: pointer
+  padding-right: 15px
+  height: em(34,16)
+  line-height: em(34,16)
+  +text-overflow
+  +trans
+  &:before
+    content: ""
+    position: absolute
+    top: 50%
+    right: 0
+    margin-top: -2px
+    +arr(6,5,currentColor,b)
+    +trans
+    transition-property: transform, opacity
+    transform-origin: center center
+  &:after
+    content: ""
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 20px
+    border-top: 1px solid $color-red
+    margin-top: 1em
+    +trans
+    transition-property: transform, opacity
+  &:hover
+    color: $color-red
+
+.select__button-overlay
+  opacity: 0
+  visibility: hidden
+  position: absolute
+  z-index: 0
+  top: 50%
+  left: -20px
+  width: 270px
+  height: 58px
+  box-sizing: border-box
+  background: white
+  border: 1px solid #D8DBDF
+  margin-top: -29px
+  cursor: pointer
+  +trans
+  transform: translateY(10px)
+  transform-origin: 20px 50%
+  &:before
+    content: ""
+    position: absolute
+    top: 50%
+    right: 20px
+    margin-top: -2px
+    +arr(5,6,currentColor,l)
+    +trans
+    transform: translateX(10px)
+    opacity: 0
+    transition-property: transform, opacity
+
+.select__list
+  visibility: hidden
+  opacity: 0
+  position: absolute
+  z-index: 1
+  top: 100%
+  left: -20px
+  width: 270px
+  margin-top: em(11,16)
+  padding: 15px 0
+  max-height: 300px
+  background-color: white
+  border: 1px solid #d8dbdf
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15)
+  box-sizing: border-box
+  transform: translateY(-10px)
+  transform-origin: center top
+  +smooth-scroll
+  +trans
+  &:before
+    content: ""
+    position: absolute
+    bottom: 100%
+    left: 20px
+    margin-bottom: 1px
+    +arr(16,11,rgba(0, 0, 0, 0.15),t)
+  &:after
+    content: ""
+    position: absolute
+    bottom: 100%
+    left: 20px
+    margin-bottom: -1px
+    +arr(16,11,white,t)
+
+.select__item
+  +f(16,24)
+  color: black
+  cursor: pointer
+  padding: 12px 20px
+  +trans(color)
+  &:hover
+    color: $color-red
+
+.radio-group
+  display: inline-block
+  .radio-button
+    &:not(:last-child)
+      margin-right: 25px
+
+.radio-button
+  display: inline-block
+  height: 30px
+  line-height: 30px
+  +f(16)
+  font-weight: 700
+  position: relative
+  cursor: pointer
+  input
+    position: absolute
+    opacity: 0
+    &:checked
+      + span
+        opacity: 1
+        &:after
+          transform: none
+          opacity: 1
+  span
+    opacity: 0.4
+    +trans
+    display: inline-block
+    vertical-align: top
+    &:after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      border-top: 1px solid $color-red
+      +trans
+      transform: scale(0, 1)
+      transform-origin: center center
+  &:hover
+    color: $color-red
+    span
+      opacity: 1

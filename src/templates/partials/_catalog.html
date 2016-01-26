@@ -1,22 +1,42 @@
-<!-- BEGIN products -->
-<section class="products l">
+<!-- BEGIN catalog -->
+<section class="catalog l">
   <div class="section-header">
-    <h2 class="h1 uppercase">Продукция</h2>
-    <ul class="section-header__list">
-      <li class="section-header__list-item">
-        <a class="section-header__link is-active" href="#">Ламинат.</a>
-      </li>
-      <li class="section-header__list-item">
-        <a class="section-header__link" href="#">МДФ.</a>
-      </li>
-      <li class="section-header__list-item">
-        <a class="section-header__link" href="#">Настенные панели.</a>
-      </li>
-      <li class="section-header__list-item">
-        <a class="section-header__link" href="#">Комплектующие.</a>
-      </li>
-    </ul>
+    <h1 class="h1 uppercase">Продукция</h1>
   </div>
+
+  <div class="section-filters">
+    <div class="select">
+      <button class="select__button uppercase spacing-100">Ламинат.</button>
+      <div class="select__button-overlay"></div>
+      <ul class="select__list">
+        <li class="select__item" data-value="laminat_1">Laminat 1</li>
+        <li class="select__item" data-value="laminat_2">Laminat 2 Laminat 2 Laminat 2 Laminat 2</li>
+        <li class="select__item" data-value="laminat_3">Laminat 3</li>
+      </ul>
+    </div>
+
+    <div class="select">
+      <button class="select__button">любой декор</button>
+      <div class="select__button-overlay"></div>
+      <ul class="select__list">
+        <li class="select__item" data-value="laminat_1">Laminat 1</li>
+        <li class="select__item" data-value="laminat_2">Laminat 2 Laminat 2 Laminat 2 Laminat 2</li>
+        <li class="select__item" data-value="laminat_3">Laminat 3</li>
+      </ul>
+    </div>
+
+    <div class="radio-group">
+      <label class="radio-button">
+        <input type="radio" name="class" value="32">
+        <span>32 класс</span>
+      </label>
+      <label class="radio-button">
+        <input type="radio" name="class" value="33">
+        <span>33 класс</span>
+      </label>
+    </div>
+  </div>
+
   <div class="clearfix">
     <a href="#" class="tile" style="background-image: url('img/tile-1.jpg')">
       <div class="tile__inner">
@@ -62,9 +82,15 @@
         <span class="tile__info">32 класс (АС4)</span>
       </div>
     </a>
-  </div>
-  <div class="products__footer">
-    <a href="#" class="btn btn_lg"><span>Все коллекции</span></a>
+
+    <a href="#" class="tile tile_2x2" style="background-image: url('img/tile-5.jpg')">
+      <div class="tile__inner">
+        <strong class="tile__title">Grand</strong>
+        <span class="tile__subtitle">дуб, монтана</span>
+        <span class="tile__number">6</span>
+        <span class="tile__info">32 класс (АС4)</span>
+      </div>
+    </a>
   </div>
 </section>
-<!-- BEGIN products -->
+<!-- END catalog -->

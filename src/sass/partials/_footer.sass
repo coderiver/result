@@ -1,9 +1,11 @@
 .footer
-  padding: 80px 150px 20px
+  padding: 80px 150px 25px
   background: #191919
   color: white
+  position: relative
 
 .footer__logo
+  margin-bottom: 110px
   text-align: center
   +f(18, false, 100)
   text-transform: uppercase
@@ -12,9 +14,46 @@
   color: $color-red
   > *
     display: inline-block
-    vertical-align: baseline
+    vertical-align: bottom
+    text-align: left
   .icon
     fill: $color-red
     stroke: $color-red
     +f(54)
     margin-right: 10px
+
+.footer__row
+  font-size: 0
+  margin: 70px -20px
+
+.footer__list
+  display: inline-block
+  vertical-align: top
+  width: 25%
+  box-sizing: border-box
+  padding: 0 20px
+  +f(16)
+
+.footer__list-item
+  &:not(:first-child)
+    margin-top: 15px
+  .h4
+    +f(28)
+  small
+    font-size: em(14,16)
+
+.footer__copyright
+  margin-top: 140px
+
+.footer__made-by
+  position: absolute
+  bottom: 36px
+  left: 100%
+  margin-left: -14px
+  transform: rotate(-90deg)
+  transform-origin: 0 100%
+  white-space: nowrap
+  +f(14)
+  a
+    text-decoration: underline
+
