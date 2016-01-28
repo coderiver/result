@@ -128,3 +128,45 @@
   height: 520px
   background: img-url('map.jpg') no-repeat center
   background-size: cover
+
+
+.toparea
+  height: 700px
+  box-sizing: border-box
+  padding-top: 23px
+  background: img-url('toparea.jpg') no-repeat center
+  background-size: cover
+  color: white
+  text-align: center
+  .btn
+    opacity: 0.3
+    &:hover
+      opacity: 1
+
+.toparea__title
+  margin: 16px 0
+  +f(64,64)
+  font-weight: bold
+
+.toparea__small-subtitle
+  display: block
+  margin-bottom: 4px
+  +f(14)
+  opacity: 0.5
+
+.toparea__subtitle
+  +f(16,false,100)
+  font-weight: bold
+  text-transform: uppercase
+
+.group-title
+  display: block
+  margin-bottom: 10px
+  +f(14)
+
+.select-buttons-group
+  margin-bottom: 70px
+  font-size: 0
+  .btn
+    vertical-align: middle
+    margin-right: 20px

@@ -41,6 +41,20 @@ a:not([class])
   margin: auto
   box-sizing: border-box
 
+.l-col-620
+  max-width: 620px
+
+.l-catalog-item-main
+  float: left
+  width: percentage(770/1000)
+  padding-top: 25px
+
+.l-catalog-item-aside
+  padding-top: 25px
+  float: right
+  width: percentage(230/1000)
+
+
 .out
   position: relative
   overflow: hidden
@@ -88,6 +102,7 @@ a:not([class])
   cursor: pointer
   +trans
   user-select: none
+  appearance: none
   > span
     position: relative
     z-index: 1
@@ -103,6 +118,7 @@ a:not([class])
     transform: scale(0.5)
     opacity: 0
     visibility: hidden
+    box-shadow: 0 5px 35px rgba(red, 0.4)
     +trans
 
   &:hover,
@@ -150,6 +166,30 @@ a:not([class])
     min-width: 335px
     +f(16, false, 25)
     text-transform: uppercase
+
+  &_sm
+    height: 36px
+    line-height: 34px
+    +f(14)
+
+  &_select
+    display: inline-block
+    vertical-align: middle
+    height: 60px
+    padding: 15px 15px 0
+    box-sizing: border-box
+    border: 1px solid rgba(black, 0.5)
+    +f(12,16,100)
+    text-align: left
+    text-transform: uppercase
+    &.is-selected
+      background: rgba(#C7CBCE, 0.5)
+      border-color: rgba(#989DA1, 0.5)
+      cursor: default
+      color: inherit
+      &:before
+        display: none
+
 
 .tooltip
   display: block
@@ -433,11 +473,11 @@ a:not([class])
 
 .radio-group
   display: inline-block
-  .radio-button
+  .radio-select
     &:not(:last-child)
       margin-right: 25px
 
-.radio-button
+.radio-select
   display: inline-block
   height: 30px
   line-height: 30px
@@ -473,3 +513,105 @@ a:not([class])
     color: $color-red
     span
       opacity: 1
+
+
+.text
+  +f(16, 36)
+  p
+    margin: 1em 0
+
+
+.table
+  table-layout: fixed
+  +f(16,24)
+  font-weight: 700
+  td
+    padding: 20px 0 0
+  tr
+    &:first-child
+      td
+        padding-top: 0
+  &_features
+    margin-top: 70px
+    width: auto
+    min-width: 410px
+
+.table__caption
+  position: relative
+  padding-bottom: 30px
+  margin-bottom: 33px
+  +f(16,24,100)
+  text-transform: uppercase
+  text-align: left
+  &:before
+    content: ""
+    position: absolute
+    bottom: 0
+    left: -30px
+    right: 0
+    height: 1px
+    background: currentColor
+    opacity: 0.2
+
+
+.table__label
+  display: block
+  +f(14,24)
+  font-style: italic
+  font-weight: normal
+  color: #A8ACB0
+
+
+.checkbox
+  position: relative
+  display: inline-block
+  +f(14)
+  line-height: 1.5
+  color: inherit
+  cursor: pointer
+  user-select: none
+  input
+    position: absolute
+    opacity: 0
+    &:checked + span:after
+      display: block
+    &:disabled,
+    &[disabled]
+      + span
+        color: black
+        opacity: 0.5
+        &:before
+          background: #D9E0E6
+          border-color: #ADB4BB
+  span
+    position: relative
+    display: block
+    padding-left: 27px
+    height: 20px
+    +trans(color)
+    &:before
+      content: ""
+      position: absolute
+      top: 1px
+      left: 0
+      width: 16px
+      height: 16px
+      box-sizing: border-box
+      border: 1px solid #ADB4BB
+      +trans(border-color)
+    &:after
+      display: none
+      content: ""
+      position: absolute
+      top: -10px
+      left: -9px
+      width: 38px
+      height: 35px
+      // background: url('../icons/checkmark.png')
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABGCAYAAABmDHJNAAADJ0lEQVR4Ae3cA4xcURTG8UHtNmqjWlEVp3Yb1LZt27ai2rYRtkFtBLVtt7P8opO8fPty9uUuzgn+Y/ySe2d2dnfCoXQ6caFQII89HArFkfPdj4G5gQn7vWnfgOkfzMA4FDldARVnYBkVjEBpj0sQVJ7O4QzMBZgDKJRevgh6AP2B1kTjOKSBpVcwAkVKwEqgR9Fi6G20MgFDHYAZmFuoCDm/PHoELSyWYjUBF+ejGjADcw9FgMjxKuh+tKC4/V7oNgERQ+P46RgDcwmmgCIgsmGxxHaiecTtr0OHoTFSA3MEFsAPzQKGgEXF6Y3RDWh2cbtX0Ybobw6GGphDMP0HeXwJkrZGV6FZxe1/ROugjz0g/qccTPG2wsBQBVCYHiclQFG0OzofjciHinZAzxAgA3MCpti0ZTEciHQYOoEs9aXoXDTGwAhcnIEFAcahKEjEJ1QYjYpORAejXnMWbY/+40D+lyTGwFIVjEDJJ1wRLYSeQzEUKgs6D+1MoF6ijdC3EoiWQDkCMzCvJfdCgD1Dt6N70AfidrKLTbs5gfqLtkUv+IBSb/YYA9OD+f9AbwnaB/WaS+hutB5aF2UzA12TQqh/2qUYNJiBEaioWFr70epoas0xdACB+kdOj5F6QxmYAszHZi+hZAuip9GSSqiHaFP0i4TgYLL+NvmAwQwsQprF4w1oKfQIWsgn1E+0JXpPwogSQN0mb2A6MLLpA4QsySwerY5uQrOibEahBwgESqH+q6CCBzOwiIQjUFnF5Tugs8lj2YFOTuFS+0sup3j74ALMwMiS5B2P9hSP4RbaBv1NoLzKoVAOZWCBgoUEUJgsSQYXRbOhS9BKaHv0KfuRh0Ch/O2DgTkG429gBRQ5LqEj5B8OYgTqP4H6HwSUgWnBNJs/qbx8GMVIKFkOJcuhDMwdmOKHcQolKifmUb709G8fDMwxmIAjS5VcTg5fmrx8kzcw92BqOAIZ9gkWR2D0UAbmDIzAEUBSBsbqBMrAggJT/DlUyD8YB9RDGZhbMAdfkxCnOc6hDCydgOm/6oWCab7ixcAyGhgH1A+HMrCMDqaAdQBgYA4mHsb2JnTmVr9xAAAAAElFTkSuQmCC')
+      background-size: contain
+  &:hover
+    color: red
+    span
+      &:before
+        border-color: red

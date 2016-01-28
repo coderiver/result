@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "gsap": "^1.18.2",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "nouislider": "^8.2.1"
   }
 }

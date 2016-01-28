@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import './modules/calculator';
+
 import './modules/menu';
 
 let clickCount = 0;

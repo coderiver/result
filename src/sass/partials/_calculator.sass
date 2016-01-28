@@ -1,0 +1,64 @@
+.calc
+  width: 312px
+  // height: 521px
+  box-sizing: border-box
+  padding: 35px 20px 30px
+  background: white
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15)
+  .radio-group
+    display: block
+    text-align: center
+
+.calc__row
+  margin: 40px 0
+
+.calc__title
+  display: block
+  text-align: center
+  +f(16,24)
+  font-weight: 700
+
+.calc__label
+  display: block
+  margin-bottom: 6px
+  text-align: center
+  +f(12)
+  color: rgba(black, 0.4)
+
+.calc__square
+  display: block
+  text-align: center
+  +f(36,36)
+  font-weight: 700
+  padding-left: 15px
+  sub
+    font-size: em(18,36)
+    color: #D0D5DA
+    margin-left: -4px
+
+
+.calc__result-lable
+  position: relative
+  text-align: center
+  margin: 0 -20px
+  +f(14)
+  > span
+    position: relative
+    background: white
+    padding: 0 8px
+  &:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    height: 1px
+    margin-top: -1px
+    background: rgba(black, 0.2)
+
+.calc__result
+  display: block
+  margin-top: 18px
+  text-align: center
+  +f(48,48)
+  font-weight: 700
