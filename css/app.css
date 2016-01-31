@@ -1548,7 +1548,7 @@ a:not([class]):hover {
   padding: 50px 7.14286% 0 5%;
   box-sizing: border-box;
   white-space: nowrap;
-  overflow: auto;
+  overflow: hidden;
   text-align: center;
   font-size: 0;
 }
@@ -1559,6 +1559,10 @@ a:not([class]):hover {
   vertical-align: middle;
   width: 0;
   height: 100%;
+}
+
+.menu.is-active .menu__inner {
+  overflow: auto;
 }
 
 .menu__inner-center {
