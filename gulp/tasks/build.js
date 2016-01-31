@@ -9,8 +9,8 @@ function build(prod) {
         'sprite:svg',
         'svgo',
         'sass',
-        'swig',
-        'browserify',
+        'nunjucks',
+        'webpack',
         'copy'
     );
 }

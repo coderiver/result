@@ -89,8 +89,10 @@
   padding: 50px percentage(100/1400) 0 percentage(70/1400)
   box-sizing: border-box
   white-space: nowrap
-  overflow: auto
+  overflow: hidden
   +vertical
+  .menu.is-active &
+    overflow: auto
 
 .menu__inner-center
   display: inline-block

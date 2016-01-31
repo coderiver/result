@@ -1,13 +1,13 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var util        = require('gulp-util');
-var config      = require('../config');
+var gulp   = require('gulp');
+var server = require('browser-sync').create();
+var util   = require('gulp-util');
+var config = require('../config');
 
 // in CL 'gulp server --open' to open current project in browser
 // in CL 'gulp server --tunnel siteName' to make project available over http://siteName.localtunnel.me
 
 gulp.task('server', function() {
-    browserSync.init({
+    server.init({
         server: {
             baseDir: !config.production ? [config.dest.root, config.src.root] : config.dest.root,
             directory: false
@@ -28,3 +28,5 @@ gulp.task('server', function() {
         tunnel: util.env.tunnel || null
     });
 });
+
+module.exports = server;

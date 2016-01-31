@@ -1,7 +1,6 @@
 import $ from 'jquery';
-
+import 'gsap';
 import './modules/calculator';
-
 import './modules/menu';
 
 let clickCount = 0;
