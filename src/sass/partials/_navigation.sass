@@ -215,6 +215,7 @@
   box-sizing: border-box
   background: none
   +trans(color)
+  +clr
   &.is-active
     .menu-button__piece
       &:nth-child(1),
@@ -230,8 +231,7 @@
         transform: translateY(2px) rotate(45deg) scaleX(1.77)
 
 .menu-button__piece
-  display: inline-block
-  vertical-align: top
+  float: left
   width: 8px
   height: 6px
   margin: 0 2px 3px 0

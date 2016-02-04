@@ -66,40 +66,54 @@ title: Catalog Item
         </div>
 
         <div class="l-catalog-item-aside">
-          <!-- BEGIN calculator -->
-          <div class="calc">
-            <h4 class="calc__title">Расчет количества ламината</h4>
-            <div class="calc__row">
-              <span class="calc__label">площадь помещения</span>
-              <span class="calc__square">24,0 <sub>м²</sub></span>
-              <div class="calc__slider"></div>
-            </div>
-            <div class="calc__row">
-              <span class="calc__label">способ укладки</span>
-              <div class="radio-group">
-                <label class="radio-select">
-                  <input type="radio" name="stowage" value="1" checked>
-                  <span>параллельно</span>
-                </label>
-                <label class="radio-select">
-                  <input type="radio" name="stowage" value="2">
-                  <span>по диагонали</span>
-                </label>
-              </div>
-            </div>
-            <div class="calc__row">
-              <label class="checkbox">
-                <input type="checkbox" name="reserve">
-                <span>Запас на укладку — 5%</span>
-              </label>
-            </div>
-            <div class="calc__result-lable"><span>необходимо упаковок</span></div>
-            <div class="calc__result">12</div>
-          </div>
-          <!-- END calculator -->
+          {% include "partials/_calculator.html" %}
         </div>
       </div>
     </div>
+
+    <section class="section l">
+      <div class="section-header">
+        <h3 class="h4 uppercase spacing-100">Другие коллекции</h3>
+      </div>
+
+      <div class="clearfix">
+        <a href="#" class="tile" style="background-image: url('img/tile-1.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title">Elegant</strong>
+            <span class="tile__subtitle">дуб</span>
+            <span class="tile__number">2</span>
+            <span class="tile__info">32 класс (АС4)</span>
+          </div>
+        </a>
+
+        <a href="#" class="tile" style="background-image: url('img/tile-2.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title">Legna</strong>
+            <span class="tile__subtitle">дуб</span>
+            <span class="tile__number">2</span>
+            <span class="tile__info">32 класс (АС4)</span>
+          </div>
+        </a>
+
+        <a href="#" class="tile" style="background-image: url('img/tile-3.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title">Diamond</strong>
+            <span class="tile__subtitle">дуб</span>
+            <span class="tile__number">2</span>
+            <span class="tile__info">32 класс (АС4)</span>
+          </div>
+        </a>
+
+        <a href="#" class="tile" style="background-image: url('img/tile-4.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title">Floor</strong>
+            <span class="tile__subtitle">дуб</span>
+            <span class="tile__number">2</span>
+            <span class="tile__info">32 класс (АС4)</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
 
     {% include "partials/_map.html" %}

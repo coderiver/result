@@ -53,6 +53,10 @@ a:not([class])
   padding-top: 25px
   float: right
   width: percentage(230/1000)
+  position: relative
+  .calc
+    margin-top: -80px
+    margin-left: 40px
 
 
 .out
@@ -253,6 +257,7 @@ a:not([class])
     height: 100%
     background: rgba(255, 0, 0, 0.8)
     box-shadow: 0 0 50px rgba(255, 0, 0, 0.6)
+    pointer-events: none
     +trans
     opacity: 0
     visibility: hidden
@@ -608,10 +613,64 @@ a:not([class])
       width: 38px
       height: 35px
       // background: url('../icons/checkmark.png')
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABGCAYAAABmDHJNAAADJ0lEQVR4Ae3cA4xcURTG8UHtNmqjWlEVp3Yb1LZt27ai2rYRtkFtBLVtt7P8opO8fPty9uUuzgn+Y/ySe2d2dnfCoXQ6caFQII89HArFkfPdj4G5gQn7vWnfgOkfzMA4FDldARVnYBkVjEBpj0sQVJ7O4QzMBZgDKJRevgh6AP2B1kTjOKSBpVcwAkVKwEqgR9Fi6G20MgFDHYAZmFuoCDm/PHoELSyWYjUBF+ejGjADcw9FgMjxKuh+tKC4/V7oNgERQ+P46RgDcwmmgCIgsmGxxHaiecTtr0OHoTFSA3MEFsAPzQKGgEXF6Y3RDWh2cbtX0Ybobw6GGphDMP0HeXwJkrZGV6FZxe1/ROugjz0g/qccTPG2wsBQBVCYHiclQFG0OzofjciHinZAzxAgA3MCpti0ZTEciHQYOoEs9aXoXDTGwAhcnIEFAcahKEjEJ1QYjYpORAejXnMWbY/+40D+lyTGwFIVjEDJJ1wRLYSeQzEUKgs6D+1MoF6ijdC3EoiWQDkCMzCvJfdCgD1Dt6N70AfidrKLTbs5gfqLtkUv+IBSb/YYA9OD+f9AbwnaB/WaS+hutB5aF2UzA12TQqh/2qUYNJiBEaioWFr70epoas0xdACB+kdOj5F6QxmYAszHZi+hZAuip9GSSqiHaFP0i4TgYLL+NvmAwQwsQprF4w1oKfQIWsgn1E+0JXpPwogSQN0mb2A6MLLpA4QsySwerY5uQrOibEahBwgESqH+q6CCBzOwiIQjUFnF5Tugs8lj2YFOTuFS+0sup3j74ALMwMiS5B2P9hSP4RbaBv1NoLzKoVAOZWCBgoUEUJgsSQYXRbOhS9BKaHv0KfuRh0Ch/O2DgTkG429gBRQ5LqEj5B8OYgTqP4H6HwSUgWnBNJs/qbx8GMVIKFkOJcuhDMwdmOKHcQolKifmUb709G8fDMwxmIAjS5VcTg5fmrx8kzcw92BqOAIZ9gkWR2D0UAbmDIzAEUBSBsbqBMrAggJT/DlUyD8YB9RDGZhbMAdfkxCnOc6hDCydgOm/6oWCab7ixcAyGhgH1A+HMrCMDqaAdQBgYA4mHsb2JnTmVr9xAAAAAElFTkSuQmCC')
+      background: url($inline-checkmark), no-repeat center
       background-size: contain
   &:hover
     color: red
     span
       &:before
         border-color: red
+
+
+.slider
+  position: relative
+
+.slider__value
+  display: block
+  text-align: center
+  margin-bottom: 13px
+  +f(36,36)
+  font-weight: 700
+  padding-left: 15px
+  sub
+    font-size: em(18,36)
+    color: #D0D5DA
+    // opacity: 0.4
+    margin-left: -4px
+
+.slider__pips
+  position: relative
+  padding-top: 12px
+  margin-top: 5px
+
+.slider__pip
+  position: absolute
+  top: 0
+  padding-top: 12px
+  white-space: nowrap
+  color: black
+  font-size: 10px
+  line-height: 1
+  font-weight: 700
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    height: 5px
+    width: 1px
+    background: #B2B2B2
+  sub
+    color: #D0D5DA
+    // opacity: 0.4
+  @for $i from 1 through 20
+    &:nth-child(#{$i})
+      left: ($i - 1) * 10 + %
+  &:last-child
+    left: auto
+    right: 0
+    text-align: right
+    &:before
+      position: absolute
+      right: 0
+      left: auto
