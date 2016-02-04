@@ -170,3 +170,71 @@
   .btn
     vertical-align: middle
     margin: 0 20px 20px 0
+
+.figure
+  margin: 50px 0 70px
+  &_with-aside
+    font-size: 0
+    .figure__img
+      display: inline-block
+      vertical-align: middle
+      width: percentage(580/780)
+
+.figure__img
+  margin-left: -100px
+  box-sizing: border-box
+  img
+    display: block
+    max-width: 100%
+
+.figure__aside
+  display: inline-block
+  vertical-align: middle
+  width: percentage(300/780)
+  box-sizing: border-box
+  text-align: center
+  padding: 0 0 0 30px
+  &:first-child
+    margin-left: -100px
+    padding: 0 30px 0 0
+  + .figure__img
+    margin-left: 0
+
+.figure__caption
+  margin-top: 70px
+  font-size: 16px
+
+
+.number
+  position: relative
+  text-transform: uppercase
+  +f(16, 24, 100)
+  font-weight: 700
+  &:not(:first-child)
+    margin-top: 65px
+  &_small
+    .number__value
+      font-size: 60px
+
+.number__value
+  display: block
+  font-size: 90px
+  line-height: 1
+  letter-spacing: 0
+
+
+.v-line-container
+  position: relative
+  .l
+    position: relative
+    z-index: 1
+
+.v-line
+  position: absolute
+  z-index: 0
+  top: 0
+  right: 0
+  bottom: 0
+  left: 50%
+  margin-left: 310px
+  background: red
