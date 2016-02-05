@@ -6,7 +6,7 @@ var config   = require('../config');
 
 gulp.task('svgo', function() {
     return gulp
-        .src(config.src.img + '/svgo/*.svg')
+        .src(config.src.img + '/svgo/**/*.svg')
         .pipe(plumber({
             errorHandler: config.errorHandler
         }))
@@ -27,5 +27,5 @@ gulp.task('svgo', function() {
 });
 
 gulp.task('svgo:watch', function() {
-    gulp.watch(config.src.img + '/svgo/*.svg', ['svgo']);
+    gulp.watch(config.src.img + '/svgo/**/*.svg', ['svgo']);
 });

@@ -2,7 +2,7 @@ html
   font-size: 62.5%
 
 body
-  background: #FFF
+  background: $color-global-bg
   font: normal 16px/1.4 Arial
   font-size: 1.6rem
   +smooth-font
@@ -93,6 +93,9 @@ a:not([class])
 
 .spacing-100
   letter-spacing: 0.1em
+
+.spacing-50
+  letter-spacing: 0.05em
 
 .btn
   display: inline-block
@@ -692,3 +695,25 @@ a:not([class])
 .shift-left
   position: relative
   left: -100px
+
+.logotype-full
+  position: relative
+  display: inline-block
+  font-size: 17px
+  text-transform: uppercase
+  white-space: nowrap
+  font-weight: 700
+  line-height: 1
+  text-align: left
+  > span
+    display: inline-block
+    vertical-align: bottom
+    position: relative
+    letter-spacing: 0.1em
+  .icon-rezult-logotype
+    display: inline-block
+    vertical-align: bottom
+    margin-right: em(10,60)
+    font-size: em(190,60)
+    fill: currentColor
+    stroke: currentColor

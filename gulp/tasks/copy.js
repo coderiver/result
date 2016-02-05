@@ -23,7 +23,7 @@ gulp.task('copy:img', function() {
     return gulp
         .src([
             config.src.img + '/**/*.{jpg,png,jpeg,svg,gif}',
-            '!' + config.src.img + '/svgo/*.*'
+            '!' + config.src.img + '/svgo/**/*.*'
         ])
         .pipe(gulp.dest(config.dest.img));
 });

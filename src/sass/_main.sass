@@ -238,3 +238,56 @@
   left: 50%
   margin-left: 310px
   background: red
+  color: white
+  overflow: hidden
+  .logotype-full
+    position: absolute
+    right: 100%
+    margin-right: percentage(-100/400)
+    top: 200px
+    transform-origin: right top
+    transform: rotate(-90deg)
+    font-size: 60px
+
+.step
+  position: relative
+  margin: 180px 0
+  +f(16,24)
+  &:last-child
+    margin-bottom: 0
+  p
+    margin: 1em 0
+  &.is-active
+    .step__number
+      color: red
+      text-shadow: 0 10px 30px rgba(red, 0.5)
+
+.step__text
+  position: relative
+  width: percentage(355/780)
+  box-sizing: border-box
+
+.step__img
+  position: absolute
+  top: 50%
+  right: 30px
+  transform: translateY(-50%)
+  width: percentage(415/780)
+  box-sizing: border-box
+  img
+    display: block
+    max-width: 100%
+    &[src*="step-1"]
+      max-width: 115%
+
+.step__number
+  position: absolute
+  z-index: -1
+  top: -67px
+  left: -48px
+  min-width: 80px
+  text-align: center
+  +f(140,140)
+  font-weight: 700
+  color: $color-global-bg
+  text-shadow: 1px 1px 0 red, -1px -1px 0 red, -1px 1px 0 red, 1px -1px 0 red
