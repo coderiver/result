@@ -358,6 +358,25 @@ a:not([class]):hover {
   padding: 85px 210px 105px 0;
 }
 
+.l-content-col {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 40px;
+  width: 50%;
+  box-sizing: border-box;
+  width: 42.30769%;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+.l-content-col:nth-child(odd) {
+  margin-right: 15.38462%;
+}
+
+.l-content-col:last-child {
+  margin-bottom: 40px;
+}
+
 .out {
   position: relative;
   overflow: hidden;
@@ -371,6 +390,10 @@ a:not([class]):hover {
 
 .clearfix:after {
   clear: both;
+}
+
+.font-size-0 {
+  font-size: 0;
 }
 
 .content-wrapper {
@@ -3522,6 +3545,15 @@ a:not([class]):hover {
   margin: 1em 0;
 }
 
+.step_simple {
+  padding-top: 40px;
+  margin: 0;
+}
+
+.step_simple .step__number {
+  top: 0;
+}
+
 .step.is-active .step__number {
   color: red;
   text-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
@@ -3566,6 +3598,16 @@ a:not([class]):hover {
   font-weight: 700;
   color: #EFF3F7;
   text-shadow: 1px 1px 0 red, -1px -1px 0 red, -1px 1px 0 red, 1px -1px 0 red;
+}
+
+.figure-small {
+  width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.figure-small img {
+  display: block;
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
