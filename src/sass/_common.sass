@@ -64,6 +64,18 @@ a:not([class])
   box-sizing: border-box
   padding: 85px 210px 105px 0
 
+.l-content-col
+  display: inline-block
+  vertical-align: top
+  margin-top: 40px
+  width: 50%
+  box-sizing: border-box
+  width: percentage(330/780)
+  +f(16)
+  &:nth-child(odd)
+    margin-right: percentage(120/780)
+  &:last-child
+    margin-bottom: 40px
 
 .out
   position: relative
@@ -77,6 +89,9 @@ a:not([class])
     display: table
   &:after
     clear: both
+
+.font-size-0
+  font-size: 0
 
 .content-wrapper
   position: relative
