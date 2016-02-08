@@ -143,6 +143,11 @@
         squares
     </title>
     <path d="M30 56V30h26v26H30zm0-56h26v26H30V0zm2 24h22V2H32v22zM0 30h26v26H0V30zM0 0h26v26H0V0z" fill-rule="evenodd"/>
+</symbol><symbol id="icon-tag" viewBox="0 0 16 23">
+    <title>
+        tag
+    </title>
+    <path d="M8 22.72c-.933 0-4.356-5.658-4.356-5.75C2.31 14.72 0 10.53 0 8a8 8 0 0 1 16 0c0 2.576-2.267 6.716-3.644 8.97 0 .092-3.423 5.75-4.356 5.75zM8 .64A7.26 7.26 0 0 0 .89 8c0 3.864 5.82 12.42 7.11 13.708C9.29 20.42 15.11 11.864 15.11 8A7.26 7.26 0 0 0 8 .64zm0 11.5A4.142 4.142 0 1 1 12 8a4.055 4.055 0 0 1-4 4.14zm0-7.36A3.222 3.222 0 1 0 11.11 8 3.148 3.148 0 0 0 8 4.78z" opacity=".3" fill-rule="evenodd"/>
 </symbol><symbol id="icon-wood-log" viewBox="0 0 171 83">
     <title>
         wood-log
