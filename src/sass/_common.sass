@@ -195,10 +195,25 @@ a:not([class])
     +f(16, false, 25)
     text-transform: uppercase
 
+  &_xlg
+    height: 64px
+    line-height: 62px
+    +f(14,false,100)
+    text-transform: uppercase
+
   &_sm
     height: 36px
     line-height: 34px
     +f(14)
+
+  &_fw
+    display: block
+    width: 100%
+
+  &_black
+    background: black
+    color: white
+    border-color: black
 
   &_select
     display: inline-block
@@ -406,6 +421,7 @@ a:not([class])
   z-index: 1
   max-width: 230px
   text-align: left
+  user-select: none
   &.is-active
     z-index: 5
     .select__button-overlay
@@ -772,3 +788,42 @@ a:not([class])
     font-size: em(190,60)
     fill: currentColor
     stroke: currentColor
+
+.form-column
+  max-width: 350px
+
+.form-field
+  margin-top: 30px
+  width: 100%
+  &_country
+    float: left
+    width: percentage(145/350)
+    max-width: 145px
+    margin-right: percentage(20/350)
+  &_city
+    float: left
+    width: percentage(290/350)
+    max-width: 185px
+  &_phone
+    max-width: 245px
+
+.form-label
+  display: block
+  +f(12,24)
+  font-weight: normal
+  opacity: 0.4
+
+.form-input
+  display: block
+  box-sizing: border-box
+  width: 100%
+  padding: 2px 0 7px
+  +f(16, 24)
+  font-family: Arial
+  font-weight: normal
+  border: 1px solid
+  border-width: 0 0 1px 0
+  background: none
+  resize: vertical
+  appearance: none
+  +trans

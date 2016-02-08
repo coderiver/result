@@ -1,0 +1,185 @@
+---
+title: Contacts
+
+managers:
+  - name: Константин Константинопольский
+    phone: +380 44 220-43-11
+    email: konstantin.k@rezult.com.ua
+
+  - name: Николай Стецько
+    phone: +380 44 220-43-11
+    email: nikolay.s@rezult.com.ua
+
+  - name: Арсений Любознавцев
+    phone: +380 44 220-43-11
+    email: arseny.l@rezult.com.ua
+
+  - name: Александр Красный
+    phone: +380 44 220-43-11
+    email: alex.k@rezult.com.ua
+
+  - name: Лев Толстой
+    phone: +380 44 220-43-11
+    email: lev.t@rezult.com.ua
+
+  - name: Евгений Васильевич
+    phone: +380 44 220-43-11
+    email: evgen.v@rezult.com.ua
+---
+
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+  {% include "partials/_navigation.html" %}
+
+  <div class="out">
+    <div class="contacts">
+      <div class="contacts__left">
+
+        <section class="contacts__section">
+          <div class="contacts-item">
+            <div class="contacts-item__inner">
+              <h1 class="h1 uppercase">Контакты</h1>
+            </div>
+          </div>
+
+          <div class="contacts-item contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Адрес производства</strong>
+              <p>
+                11501
+                <br>Украина, Житомирская обл.
+                <br>г. Коростень, ул. Октябрьская, 11-Б
+              </p>
+            </div>
+          </div>
+
+          <div class="contacts-item contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Адрес для корреспонденции</strong>
+              <p>
+                11501
+                <br>Украина, Житомирская обл.
+                <br>г. Коростень, ул. Октябрьская, 11-Б
+              </p>
+            </div>
+          </div>
+
+          <div class="contacts-item contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Британский офис</strong>
+              <p>
+                High Bank Lane, Lostock Bolton,
+                <br>Greater Manchester United Kingdom,
+                <br>BL6 4DT
+              </p>
+            </div>
+          </div>
+
+          <div class="contacts-item contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Отдел продаж</strong>
+              <p>
+                04070
+                <br>Украина
+                <br>Киев, ул. П.Сагайдачного, 11
+              </p>
+              <p>тел./факс: <strong><a href="tel:+380442204311">+380 44 220-43-11</a></strong></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="contacts__section">
+          <div class="contacts-item contatcs__section-head">
+            <div class="contacts-item__inner">
+              <h4 class="uppercase spacing-100">Наши менеджеры</h4>
+              <div class="select">
+                <button class="select__button">в Киеве</button>
+                <div class="select__button-overlay"></div>
+                <ul class="select__list">
+                  <li class="select__item" data-value="laminat_1">Laminat 1</li>
+                  <li class="select__item" data-value="laminat_2">Laminat 2</li>
+                  <li class="select__item" data-value="laminat_3">Laminat 3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {% for manager in managers %}
+            <div class="contacts-item contact">
+              <div class="contacts-item__inner">
+                <div class="contact__pic">
+                  <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt="">
+                </div>
+                <div class="contact__actions">
+                  <a class="contact__action-btn" href="mailto:{{manager.email}}">{{mixins.icon('bubles')}}</a>
+                  <a class="contact__action-btn" href="tel:{{manager.phone | replace('-', '') | replace(' ', '')}}">{{mixins.icon('call')}}</a>
+                </div>
+                <span class="contact__title">{{manager.name}}</span>
+                <p>
+                  тел./факс: {{manager.phone}}
+                  <br>{{manager.email}}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </section>
+
+        <section class="contacts__section">
+          <div class="contacts-item contacts__section-head">
+            <div class="contacts-item__inner">
+              <h4 class="uppercase spacing-100">Заказ продукции</h4>
+
+              <form>
+                <div class="form-column">
+                  <div class="form-field">
+                    <label class="form-label" for="companyName">Название компании</label>
+                    <input class="form-input" type="text" id="companyName" name="company_name">
+                  </div>
+
+                  <div class="clearfix">
+                    <div class="form-field form-field_country">
+                      <label class="form-label" for="country">Страна</label>
+                      <input class="form-input" type="text" id="country" name="country">
+                    </div>
+
+                    <div class="form-field form-field_city">
+                      <label class="form-label" for="city">Город</label>
+                      <input class="form-input" type="text" id="city" name="city">
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label class="form-label" for="contactPerson">Контактное лицо</label>
+                    <input class="form-input" type="text" id="contactPerson" name="contact_person">
+                  </div>
+
+                  <div class="form-field form-field_phone">
+                    <label class="form-label" for="phone">Телефон</label>
+                    <input class="form-input" type="text" id="phone" name="phone" value="+380 ">
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label" for="comment">Комментарий к заказу</label>
+                  <textarea class="form-input" rows="3" id="comment" name="comment">Перезвоните мне, пожалуйста, между 18:00 и 19:30. Я продиктую точный адрес, куда нужно доставить заказ.</textarea>
+                </div>
+
+                <div class="form-field">
+                  <button class="btn btn_xlg btn_black btn_fw" type="submit"><span>Сделать заказ</span></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="contacts__right">
+        <div id="contacts-map" style="background: url('img/contacts-map.jpg'); background-size: cover;"></div>
+      </div>
+    </div>
+  </div>
+
+  {% include "partials/_footer.html" %}
+{% endblock %}
