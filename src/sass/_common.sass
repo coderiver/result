@@ -254,10 +254,14 @@ a:not([class])
     &:before
       left: 0
 
+.tiles-group
+  +clr
+  margin: 70px 0 90px
+
 .tile
   display: block
   position: relative
-  z-index: 0
+  z-index: 1
   float: left
   width: 25%
   box-sizing: border-box
@@ -287,7 +291,7 @@ a:not([class])
     visibility: hidden
     transform: translate3d(0,0,0) scale(1.15)
   &:hover
-    z-index: 1
+    z-index: 2
     &:after
       transition-delay: 0.1s
       opacity: 1
@@ -303,6 +307,26 @@ a:not([class])
       padding-bottom: 50%
   &_pull-right
     float: right
+  &_simple
+    color: red
+    box-shadow: inset 0 0 0 1px red, 0 0 0 1px red
+    +trans(color)
+    &:after
+      background: red
+    .tile__title
+      +f(24,36)
+    .tile__subtitle
+      margin-top: 3px
+    &:hover
+      color: white
+      .tile__badge
+        color: red
+        background: white
+  &_static
+    cursor: default
+    z-index: 0
+    &:after
+      display: none
 
 .tile__inner
   position: absolute
@@ -328,6 +352,22 @@ a:not([class])
   position: absolute
   top: 15px
   right: 20px
+
+.tile__badge
+  position: absolute
+  top: 20px
+  right: 20px
+  padding: 4px 5px 2px
+  +f(9,9,100)
+  min-width: 30px
+  text-align: center
+  box-sizing: border-box
+  color: white
+  font-weight: 700
+  background: red
+  text-transform: uppercase
+  +trans
+  transition-property: color, background-color
 
 .tile__info
   position: absolute

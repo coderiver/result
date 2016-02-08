@@ -20,9 +20,9 @@ if ($container.length) {
 
     $slider[0].noUiSlider.on('slide', function(valuesStr, handleIndex, valuesInt, what) {
         $slider
-            .parent()
-            .find('.slider__value')[0]
-            .firstChild
-            .textContent = `${valuesInt[handleIndex].toFixed(1)} `;
+        .parent()
+        .find('.slider__value')[0]
+        .firstChild
+        .textContent = `${valuesInt[handleIndex].toFixed(1)} `;
     });
 }
