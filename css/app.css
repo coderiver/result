@@ -79,6 +79,20 @@ table {
   stroke: #000;
 }
 
+.icon-bubles {
+  width: 1.38em;
+  height: 1em;
+  fill: #000;
+  stroke: initial;
+}
+
+.icon-call {
+  width: 1em;
+  height: 1em;
+  fill: #000;
+  stroke: initial;
+}
+
 .icon-close {
   width: 1em;
   height: 1em;
@@ -536,11 +550,31 @@ a:not([class]):hover {
   text-transform: uppercase;
 }
 
+.btn_xlg {
+  height: 64px;
+  line-height: 62px;
+  font-size: 14px;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .btn_sm {
   height: 36px;
   line-height: 34px;
   font-size: 14px;
   font-size: 1.4rem;
+}
+
+.btn_fw {
+  display: block;
+  width: 100%;
+}
+
+.btn_black {
+  background: black;
+  color: white;
+  border-color: black;
 }
 
 .btn_select {
@@ -869,6 +903,10 @@ a:not([class]):hover {
   z-index: 1;
   max-width: 230px;
   text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .select.is-active {
@@ -1472,6 +1510,61 @@ a:not([class]):hover {
   font-size: 3.16667em;
   fill: currentColor;
   stroke: currentColor;
+}
+
+.form-column {
+  max-width: 350px;
+}
+
+.form-field {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.form-field_country {
+  float: left;
+  width: 41.42857%;
+  max-width: 145px;
+  margin-right: 5.71429%;
+}
+
+.form-field_city {
+  float: left;
+  width: 82.85714%;
+  max-width: 185px;
+}
+
+.form-field_phone {
+  max-width: 245px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: normal;
+  opacity: 0.4;
+}
+
+.form-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2px 0 7px;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: Arial;
+  font-weight: normal;
+  border: 1px solid;
+  border-width: 0 0 1px 0;
+  background: none;
+  resize: vertical;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all 0.3s ease;
 }
 
 .hero {
@@ -3677,6 +3770,168 @@ a:not([class]):hover {
 .figure-small img {
   display: block;
   max-width: 100%;
+}
+
+.contacts {
+  position: relative;
+  margin-top: 87px;
+}
+
+.contacts .h1 {
+  margin-bottom: 35px;
+}
+
+.contacts__left {
+  width: 50%;
+  padding-bottom: 80px;
+}
+
+.contacts__right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.contacts__section:not(:first-child) {
+  margin-top: 60px;
+}
+
+.contatcs__section-head {
+  margin-bottom: 30px;
+}
+
+.contatcs__section-head .select {
+  margin-top: 10px;
+}
+
+.contacts-item {
+  *zoom: 1;
+}
+
+.contacts-item:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.contacts-item_hover {
+  cursor: pointer;
+}
+
+.contacts-item_hover:hover {
+  background: #F7F9FB;
+}
+
+.contacts-item__inner {
+  position: relative;
+  float: right;
+  width: 100%;
+  max-width: 495px;
+  box-sizing: border-box;
+  padding-right: 40px;
+}
+
+.contact {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.71429;
+}
+
+.contact p {
+  margin: 0.8em 0;
+}
+
+.contact p:first-child {
+  margin-top: 0;
+}
+
+.contact p:last-child {
+  margin-bottom: 0;
+}
+
+.contact_action {
+  cursor: pointer;
+}
+
+.contact:hover {
+  background: #F7F9FB;
+}
+
+.contact:hover .contact__actions {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact__title {
+  display: block;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.contact__title + p {
+  margin-top: 0;
+}
+
+.contact__pic {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin-right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contact__pic img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.contact__actions {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  margin-top: -10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.contact__action-btn {
+  display: inline-block;
+  vertical-align: middle;
+  color: #DBE1E7;
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.3s ease;
+  margin-left: 22px;
+}
+
+.contact__action-btn .icon {
+  fill: currentColor;
+}
+
+.contact__action-btn:hover {
+  color: red;
+}
+
+#contacts-map {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
