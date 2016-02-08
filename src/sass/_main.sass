@@ -321,6 +321,17 @@
   height: 100%
   width: 50%
 
+.contacts__head
+  padding-bottom: 25px
+  border-bottom: 1px solid #E0E4E9
+  +f(14,24)
+  .h1
+    margin-bottom: 14px
+  p
+    margin: 1em 0
+  .select
+    margin: 10px 18px 0 0
+
 .contacts__section
   &:not(:first-child)
     margin-top: 60px
@@ -356,6 +367,11 @@
       margin-top: 0
     &:last-child
       margin-bottom: 0
+  dt
+    display: inline
+    color: #9FA5AC
+  dd
+    display: inline
   &_action
     cursor: pointer
   &:hover
