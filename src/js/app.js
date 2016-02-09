@@ -2,6 +2,11 @@ import $ from 'jquery';
 import 'gsap';
 import './modules/calculator';
 import './modules/menu';
+import initSelectPlugin from './plugins/select';
+
+initSelectPlugin($);
+
+$('.select').select();
 
 let clickCount = 0;
 
@@ -27,11 +32,4 @@ videoSection.on('click', function() {
 $('.hero__logo').on('click', function() {
     $('.modal-video').fadeIn(500);
     videoSection.hide().first().show();
-});
-
-$('.select__button').each((index, button) => {
-    let btn = $(button);
-    btn.on('click', (e) => {
-        btn.parent().toggleClass('is-active');
-    });
 });
