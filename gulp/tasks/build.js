@@ -2,7 +2,7 @@ var gulp        = require('gulp');
 var runSequence = require('run-sequence');
 var config      = require('../config');
 
-function build(prod) {
+function build(cb, prod) {
     if (prod) config.production = true;
     runSequence(
         'clean',
@@ -11,16 +11,15 @@ function build(prod) {
         'sass',
         'nunjucks',
         'webpack',
-        'copy'
+        'copy',
+        cb
     );
 }
 
 gulp.task('build', function(cb) {
-    build(true);
-    cb();
+    build(cb, true);
 });
 
 gulp.task('build:dev', function(cb) {
-    build();
-    cb();
+    build(cb);
 });

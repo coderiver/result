@@ -14,7 +14,7 @@ var webpackConfig = {
         filename: '[name].js',
         publicPath: 'js/'
     },
-    devtool: production ? 'source-map' : 'eval',
+    devtool: production ? 'source-map' : 'cheap-module-eval-source-map',
     plugins: [
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
@@ -47,5 +47,5 @@ if (production) {
         })
     );
 }
-
+console.log(webpackConfig.plugins);
 module.exports = webpackConfig;

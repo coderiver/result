@@ -1,12 +1,16 @@
 import $ from 'jquery';
-import 'gsap';
+//import 'gsap';
 import './modules/calculator';
 import './modules/menu';
 import initSelectPlugin from './plugins/select';
+import Gallery from './plugins/gallery';
 
 initSelectPlugin($);
 
 $('.select').select();
+
+const gallery = new Gallery('.gallery .gs', { arrows: true, dots: true });
+const heroGallery = new Gallery('.hero .gs', { autoplay: true });
 
 let clickCount = 0;
 

@@ -1,8 +1,16 @@
 .hero
   height: 100vh
-  background: black img-url('hero-1.jpg') no-repeat center
-  background-size: cover
+  position: relative
   color: white
+  .gs
+    height: 100%
+
+.hero__gallery
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
 
 .hero__inner
   padding-top: 40px
@@ -10,6 +18,7 @@
   height: 100%
   box-sizing: border-box
   position: relative
+  z-index: 1
   +vertical
   white-space: nowrap
 

@@ -1,0 +1,100 @@
+.gs
+  position: relative
+  overflow: hidden
+  height: 900px
+  +clr
+  .slick-list,
+  .slick-track
+    height: 100%
+  .slick-dots
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 100%
+    transform: translateY(-50%)
+    li
+      padding: 8px 10px
+      font-size: 0
+      cursor: pointer
+      &:hover
+        button
+          background-color: #C3CBCD
+          border-color: #C3CBCD
+          box-shadow: 0 0 0 5px #C3CBCD, 0 0 0 6px #A1ACAC
+      &.slick-active
+        cursor: default
+        button
+          background: black
+          border-color: black
+          box-shadow: none
+    button
+      width: 6px
+      height: 6px
+      border-radius: 50%
+      border: 1px solid #A1ACAC
+      box-sizing: border-box
+      background: none
+      font-size: 0
+      cursor: inherit
+      +trans
+  .slick-arrow
+    position: absolute
+    z-index: 2
+    top: 0
+    height: 100%
+    width: 50%
+    background: none
+    font-size: 0
+  .slick-prev
+    left: 0
+    cursor: url($inline-cursor-prev), pointer
+    +retina
+      cursor: url($inline-cursor-prev-2x), pointer
+  .slick-next
+    right: 0
+    cursor: url($inline-cursor-next), pointer
+    +retina
+      cursor: url($inline-cursor-prev-2x), pointer
+  &.slick-slider
+    overflow: initial
+
+.gs-slide
+  float: left
+  width: 100%
+  height: 100%
+  background-size: cover
+  background-position: center
+
+.gs-tile
+  position: relative
+  float: left
+  height: 100%
+  overflow: hidden
+
+.gs-tile-inner
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+.gs-tile-img
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-size: cover
+  background-position: center
+
+.gs-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+  overflow: hidden
+  +clr
+
