@@ -1,6 +1,11 @@
 <!-- BEGIN modal video -->
 <div class="modal-video">
-  <div class="modal-video__container"></div>
+  <div class="modal-video__container">
+    <video
+      src="video/videoplayback.mp4" id="video"
+      poster="img/video-placeholder.jpg"
+    ></video>
+  </div>
 
   <div class="modal-video__content">
 
@@ -13,7 +18,7 @@
   </div>
 
   <div class="video-timeline">
-    <div class="video-timeline__progress-bar" style="width: 50%"></div>
+    <div class="video-timeline__progress-bar"></div>
     <ul class="video-timeline__points">
       <li class="video-timeline__point">
         <span class="tooltip tooltip_arr-left">Контроль качества</span>
@@ -21,7 +26,10 @@
       <li class="video-timeline__point">
         <span class="tooltip">Контроль качества</span>
       </li>
-      <li class="video-timeline__point is-active">
+      <li class="video-timeline__point">
+        <span class="tooltip">Контроль качества</span>
+      </li>
+      <li class="video-timeline__point">
         <span class="tooltip">Контроль качества</span>
       </li>
       <li class="video-timeline__point">
@@ -36,7 +44,7 @@
   <button class="controll-btn controll-btn-close">
     {{mixins.icon('close')}}
   </button>
-  <button class="controll-btn controll-btn-volume level-1">
+  <button class="controll-btn controll-btn-volume">
     {{mixins.icon('sound')}}
   </button>
 </div>

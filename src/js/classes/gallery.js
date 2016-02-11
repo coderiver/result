@@ -30,7 +30,7 @@ function getBgUrlString(obj) {
     return node.style.backgroundImage;
 }
 
-class Gallery {
+export default class Gallery {
     constructor(el, options) {
         this.el = (el instanceof $) ? el : $(el);
         this.settings = $.extend(true, {}, Gallery.defaults, options);
@@ -190,7 +190,3 @@ Gallery.defaults = {
     autoplay: false,
     autoplaySpeed: 5000
 };
-
-module.exports = Gallery;
-
-

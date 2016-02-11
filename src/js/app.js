@@ -1,9 +1,9 @@
 import $ from 'jquery';
-//import 'gsap';
 import './modules/calculator';
 import './modules/menu';
+import './modules/cta-video';
 import initSelectPlugin from './plugins/select';
-import Gallery from './plugins/gallery';
+import Gallery from './classes/gallery';
 
 initSelectPlugin($);
 
@@ -14,10 +14,10 @@ const heroGallery = new Gallery('.hero .gs', { autoplay: true });
 
 let clickCount = 0;
 
-$('.controll-btn-volume').on('click', function(e) {
-    let className = this.className;
-    this.className = className.replace(/level-\d/, `level-${++clickCount % 3}`);
-});
+//$('.controll-btn-volume').on('click', function(e) {
+//    let className = this.className;
+//    this.className = className.replace(/level-\d/, `level-${++clickCount % 3}`);
+//});
 
 $('.modal-video').hide();
 $('.controll-btn-close').on('click', function() {
