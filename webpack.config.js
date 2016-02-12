@@ -47,5 +47,5 @@ if (production) {
         })
     );
 }
-console.log(webpackConfig.plugins);
+
 module.exports = webpackConfig;

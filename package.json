@@ -1,7 +1,9 @@
 {
   "name": "rezult",
   "scripts": {
-    "distpush": "git subtree push --prefix dist origin gh-pages"
+    "ghpages": "git subtree push --prefix dist origin gh-pages",
+    "build": "gulp build --production",
+    "start": "gulp"
   },
   "author": "buschidos || coderiver",
   "devDependencies": {

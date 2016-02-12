@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { percentage } from '../lib/util';
 import {
     VIDEO_PROGRESS,
     VIDEO_READY,
@@ -7,78 +8,114 @@ import {
 
 const defaults = {
     breakpoints: [],
+    startBreakpoint: true,
+    endBreakpoint: true,
     pauseOnBreakpoint: true
 };
 
 export default class Video {
     /**
      * Video constructor
-     * @param elId [string] id of html5 video tag
-     * @param options [object]
-     * options.breakpoints [array] video breakpoints in seconds
+     * @param {string} elId - id of html5 video tag
+     * @param {object} options
+     * {array} options.breakpointsPercent - video breakpointsPercent in seconds
+     * {boolean} options.startBreakpoint - use begin of video as breakpoint
+     * {boolean} options.endBreakpoint - use end of video as breakpoint
+     * {boolean} options.pauseOnBreakpoint - pause playback when reached breakpoint
      */
     constructor(elId, options) {
+        this.settings = $.extend({}, defaults, options);
         this.video = document.getElementById(elId);
         this.$video = $(this.video);
-        this.settings = $.extend({}, defaults, options);
         this.currentBreakpoint = 0;
         this._bindEvents();
         console.log(this);
     }
 
     _bindEvents() {
-        const { breakpoints, pauseOnBreakpoint } = this.settings;
+        const { pauseOnBreakpoint } = this.settings;
 
         this.video.addEventListener('timeupdate', (e) => {
             const progress = this.getProgress();
-            const time = this.video.currentTime;
-            const activeBp = this._whichBpIsActive(time);
+            const activeBp = this._whichBpIsActive();
 
             if (activeBp > this.currentBreakpoint) {
                 this.currentBreakpoint = activeBp;
-                if (pauseOnBreakpoint) { this.pause(); }
-                this.$video.trigger(VIDEO_BREAKPOINT, [activeBp]);
+                this.trigger(VIDEO_BREAKPOINT, [activeBp]);
             }
 
-            this.$video.trigger(VIDEO_PROGRESS, [progress]);
+            this.trigger(VIDEO_PROGRESS, [progress]);
         });
 
         this.video.addEventListener('loadedmetadata', (e) => {
-            this.percentBreakpoints = this._getBpAsPercents(breakpoints);
-            this.$video.trigger(VIDEO_READY, [this]);
+            this._setupBreakpoints();
+            this.trigger(VIDEO_READY, [this]);
         });
+
+        if (pauseOnBreakpoint) {
+            this.on(VIDEO_BREAKPOINT, () => {
+                this.pause();
+            });
+        }
     }
 
-    _getBpAsPercents(breakpointsInSec) {
-        return breakpointsInSec.map(sec => this.getProgress(sec));
+    _setupBreakpoints() {
+        const { breakpoints, startBreakpoint, endBreakpoint } = this.settings;
+        const bpAsPercents =  breakpoints.map(sec => this.getProgress(sec));
+        let resPercent = [];
+        let resSec = [];
+
+        if (startBreakpoint) {
+            resPercent.push(0);
+            resSec.push(0);
+        }
+
+        resPercent.push(...bpAsPercents);
+        resSec.push(...breakpoints);
+
+        if (endBreakpoint) {
+            resPercent.push(100);
+            resSec.push(this.video.duration);
+        }
+
+        this.breakpointsPercent = resPercent;
+        this.breakpointsSec = resSec;
     }
 
     _whichBpIsActive(time = this.video.currentTime) {
-        const { breakpoints } = this.settings;
-        let i = breakpoints.length;
+        const { breakpointsSec } = this;
+        let i = breakpointsSec.length;
 
         while (i) {
-            if (time >= breakpoints[i - 1] ) {
+            if (time >= breakpointsSec[--i] ) {
                 return i;
             }
-            i--;
         }
 
         return 0;
     }
 
     getBreakpoints() {
-        return this.percentBreakpoints;
+        return this.breakpointsPercent;
     }
 
-    on() {
-        this.$video.on.apply(this.$video, arguments);
+    on(...args) {
+        this.$video.on(...args);
         return this;
     }
 
-    off() {
-        this.$video.off.apply(this.$video, arguments);
+    one(...args) {
+        this.$video.one(...args);
         return this;
+    }
+
+    off(...args) {
+        this.$video.off(...args);
+        return this;
+    }
+
+    trigger(...args) {
+        this.$video.trigger(...args);
     }
 
     play() {
@@ -96,25 +133,43 @@ export default class Video {
         if (time === undefined) {
             time = currentTime;
         }
-        return Math.ceil((time * 100 / duration) * 100 ) / 100;
+        return percentage(time, duration, 2);
     }
 
     getProp(prop) {
-        if (typeof prop !== 'string') { return; }
-        return this.video[prop];
+        if (typeof prop === 'string') {
+            return this.video[prop];
+        }
     }
 
     setProgress(progress) {
-        if (typeof progress === 'string') {
-            progress = parseFloat(progress, 10);
-        }
+        const { duration } = this.video;
+        let newTime;
+
+        if (typeof progress === 'string') { progress = parseFloat(progress, 10); }
         if (progress > 100) { progress = 100; }
         if (progress < 0) { progress = 0; }
-        console.log('progress ' + progress);
-        const { duration } = this.video;
-        this.video.currentTime = duration / 100 * progress;
+
+        switch (progress) {
+            case 0:
+                newTime = 0;
+                break;
+            case 100:
+                newTime = duration;
+                break;
+            default:
+                newTime = Math.round((duration / 100 * progress) * 100) / 100;
+        }
+
+        this.video.currentTime = newTime;
         this.currentBreakpoint = this._whichBpIsActive();
         return this;
+    }
+
+    goToBreakpoint(index) {
+        this.currentBreakpoint = index;
+        this.setProgress(this.breakpointsPercent[index]);
+        this.trigger(VIDEO_BREAKPOINT, [index]);
     }
 
     toggleSound() {

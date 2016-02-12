@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import { PROGRESSBAR_CLICK } from '../lib/custom-events';
+import { percentage } from '../lib/util';
+import { PROGRESSBAR_CLICK, PROGRESSBAR_POINT_CLICK } from '../lib/custom-events';
 
 const defaults = {
     barSel: '.video-timeline__progress-bar',
@@ -20,8 +21,8 @@ export default class VideoProgressbar {
     _bindEvents() {
         this.el.on('click', (e) => {
             const progress = this._getProgressByClick(e);
-            this.el.trigger(PROGRESSBAR_CLICK, [progress]);
             this.setProgress(progress);
+            this.trigger(PROGRESSBAR_CLICK, [progress]);
         });
     }
 
@@ -29,16 +30,27 @@ export default class VideoProgressbar {
         const offsetLeft = this.el.offset().left;
         const width = this.el.width();
         const clickX = clickEvent.pageX;
-        return (
-            Math.round(((clickX - offsetLeft) * 100 / width) * 100) / 100
-        );
+        return percentage((clickX - offsetLeft), width, 2);
     }
 
-    setupPoints(points) {
-        points.forEach((val, i) => {
-            this.points.eq(i + 1).css({
+    setupPoints(breakPoints) {
+        const self = this;
+
+        breakPoints.forEach((val, i) => {
+            this.points.eq(i).css({
                 left: `${val}%`
-            });
+            }).attr('data-progress', val);
+        });
+
+        this.points.on('click', function(e) {
+            const point = $(this);
+            const index = point.index();
+            const progress = point.data('progress');
+
+            e.stopPropagation();
+
+            self.setProgress(progress);
+            self.trigger(PROGRESSBAR_POINT_CLICK, [index, progress]);
         });
     }
 
@@ -48,17 +60,26 @@ export default class VideoProgressbar {
         });
     }
 
-    on() {
-        this.el.on.apply(this.el, arguments);
+    on(...args) {
+        this.el.on(...args);
         return this;
     }
 
-    off() {
-        this.el.off.apply(this.el, arguments);
+    off(...args) {
+        this.el.off(...args);
+        return this;
+    }
+
+    trigger(...args) {
+        this.el.trigger(...args);
         return this;
     }
 
     getElement() {
         return this.el;
+    }
+
+    getPoints() {
+        return this.points;
     }
 }

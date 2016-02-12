@@ -48,15 +48,16 @@
   .slick-prev
     left: 0
     cursor: url($inline-cursor-prev), pointer
-    +retina
-      cursor: url($inline-cursor-prev-2x), pointer
+    // +retina
+    //   cursor: url($inline-cursor-prev-2x), pointer
   .slick-next
     right: 0
     cursor: url($inline-cursor-next), pointer
-    +retina
-      cursor: url($inline-cursor-prev-2x), pointer
+    // +retina
+    //   cursor: url($inline-cursor-prev-2x), pointer
   &.slick-slider
     overflow: initial
+    float: left
 
 .gs-slide
   float: left
@@ -97,4 +98,3 @@
   pointer-events: none
   overflow: hidden
   +clr
-
