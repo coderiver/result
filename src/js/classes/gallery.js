@@ -1,3 +1,4 @@
+/*global TweenMax TimelineMax Power2*/
 import $ from 'jquery';
 import 'slick-carousel';
 import 'gsap';

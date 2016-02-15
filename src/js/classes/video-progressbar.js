@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { percentage } from '../lib/util';
-import { PROGRESSBAR_CLICK, PROGRESSBAR_POINT_CLICK } from '../lib/custom-events';
+import { PROGRESSBAR_CLICK, PROGRESSBAR_POINT_CLICK } from '../lib/actions';
 
 const defaults = {
     barSel: '.video-timeline__progress-bar',
@@ -54,7 +54,7 @@ export default class VideoProgressbar {
         });
     }
 
-    setProgress(progress, noTransition) {
+    setProgress(progress) {
         this.progressBar.css({
             width: `${progress}%`
         });

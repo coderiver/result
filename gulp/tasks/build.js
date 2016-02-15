@@ -2,8 +2,7 @@ var gulp        = require('gulp');
 var runSequence = require('run-sequence');
 var config      = require('../config');
 
-function build(cb, prod) {
-    if (prod) config.production = true;
+function build(cb) {
     runSequence(
         'clean',
         'sprite:svg',
@@ -17,9 +16,13 @@ function build(cb, prod) {
 }
 
 gulp.task('build', function(cb) {
-    build(cb, true);
+    config.setEnv('production');
+    config.logEnv();
+    build(cb);
 });
 
 gulp.task('build:dev', function(cb) {
+    config.setEnv('development');
+    config.logEnv();
     build(cb);
 });

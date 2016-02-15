@@ -13,7 +13,7 @@
 .modal-video__content
   height: 100%
   min-width: $min-width
-  overflow: auto
+  overflow: hidden
 
 .modal-video__container
   position: absolute
@@ -134,6 +134,8 @@
   .icon-mouse
     margin-top: 52px
     +f(52)
+    path
+      fill: inherit
   p
     +f(18)
     font-weight: 700
@@ -147,8 +149,9 @@
     text-align: left
     position: absolute
     left: 100%
-    bottom: 11px
+    bottom: 8px
     margin-left: 22px
+    line-height: 1
 
 .step-2
   margin-top: -8vh
@@ -178,12 +181,18 @@
     fill: white
     +f(80)
     min-height: 100px
+    path
+      fill: inherit
+  .h5
+    display: inline-block
   .icon-wood-log
     +f(84)
   .icon-dust
     +f(100)
   .icon-radio
     +f(83)
+    path
+      fill: inherit
   .icon-wood
     +f(147)
   .icon-kg
@@ -390,6 +399,8 @@
     margin-top: 110px
   .step-action-button__inner
     margin-top: 90px
+  .h4
+    line-height: 1.2
 
 .step-5
   .step-r-logo

@@ -4,7 +4,7 @@ import {
     VIDEO_PROGRESS,
     VIDEO_READY,
     VIDEO_BREAKPOINT
-} from '../lib/custom-events';
+} from '../lib/actions';
 
 const defaults = {
     breakpoints: [],

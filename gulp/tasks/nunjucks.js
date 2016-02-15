@@ -9,7 +9,8 @@ var config         = require('../config');
 
 function renderHtml(onlyChanged) {
     nunjucksRender.nunjucks.configure([
-        config.src.templates
+        config.src.templates,
+        config.src.root
     ], {
         watch: false,
         trimBlocks: true,

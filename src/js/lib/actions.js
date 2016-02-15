@@ -3,3 +3,7 @@ export const PROGRESSBAR_POINT_CLICK = 'progressbar:pointClick';
 export const VIDEO_READY = 'video:ready';
 export const VIDEO_PROGRESS = 'video:progress';
 export const VIDEO_BREAKPOINT = 'video:breakpoint';
+export const MODAL_BEFORE_OPEN = 'modal:beforeOpen';
+export const MODAL_AFTER_OPEN = 'modal:afterOpen';
+export const MODAL_BEFORE_CLOSE = 'modal:beforeClose';
+export const MODAL_AFTER_CLOSE = 'modal:beforeClose';
