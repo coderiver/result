@@ -1,9 +1,10 @@
-/*global TimelineMax TweenMax Power2 Elastic*/
+/*global TimelineMax TweenMax Elastic*/
 import $ from 'jquery';
 import 'gsap';
 import Video from '../classes/video';
 import VideoProgressbar from '../classes/video-progressbar';
 import dispatcher from '../lib/dispatcher';
+import { getScrollDirection, percentage } from '../lib/util';
 import {
     VIDEO_READY,
     VIDEO_PROGRESS,
@@ -16,9 +17,9 @@ import {
     MODAL_AFTER_CLOSE
 } from '../lib/actions';
 
-const videoBreakpoints = [24, 52, 81, 123];
+const videoBreakpoints = [24, 52, 81];
+const fakeVideoDuration = 123;
 
-const root = $('body');
 const videoTrigger = $('.hero__logo');
 const container = $('.modal-video');
 const overlay = container.find('.modal-video__overlay');
@@ -27,26 +28,41 @@ const muteBtn = container.find('.controll-btn-volume');
 const closeBtn = container.find('.controll-btn-close');
 
 const progressbar = new VideoProgressbar(container.find('.video-timeline'));
-const video = window.video = new Video('video', { breakpoints: videoBreakpoints });
+const video = window.video = new Video('video', {
+    breakpoints: videoBreakpoints,
+    fakeDuration: fakeVideoDuration
+});
 
 const pbPoints = progressbar.getPoints();
 
-let activeVideoSectionIndex = 0;
-
+const state = {
+    modalActive: false,
+    activeBp: null,
+    set(prop, value) {
+        this[prop] = value;
+    },
+    get(prop) {
+        return this[prop];
+    }
+};
 
 /**
  * Animations
  */
+function changeOverlayVisibility(opacity, duration = 1) {
+    return TweenMax.to(overlay, duration, { opacity });
+}
 
 function playShowModalVideoAnim() {
     return new Promise((resolve) => {
         new TimelineMax()
             .add(() => {
                 container.show();
+                changeOverlayVisibility(1, 0);
             })
             .fromTo(container, 1, { autoAlpha: 0 }, { autoAlpha: 1 })
             .addLabel('start')
-            .fromTo(overlay, 1, { opacity: 1 }, { opacity: 0.6 }, 'start')
+            .add(changeOverlayVisibility(0.7), 'start')
             .fromTo([muteBtn, closeBtn], 0.1, {
                 scale: 2,
                 opacity: 0
@@ -66,9 +82,8 @@ function playShowModalVideoAnim() {
 function playHideModalVideoAnim() {
     return new Promise((resolve) => {
         new TimelineMax()
-            .addLabel('start')
+            .add(changeOverlayVisibility(1, 0.3))
             .fromTo(container, 0.5, { autoAlpha: 1 }, { autoAlpha: 0 })
-            .fromTo(overlay, 0.5, { opacity: 0.6 }, { opacity: 1 }, 'start')
             .add(() => {
                 container.hide();
                 resolve();
@@ -77,11 +92,11 @@ function playHideModalVideoAnim() {
     });
 }
 
-function playOutAnimationForVideoSection(index) {
+function playOutAnimationForVideoSection(index, duration = 0.3) {
     return new Promise((resolve) => {
         const section = videoSections.eq(index);
 
-        TweenMax.to(section, 0.5, {
+        TweenMax.to(section, duration, {
             autoAlpha: 0,
             scale: 2,
             clearProps: 'all',
@@ -97,7 +112,7 @@ const playInAnimationForVideoSection = [
             const section = videoSections.eq(0);
 
             new TimelineMax()
-                .fromTo(section, 1, {
+                .fromTo(section, 0.5, {
                     autoAlpha: 0,
                     scale: 5
                 }, {
@@ -120,11 +135,11 @@ const playInAnimationForVideoSection = [
                     ease: Elastic.easeOut.config(1, 0.5)
                 })
                 .add(resolve)
-                .staggerTo(section.find('.icon-mouse__arrow'), 0.2, {
+                .staggerTo(section.find('.icon-mouse__arrow'), 0.3, {
                     opacity: 0,
-                    repeat: 3,
+                    repeat: 5,
                     yoyo: true
-                } , 0.1, '-=0.4');
+                } , 0.15, '-=0.4');
         });
     },
 
@@ -362,13 +377,15 @@ const playInAnimationForVideoSection = [
  * Initial actions
  */
 
-videoTrigger.on('click', showModalVideo);
-
-closeBtn.on('click', hideModalVideo);
-
-muteBtn.on('click', () => {
-    muteBtn.toggleClass('is-muted');
-    video.toggleSound();
+video.on(VIDEO_READY, () => {
+    console.info('Video ready');
+    progressbar.setupPoints(video.getBreakpoints());
+    videoTrigger.on('click', showModalVideo);
+    closeBtn.on('click', hideModalVideo);
+    muteBtn.on('click', () => {
+        muteBtn.toggleClass('is-muted');
+        video.toggleSound();
+    });
 });
 
 
@@ -376,20 +393,31 @@ muteBtn.on('click', () => {
  * Main video and progressbar actions
  */
 
-video.on(VIDEO_READY, () => {
-    progressbar.setupPoints(video.getBreakpoints());
-    video.goToBreakpoint(0);
-});
-
 video.on(VIDEO_PROGRESS, (e, progress) => {
     progressbar.setProgress(progress);
 });
 
 video.on(VIDEO_BREAKPOINT, (e, bpIndex) => {
-    console.log('breakpoint ' + bpIndex);
-    removeActivePoint();
-    setActivePoint(bpIndex);
-    video.one('play', removeActivePoint);
+    console.info('breakpoint ' + bpIndex);
+
+    const breakPointHandler = bpHandlers[bpIndex];
+
+    changeOverlayVisibility(0.7);
+    switchActivePoint(bpIndex);
+    switchVideoSection(bpIndex);
+
+    if (typeof breakPointHandler === 'function') {
+        breakPointHandler();
+    }
+
+    setTimeout(() => {
+        video.one('play', () => {
+            const bp = state.get('activeBp');
+            removeActivePoint();
+            changeOverlayVisibility(0);
+            hideVideoSection(bp, 1);
+        });
+    }, 0);
 });
 
 video.on('volumechange', () => {
@@ -403,7 +431,9 @@ progressbar.on(PROGRESSBAR_CLICK, (e, progress) => {
     }
 });
 
-progressbar.on(PROGRESSBAR_POINT_CLICK, switchVideoSection);
+progressbar.on(PROGRESSBAR_POINT_CLICK, (e, index, progress) => {
+    video.goToBreakpoint(index);
+});
 
 
 /**
@@ -413,16 +443,23 @@ progressbar.on(PROGRESSBAR_POINT_CLICK, switchVideoSection);
 function showModalVideo() {
     dispatcher.trigger(MODAL_BEFORE_OPEN);
     playShowModalVideoAnim()
-        .then(playInAnimationForVideoSection[0])
-        .then(() => console.log('done'));
+        .then(() => video.goToBreakpoint(0));
 }
 
 function hideModalVideo() {
+    const bp = state.get('activeBp');
+
     dispatcher.trigger(MODAL_BEFORE_CLOSE);
     video.pause();
-    playOutAnimationForVideoSection(activeVideoSectionIndex)
-        .then(playHideModalVideoAnim)
-        .then(resetVideoSectionsStyles);
+
+    if (bp !== null) {
+        hideVideoSection()
+            .then(playHideModalVideoAnim)
+            .then(resetVideoBlock);
+    } else {
+        playHideModalVideoAnim()
+            .then(resetVideoBlock);
+    }
 }
 
 function setActivePoint(index) {
@@ -433,17 +470,141 @@ function removeActivePoint() {
     pbPoints.filter('.is-active').removeClass('is-active');
 }
 
+function switchActivePoint(index) {
+    removeActivePoint();
+    setActivePoint(index);
+}
+
 function resetVideoSectionsStyles() {
     videoSections.each((i, el) => {
         $(el).attr('style', '');
     });
 }
 
-function switchVideoSection(e, index, progress) {
-    video.goToBreakpoint(index);
-    playOutAnimationForVideoSection(activeVideoSectionIndex)
-        .then(playInAnimationForVideoSection[index])
-        .then(() => {
-            activeVideoSectionIndex = index;
-        });
+function resetVideoBlock() {
+    resetVideoSectionsStyles();
+    removeActivePoint();
+    video.setProgress(0);
+    progressbar.setProgress(0);
 }
+
+function showVideoSection(index) {
+    const animate = playInAnimationForVideoSection[index];
+    state.set('activeBp', index);
+    if (typeof animate === 'function') {
+        return animate();
+    }
+}
+
+function hideVideoSection(index = state.get('activeBp'), duration) {
+    if (index === null) return;
+    state.set('activeBp', null);
+    return playOutAnimationForVideoSection(index, duration);
+}
+
+function switchVideoSection(index) {
+    const bpIndex = state.get('activeBp');
+
+    if (bpIndex === null) {
+        return showVideoSection(index);
+    }
+
+    return hideVideoSection(bpIndex)
+        .then(() => showVideoSection(index));
+}
+
+const bpHandlers = [
+    // bp 1 handler
+    () => {
+        const win = $(window);
+
+        win.on('wheel', wheelHandler);
+
+        function wheelHandler(e) {
+            if (getScrollDirection(e) === 'down') {
+                video.play();
+                win.off('wheel', wheelHandler);
+            }
+        }
+
+        dispatcher.one(MODAL_BEFORE_CLOSE, () => {
+            win.off('wheel', wheelHandler);
+        });
+    },
+
+    // bp 2 handler
+    () => {
+        videoSections.eq(1).find('.step-action-button').one('click', (e) => {
+            e.preventDefault();
+            video.play();
+        });
+    },
+
+    // bp 3 handler
+    () => {
+        const section = videoSections.eq(2);
+        const handle = section.find('.step-3__slider');
+        const text = section.find('.step-3__right .h5');
+        const root = $('body');
+
+        const targetDelta = 300;
+        let initPageX = null;
+        let currentDelta = 0;
+
+        handle.on('mousedown', onMouseDown);
+        handle.on('touchend', () => video.play());
+
+        function onMouseDown(e) {
+            initPageX = e.pageX;
+            root.addClass('is-dragging');
+
+            setTimeout(() => {
+                root.on('mousemove', onMouseMove);
+                root.one('mouseup', onMouseUp);
+            }, 0);
+        }
+
+        function onMouseMove(e) {
+            const delta = e.pageX - initPageX;
+            if (delta < 0) return;
+            const x = delta <= targetDelta ? delta : targetDelta;
+            TweenMax.set(handle, { x });
+            TweenMax.set(text, { x: x/3, opacity: 1 - percentage(x, targetDelta, 0)/100 });
+            currentDelta = x;
+        }
+
+        function onMouseUp() {
+            let timeout = 0;
+
+            initPageX = null;
+            root.removeClass('is-dragging');
+
+            if (currentDelta === targetDelta) {
+                video.play();
+                currentDelta = 0;
+                timeout = 1000;
+            }
+
+            setTimeout(() => {
+                TweenMax.set([handle, text], { x: 0, opacity: 1, clearProps: 'all' });
+            }, timeout);
+
+            setTimeout(() => {
+                root.off('mousemove', onMouseMove);
+            }, 0);
+        }
+    },
+
+    // bp 4 handler
+    () => {
+        videoSections.eq(3).find('.step-action-button').one('click', (e) => {
+            e.preventDefault();
+            video.play();
+        });
+    },
+
+    // bp 5 handler
+    () => {
+        video.play();
+    }
+];

@@ -10,7 +10,8 @@ const defaults = {
     breakpoints: [],
     startBreakpoint: true,
     endBreakpoint: true,
-    pauseOnBreakpoint: true
+    pauseOnBreakpoint: true,
+    fakeDuration: null
 };
 
 export default class Video {
@@ -22,6 +23,7 @@ export default class Video {
      * {boolean} options.startBreakpoint - use begin of video as breakpoint
      * {boolean} options.endBreakpoint - use end of video as breakpoint
      * {boolean} options.pauseOnBreakpoint - pause playback when reached breakpoint
+     * {boolean} options.fakeDuration - fake video duration, will used as endpoint of video
      */
     constructor(elId, options) {
         this.settings = $.extend({}, defaults, options);
@@ -60,7 +62,7 @@ export default class Video {
     }
 
     _setupBreakpoints() {
-        const { breakpoints, startBreakpoint, endBreakpoint } = this.settings;
+        const { breakpoints, startBreakpoint, endBreakpoint, fakeDuration } = this.settings;
         const bpAsPercents =  breakpoints.map(sec => this.getProgress(sec));
         let resPercent = [];
         let resSec = [];
@@ -75,7 +77,7 @@ export default class Video {
 
         if (endBreakpoint) {
             resPercent.push(100);
-            resSec.push(this.video.duration);
+            resSec.push(fakeDuration || this.video.duration);
         }
 
         this.breakpointsPercent = resPercent;
@@ -130,10 +132,11 @@ export default class Video {
 
     getProgress(time) {
         const { duration, currentTime} = this.video;
+        const { fakeDuration } = this.settings;
         if (time === undefined) {
             time = currentTime;
         }
-        return percentage(time, duration, 2);
+        return percentage(time, fakeDuration || duration, 2);
     }
 
     getProp(prop) {
@@ -144,6 +147,8 @@ export default class Video {
 
     setProgress(progress) {
         const { duration } = this.video;
+        const { fakeDuration } = this.settings;
+        const finalDuration = fakeDuration || duration;
         let newTime;
 
         if (typeof progress === 'string') { progress = parseFloat(progress, 10); }
@@ -155,10 +160,10 @@ export default class Video {
                 newTime = 0;
                 break;
             case 100:
-                newTime = duration;
+                newTime = finalDuration;
                 break;
             default:
-                newTime = Math.round((duration / 100 * progress) * 100) / 100;
+                newTime = Math.round((finalDuration / 100 * progress) * 100) / 100;
         }
 
         this.video.currentTime = newTime;

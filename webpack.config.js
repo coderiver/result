@@ -15,8 +15,8 @@ function createConfig(env) {
     webpackConfig = {
         context: path.join(__dirname, config.src.js),
         entry: {
-            // vendor: ['jquery'],
-            app: './app.js'
+            'main-page': './main-page.js',
+            'common-page': './common-page.js'
         },
         output: {
             path: path.join(__dirname, config.dest.js),
@@ -27,11 +27,11 @@ function createConfig(env) {
             ? '#source-map'
             : '#cheap-module-eval-source-map',
         plugins: [
-            // new webpack.optimize.CommonsChunkPlugin({
-            //     name: 'vendor',
-            //     filename: '[name].js',
-            //     minChunks: Infinity
-            // }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'common',
+                filename: '[name].js',
+                minChunks: 2
+            }),
             new webpack.NoErrorsPlugin()
         ],
         resolve: {

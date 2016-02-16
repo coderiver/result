@@ -55,6 +55,7 @@ export default class VideoProgressbar {
     }
 
     setProgress(progress) {
+        if (progress > 100) return;
         this.progressBar.css({
             width: `${progress}%`
         });

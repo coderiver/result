@@ -8,6 +8,10 @@ body
   +smooth-font
   min-width: $min-width
   color: black
+  &.is-dragging
+    *
+      user-select: none !important
+      cursor: grab !important
 
 h1:not([class]), .h1
   +f(36,42,100)
