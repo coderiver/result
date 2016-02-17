@@ -15,7 +15,6 @@ export default class VideoProgressbar {
         this.points = this.el.find(this.settings.pointSel);
 
         this._bindEvents();
-        console.log(this);
     }
 
     _bindEvents() {

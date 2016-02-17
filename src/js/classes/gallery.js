@@ -32,6 +32,17 @@ function getBgUrlString(obj) {
 }
 
 export default class Gallery {
+    static get defaults() {
+        return {
+            tileCount: 6,
+            speed: 1000,
+            arrows: false,
+            dots: false,
+            autoplay: false,
+            autoplaySpeed: 5000
+        };
+    }
+
     constructor(el, options) {
         this.el = (el instanceof $) ? el : $(el);
         this.settings = $.extend(true, {}, Gallery.defaults, options);
@@ -40,11 +51,14 @@ export default class Gallery {
         this._bindEvents();
         this._createTiles();
         this._updateTilesStyles();
-        console.log(this);
     }
 
     slickApiCall(...args) {
         return this.el.slick.apply(this.el, args);
+    }
+
+    getElement() {
+        return this.el;
     }
 
     _initSlickGallery() {
@@ -182,12 +196,3 @@ export default class Gallery {
             });
     }
 }
-
-Gallery.defaults = {
-    tileCount: 6,
-    speed: 1000,
-    arrows: false,
-    dots: false,
-    autoplay: false,
-    autoplaySpeed: 5000
-};

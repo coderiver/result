@@ -7,3 +7,5 @@ export const MODAL_BEFORE_OPEN = 'modal:beforeOpen';
 export const MODAL_AFTER_OPEN = 'modal:afterOpen';
 export const MODAL_BEFORE_CLOSE = 'modal:beforeClose';
 export const MODAL_AFTER_CLOSE = 'modal:beforeClose';
+export const MENU_BEFORE_OPEN = 'menu:beforeOpen';
+export const MENU_AFTER_CLOSE = 'menu:afterClose';

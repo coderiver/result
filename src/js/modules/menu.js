@@ -1,4 +1,7 @@
 import $ from 'jquery';
+import dispatcher from '../lib/dispatcher';
+import { MENU_BEFORE_OPEN, MENU_AFTER_CLOSE } from '../lib/actions';
+
 
 const $menu       = $('.menu');
 const $panel      = $menu.find('.menu__panel');
@@ -36,10 +39,12 @@ function toggleMenu() {
         opened = false;
         timeout = setTimeout(() => {
             $menu.removeClass(classes.active);
+            dispatcher.trigger(MENU_AFTER_CLOSE);
         }, openAnimationDuration);
         return;
     }
 
+    dispatcher.trigger(MENU_BEFORE_OPEN);
     $menu.addClass(classes.active).addClass(classes.animate);
     timeout = setTimeout(() => {
         $menu.addClass(classes.ready);

@@ -31,7 +31,6 @@ export default class Video {
         this.$video = $(this.video);
         this.currentBreakpoint = 0;
         this._bindEvents();
-        console.log(this);
     }
 
     _bindEvents() {
