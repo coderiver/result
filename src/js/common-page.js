@@ -1,7 +1,10 @@
 import $ from 'jquery';
-import './modules/menu';
-import initSelectPlugin from './plugins/select';
 import 'svgxuse';
+
+import './modules/menu';
+import './modules/calculator';
+
+import initSelectPlugin from './plugins/select';
 
 initSelectPlugin($);
 

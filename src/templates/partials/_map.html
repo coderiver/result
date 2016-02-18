@@ -5,8 +5,13 @@
   </div>
   <div class="map__container">
     <div class="map-select">
-      {{mixins.icon('tag')}}
-      <button class="map-select__current" type="button">Киев</button>
+      <button class="map-select__current" type="button">{{ mixins.icon('tag-o') }}{{ mixins.icon('tag') }} Киев</button>
+      <ul class="map-select__list">
+        <li class="map-select__item" data-value="Киев">{{ mixins.icon('tag') }} Киев</li>
+        <li class="map-select__item" data-value="Одесса">{{ mixins.icon('tag') }} Одесса</li>
+        <li class="map-select__item" data-value="Львов">{{ mixins.icon('tag') }} Львов</li>
+        <li class="map-select__item" data-value="Харьков">{{ mixins.icon('tag') }} Харьков</li>
+      </ul>
     </div>
     <div id="map"></div>
   </div>

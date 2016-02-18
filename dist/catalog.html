@@ -287,11 +287,31 @@
         </div>
         <div class="map__container">
           <div class="map-select">
-            <svg class="icon icon-tag">
+            <button class="map-select__current" type="button"><svg class="icon icon-tag-o">
+  <use xlink:href="img/sprite.svg#icon-tag-o"></use>
+</svg>
+<svg class="icon icon-tag">
   <use xlink:href="img/sprite.svg#icon-tag"></use>
 </svg>
-
-            <button class="map-select__current" type="button">Киев</button>
+ Киев</button>
+            <ul class="map-select__list">
+              <li class="map-select__item" data-value="Киев"><svg class="icon icon-tag">
+  <use xlink:href="img/sprite.svg#icon-tag"></use>
+</svg> Киев
+              </li>
+              <li class="map-select__item" data-value="Одесса"><svg class="icon icon-tag">
+  <use xlink:href="img/sprite.svg#icon-tag"></use>
+</svg> Одесса
+              </li>
+              <li class="map-select__item" data-value="Львов"><svg class="icon icon-tag">
+  <use xlink:href="img/sprite.svg#icon-tag"></use>
+</svg> Львов
+              </li>
+              <li class="map-select__item" data-value="Харьков"><svg class="icon icon-tag">
+  <use xlink:href="img/sprite.svg#icon-tag"></use>
+</svg> Харьков
+              </li>
+            </ul>
           </div>
           <div id="map"></div>
         </div>

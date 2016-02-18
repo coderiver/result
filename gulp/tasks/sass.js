@@ -23,8 +23,7 @@ gulp.task('sass', function() {
         .pipe(sass({
             outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
             precision: 5
-        }))
-        .on('error', config.errorHandler)
+        }).on('error', config.errorHandler))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest.css));
