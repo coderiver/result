@@ -46,9 +46,28 @@ const state = {
     }
 };
 
+
+/**
+ * Init
+ */
+
+video.on(VIDEO_READY, () => {
+    console.info('Video ready');
+    _bindEvents();
+    progressbar.setupPoints(video.getBreakpoints());
+    dispatcher.trigger(VIDEO_READY);
+    videoTrigger.trigger('click');
+});
+
+// start preloading video
+video.setProp('preload', true);
+
+
+
 /**
  * Animations
  */
+
 function changeOverlayVisibility(opacity, duration = 1) {
     return TweenMax.to(overlay, duration, { opacity });
 }
@@ -373,77 +392,78 @@ const playInAnimationForVideoSection = [
 ];
 
 
-/**
- * Initial actions
- */
-
-video.on(VIDEO_READY, () => {
-    console.info('Video ready');
-    progressbar.setupPoints(video.getBreakpoints());
-    videoTrigger.on('click', showModalVideo);
-    closeBtn.on('click', hideModalVideo);
-    muteBtn.on('click', () => {
-        muteBtn.toggleClass('is-muted');
-        video.toggleSound();
-    });
-});
-
-
-/**
- * Main video and progressbar actions
- */
-
-video.on(VIDEO_PROGRESS, (e, progress) => {
-    progressbar.setProgress(progress);
-});
-
-video.on(VIDEO_BREAKPOINT, (e, bpIndex) => {
-    console.info('breakpoint ' + bpIndex);
-
-    const breakPointHandler = bpHandlers[bpIndex];
-
-    changeOverlayVisibility(0.7);
-    switchActivePoint(bpIndex);
-    switchVideoSection(bpIndex);
-
-    if (typeof breakPointHandler === 'function') {
-        breakPointHandler();
-    }
-
-    setTimeout(() => {
-        video.one('play', () => {
-            const bp = state.get('activeBp');
-            removeActivePoint();
-            changeOverlayVisibility(0);
-            hideVideoSection(bp, 1);
-        });
-    }, 0);
-});
-
-video.on('volumechange', () => {
-    console.log('change volume');
-});
-
-progressbar.on(PROGRESSBAR_CLICK, (e, progress) => {
-    video.setProgress(progress);
-    if (video.getProp('paused')) {
-        video.play();
-    }
-});
-
-progressbar.on(PROGRESSBAR_POINT_CLICK, (e, index, progress) => {
-    video.goToBreakpoint(index);
-});
-
 
 /**
  * Functions
  */
 
+function _bindEvents() {
+    /**
+     * Initial actions
+     */
+
+    videoTrigger.on('click', showModalVideo);
+
+    closeBtn.on('click', hideModalVideo);
+
+    muteBtn.on('click', () => {
+        muteBtn.toggleClass('is-muted');
+        video.toggleSound();
+    });
+
+    /**
+     * Main video and progressbar actions
+     */
+
+    video.on(VIDEO_BREAKPOINT, (e, bpIndex) => {
+        console.info('breakpoint ' + bpIndex);
+
+        const breakPointHandler = bpHandlers[bpIndex];
+
+        changeOverlayVisibility(0.7);
+        switchActivePoint(bpIndex);
+        switchVideoSection(bpIndex);
+
+        if (typeof breakPointHandler === 'function') {
+            breakPointHandler();
+        }
+
+        setTimeout(() => {
+            video.one('play', () => {
+                const bp = state.get('activeBp');
+                removeActivePoint();
+                changeOverlayVisibility(0);
+                hideVideoSection(bp, 1);
+            });
+        }, 0);
+    });
+
+    video.on(VIDEO_PROGRESS, (e, progress) => {
+        progressbar.setProgress(progress);
+    });
+
+    video.on('volumechange', () => {
+        console.log('change volume');
+    });
+
+
+    progressbar.on(PROGRESSBAR_CLICK, (e, progress) => {
+        video.setProgress(progress);
+        if (video.getProp('paused')) {
+            video.play();
+        }
+    });
+
+    progressbar.on(PROGRESSBAR_POINT_CLICK, (e, index) => {
+        video.goToBreakpoint(index);
+    });
+}
+
 function showModalVideo() {
     dispatcher.trigger(MODAL_BEFORE_OPEN);
     playShowModalVideoAnim()
-        .then(() => video.goToBreakpoint(0));
+        .then(() => video.goToBreakpoint(0))
+        .catch(err => console.error(err));
 }
 
 function hideModalVideo() {

@@ -1852,6 +1852,10 @@ a:not([class]):hover {
   font-size: 1.6rem;
 }
 
+.hero__logo {
+  cursor: pointer;
+}
+
 .hero__logo .icon {
   font-size: 212px;
   font-size: 21.2rem;

@@ -21,8 +21,6 @@ import noUiSlider from 'nouislider';
     let space                = slider.data('init') || initialValue;
     let timeout              = null;
 
-    console.log(slider.data());
-
     const { min, max, init } = slider.data();
 
     noUiSlider.create(slider[0], {

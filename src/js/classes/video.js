@@ -29,6 +29,8 @@ export default class Video {
         this.settings = $.extend({}, defaults, options);
         this.video = document.getElementById(elId);
         this.$video = $(this.video);
+        this.breakpointsPercent = [];
+        this.breakpointsSec = [];
         this.currentBreakpoint = 0;
         this._bindEvents();
     }
@@ -141,6 +143,12 @@ export default class Video {
     getProp(prop) {
         if (typeof prop === 'string') {
             return this.video[prop];
+        }
+    }
+
+    setProp(prop, value) {
+        if (typeof prop === 'string') {
+            this.video[prop] = value;
         }
     }
 

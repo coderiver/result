@@ -54,7 +54,7 @@ export default class Gallery {
     }
 
     slickApiCall(...args) {
-        return this.el.slick.apply(this.el, args);
+        return this.el.slick(...args);
     }
 
     getElement() {
