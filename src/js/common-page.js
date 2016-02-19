@@ -1,3 +1,4 @@
+/*global TweenMax*/
 import $ from 'jquery';
 import 'svgxuse';
 import 'gsap';
@@ -14,6 +15,26 @@ $('.select').select();
 
 (() => {
 
+    const mapLocationSelect = $('.map-select');
+
+    if (!mapLocationSelect.length) return;
+
+    mapLocationSelect.select({
+        selectors: {
+            button: '.map-select__current span',
+            option: '.map-select__item'
+        }
+    });
+
+    mapLocationSelect.on('change', (e, val) => {
+        console.log(val);
+    });
+
+})();
+
+
+(() => {
+
     /**
      * Parallax for logotype on red background
      */
@@ -21,7 +42,6 @@ $('.select').select();
     const redLine = $('.v-line');
 
     if (!redLine.length) return;
-    console.log('parallax active');
 
     const controller    = new ScrollMagic.Controller({ container: 'body' });
     const logotype      = redLine.find('.logotype-full');

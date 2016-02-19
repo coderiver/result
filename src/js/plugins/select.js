@@ -12,7 +12,7 @@ function initSelectPlugin($) {
     class Select {
         constructor(el, settings) {
             this.settings = $.extend(true, {}, defaults, settings);
-            const { button, list, option } = this.settings.selectors;
+            const { button, option } = this.settings.selectors;
 
             this.el = (el instanceof $) ? el : $(el);
             this.button = this.el.find(button);
@@ -63,7 +63,7 @@ function initSelectPlugin($) {
 
             if (selected === null || !selected.length) return;
 
-            const text = selected.text();
+            const text = selected.text().trim();
             const value = selected.data('value');
 
             this.button.text(text);

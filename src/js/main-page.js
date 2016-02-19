@@ -138,3 +138,22 @@ dispatcher.on(MODAL_AFTER_CLOSE, () => {
     }
 
 })();
+
+(() => {
+
+    const mapLocationSelect = $('.map-select');
+
+    if (!mapLocationSelect.length) return;
+
+    mapLocationSelect.select({
+        selectors: {
+            button: '.map-select__current span',
+            option: '.map-select__item'
+        }
+    });
+
+    mapLocationSelect.on('change', (e, val) => {
+        console.log(val);
+    });
+
+})();
