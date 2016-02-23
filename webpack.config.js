@@ -21,7 +21,7 @@ function createConfig(env) {
         output: {
             path: path.join(__dirname, config.dest.js),
             filename: '[name].js',
-            publicPath: 'js/'
+            publicPath: isProduction ? '/wp-content/themes/rezult/js/' : 'js/'
         },
         devtool: isProduction
             ? '#source-map'

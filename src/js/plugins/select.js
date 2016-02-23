@@ -68,7 +68,7 @@ function initSelectPlugin($) {
 
             this.button.text(text);
             this.el.attr('title', text);
-            this.el.attr('data-value', value);
+            this.el.attr('data-value', (typeof value === 'object') ? JSON.stringify(value) : value);
 
             if (!silent) this.el.trigger('change', [value, text]);
         }
