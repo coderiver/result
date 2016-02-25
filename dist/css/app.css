@@ -4244,6 +4244,7 @@ a:not([class]):hover {
 
 .toparea {
   position: relative;
+  z-index: 0;
   height: 600px;
   height: 80vh;
   box-sizing: border-box;

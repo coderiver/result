@@ -16,12 +16,12 @@ import noUiSlider from 'nouislider';
     const reserve            = container.find('input[name="reserve"]');
 
     const initialValue       = 24;
-    const CAPACITY           = 1.75;
+    const CAPACITY           = container.find('input[name="capacity"]').val() || 1.75;
+    const { min, max, init } = slider.data();
 
-    let space                = slider.data('init') || initialValue;
+    let space                = init || initialValue;
     let timeout              = null;
 
-    const { min, max, init } = slider.data();
 
     noUiSlider.create(slider[0], {
         start: init || initialValue,
