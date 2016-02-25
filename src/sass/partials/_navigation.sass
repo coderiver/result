@@ -3,7 +3,7 @@
   z-index: 9
   top: 0
   right: 0
-  color: white
+  color: $color-black
   padding: 34px 40px 0 40px
   +f(14)
   font-weight: 700
@@ -12,6 +12,8 @@
   a
     &:not(:first-child)
       margin-left: 25px
+  .top-line-cc &
+    color: white
 
 .language
   position: fixed
@@ -20,17 +22,21 @@
   right: 5px
   +f(10)
   font-weight: 700
-  color: white
+  color: $color-black
   height: em(150,10)
   margin-top: em(-75,10)
   width: em(15,10)
   text-align: center
+  .middle-line-cc &
+    color: white
   .menu-open &
     color: black
     z-index: 12
     .language__link
       &:after
         color: red
+  .no-js &
+    color: white
 
 .language__inner
   position: absolute
@@ -199,6 +205,8 @@
     .menu__tile
       opacity: 1
       transform: scale(1)
+    .menu-button:not(:hover)
+      color: $color-red
   .menu.is-active &
     color: black
     &:hover
@@ -210,12 +218,14 @@
   left: 37px
   font-size: 0
   margin: -12px -2px -3px 0
-  color: inherit
+  color: $color-black
   width: 28px
   box-sizing: border-box
   background: none
   +trans(color)
   +clr
+  &:hover
+    color: $color-red
   &.is-active
     .menu-button__piece
       &:nth-child(1),
@@ -229,6 +239,14 @@
         transform: translateY(-2px) rotate(-45deg) scaleX(1.77)
       &:nth-child(6)
         transform: translateY(2px) rotate(45deg) scaleX(1.77)
+  .middle-line-cc &
+    &:not(:hover)
+      color: white
+  .menu-open &
+    &:not(:hover)
+      color: $color-black
+  .no-js &
+    color: white
 
 .menu-button__piece
   float: left
@@ -257,6 +275,7 @@
   left: 32px
   height: 36px
   font-size: 0
+  color: $color-red
   .icon
     position: absolute
     top: 0
@@ -277,6 +296,8 @@
       transform: translateX(-122px)
       opacity: 1
       visibility: visible
+  .top-line-cc &:not(:hover)
+    color: white
   .menu.is-active &
     color: $color-red
   .menu.is-animate &

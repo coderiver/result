@@ -1903,7 +1903,7 @@ a:not([class]):hover {
   z-index: 9;
   top: 0;
   right: 0;
-  color: white;
+  color: #191919;
   padding: 34px 40px 0 40px;
   font-size: 14px;
   font-size: 1.4rem;
@@ -1916,6 +1916,10 @@ a:not([class]):hover {
   margin-left: 25px;
 }
 
+.top-line-cc .nav-links {
+  color: white;
+}
+
 .language {
   position: fixed;
   z-index: 9;
@@ -1924,11 +1928,15 @@ a:not([class]):hover {
   font-size: 10px;
   font-size: 1rem;
   font-weight: 700;
-  color: white;
+  color: #191919;
   height: 15em;
   margin-top: -7.5em;
   width: 1.5em;
   text-align: center;
+}
+
+.middle-line-cc .language {
+  color: white;
 }
 
 .menu-open .language {
@@ -1938,6 +1946,10 @@ a:not([class]):hover {
 
 .menu-open .language .language__link:after {
   color: red;
+}
+
+.no-js .language {
+  color: white;
 }
 
 .language__inner {
@@ -2294,6 +2306,10 @@ a:not([class]):hover {
   transform: scale(1);
 }
 
+.menu__panel:hover .menu-button:not(:hover) {
+  color: #EB2024;
+}
+
 .menu.is-active .menu__panel {
   color: black;
 }
@@ -2308,7 +2324,7 @@ a:not([class]):hover {
   left: 37px;
   font-size: 0;
   margin: -12px -2px -3px 0;
-  color: inherit;
+  color: #191919;
   width: 28px;
   box-sizing: border-box;
   background: none;
@@ -2320,6 +2336,10 @@ a:not([class]):hover {
   content: " ";
   display: table;
   clear: both;
+}
+
+.menu-button:hover {
+  color: #EB2024;
 }
 
 .menu-button.is-active .menu-button__piece:nth-child(1), .menu-button.is-active .menu-button__piece:nth-child(3), .menu-button.is-active .menu-button__piece:nth-child(5) {
@@ -2347,6 +2367,18 @@ a:not([class]):hover {
   -webkit-transform: translateY(2px) rotate(45deg) scaleX(1.77);
   -ms-transform: translateY(2px) rotate(45deg) scaleX(1.77);
   transform: translateY(2px) rotate(45deg) scaleX(1.77);
+}
+
+.middle-line-cc .menu-button:not(:hover) {
+  color: white;
+}
+
+.menu-open .menu-button:not(:hover) {
+  color: #191919;
+}
+
+.no-js .menu-button {
+  color: white;
 }
 
 .menu-button__piece {
@@ -2394,6 +2426,7 @@ a:not([class]):hover {
   left: 32px;
   height: 36px;
   font-size: 0;
+  color: #EB2024;
 }
 
 .menu-logo .icon {
@@ -2465,6 +2498,10 @@ a:not([class]):hover {
   transform: translateX(-122px);
   opacity: 1;
   visibility: visible;
+}
+
+.top-line-cc .menu-logo:not(:hover) {
+  color: white;
 }
 
 .menu.is-active .menu-logo {
@@ -3162,8 +3199,8 @@ a:not([class]):hover {
   position: absolute;
   z-index: 1;
   bottom: 30px;
-  left: 83px;
-  right: 83px;
+  left: 110px;
+  right: 110px;
   height: 2px;
   padding: 2px 0;
   box-sizing: content-box;

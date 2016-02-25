@@ -5,6 +5,7 @@ import 'svgxuse';
 
 import './modules/menu';
 import './modules/tab-gallery';
+import navColorChange from './plugins/nav-color-change';
 
 import initSelectPlugin from './plugins/select';
 import Gallery from './classes/gallery';
@@ -21,6 +22,8 @@ const logotype = $('.parallax-logotype');
 
 initSelectPlugin($);
 $('.select').select();
+
+navColorChange(controller);
 
 
 // Download video module on demand
@@ -121,7 +124,6 @@ dispatcher.on(MODAL_AFTER_CLOSE, () => {
     });
 
     function scrollBodyTo(pos) {
-        console.log('call scroll');
         const scroll = { y: $(window).scrollTop() };
 
         if (pos < scroll.y) return;
@@ -157,3 +159,5 @@ dispatcher.on(MODAL_AFTER_CLOSE, () => {
     });
 
 })();
+
+$('html').removeClass('no-js');

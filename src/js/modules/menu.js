@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import dispatcher from '../lib/dispatcher';
+import { disableScroll, enableScroll } from '../lib/util';
 import { MENU_BEFORE_OPEN, MENU_AFTER_CLOSE } from '../lib/actions';
 
 
@@ -39,12 +40,14 @@ function toggleMenu() {
         opened = false;
         timeout = setTimeout(() => {
             $menu.removeClass(classes.active);
+            enableScroll();
             dispatcher.trigger(MENU_AFTER_CLOSE);
         }, openAnimationDuration);
         return;
     }
 
     dispatcher.trigger(MENU_BEFORE_OPEN);
+    disableScroll();
     $menu.addClass(classes.active).addClass(classes.animate);
     timeout = setTimeout(() => {
         $menu.addClass(classes.ready);

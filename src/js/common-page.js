@@ -8,9 +8,12 @@ import './modules/menu';
 import './modules/calculator';
 
 import initSelectPlugin from './plugins/select';
+import navColorChange from './plugins/nav-color-change';
 
 initSelectPlugin($);
 $('.select').select();
+
+navColorChange();
 
 
 (() => {
@@ -61,3 +64,5 @@ $('.select').select();
     }).addTo(controller);
 
 })();
+
+$('html').removeClass('no-js');
