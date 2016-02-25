@@ -5,8 +5,9 @@ import 'svgxuse';
 
 import './modules/menu';
 import './modules/tab-gallery';
-import navColorChange from './plugins/nav-color-change';
+import './modules/footer-map';
 
+import navColorChange from './plugins/nav-color-change';
 import initSelectPlugin from './plugins/select';
 import Gallery from './classes/gallery';
 
@@ -138,25 +139,6 @@ dispatcher.on(MODAL_AFTER_CLOSE, () => {
             onComplete: enableScroll
         });
     }
-
-})();
-
-(() => {
-
-    const mapLocationSelect = $('.map-select');
-
-    if (!mapLocationSelect.length) return;
-
-    mapLocationSelect.select({
-        selectors: {
-            button: '.map-select__current span',
-            option: '.map-select__item'
-        }
-    });
-
-    mapLocationSelect.on('change', (e, val) => {
-        console.log(val);
-    });
 
 })();
 

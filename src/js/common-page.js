@@ -7,6 +7,7 @@ import ScrollMagic from 'scrollmagic';
 
 import './modules/menu';
 import './modules/calculator';
+import './modules/footer-map';
 
 import initSelectPlugin from './plugins/select';
 import navColorChange from './plugins/nav-color-change';
@@ -16,27 +17,6 @@ initSelectPlugin($);
 $('.select').select();
 
 navColorChange();
-
-
-(() => {
-
-    const mapLocationSelect = $('.map-select');
-
-    if (!mapLocationSelect.length) return;
-
-    mapLocationSelect.select({
-        selectors: {
-            button: '.map-select__current span',
-            option: '.map-select__item'
-        }
-    });
-
-    mapLocationSelect.on('change', (e, val) => {
-        console.log(val);
-    });
-
-})();
-
 
 (() => {
 
@@ -99,5 +79,13 @@ navColorChange();
     });
 
 })();
+
+//(() => {
+//
+//    /**
+//     * Filtration on where to buy page
+//     */
+//
+//})();
 
 $('html').removeClass('no-js');
