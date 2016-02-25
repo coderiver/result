@@ -4,7 +4,7 @@
   <head>
     {% include "./_head.html" %}
   </head>
-  <body>
+  <body{% if BODY_CLASS %} class="{{ BODY_CLASS }}"{% endif %}>
 
     <!-- BEGIN content -->
     {% block content %}{% endblock %}

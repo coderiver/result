@@ -734,7 +734,8 @@ a:not([class]):hover {
 }
 
 .btn_select.is-selected:before {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .tooltip {
@@ -1920,6 +1921,18 @@ a:not([class]):hover {
   color: white;
 }
 
+.has-red-line .nav-links {
+  color: white;
+}
+
+.has-red-line .nav-links a:hover {
+  color: #191919;
+}
+
+.has-red-line.top-line-cc .nav-links a:hover {
+  color: red;
+}
+
 .language {
   position: fixed;
   z-index: 9;
@@ -1948,8 +1961,16 @@ a:not([class]):hover {
   color: red;
 }
 
-.no-js .language {
+.has-red-line .language {
   color: white;
+}
+
+.has-red-line .language a:hover {
+  color: #191919;
+}
+
+.has-red-line.middle-line-cc .language a:hover {
+  color: red;
 }
 
 .language__inner {
@@ -2306,7 +2327,8 @@ a:not([class]):hover {
   transform: scale(1);
 }
 
-.menu__panel:hover .menu-button:not(:hover) {
+.menu__panel:hover .menu-button:not(:hover),
+.menu__panel:hover .menu-logo:not(:hover) {
   color: #EB2024;
 }
 
@@ -2375,10 +2397,6 @@ a:not([class]):hover {
 
 .menu-open .menu-button:not(:hover) {
   color: #191919;
-}
-
-.no-js .menu-button {
-  color: white;
 }
 
 .menu-button__piece {
@@ -2514,6 +2532,13 @@ a:not([class]):hover {
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
+}
+
+.no-js .has-toparea .menu-logo,
+.no-js .has-toparea .menu-button,
+.no-js .has-toparea .language,
+.no-js .has-toparea .nav-links {
+  color: white;
 }
 
 .modal-video {
@@ -4218,13 +4243,19 @@ a:not([class]):hover {
 }
 
 .toparea {
-  height: 700px;
+  position: relative;
+  height: 600px;
+  height: 80vh;
   box-sizing: border-box;
   padding-top: 23px;
-  background: url("../img/toparea.jpg") no-repeat center;
-  background-size: cover;
   color: white;
   text-align: center;
+}
+
+.toparea .l {
+  position: relative;
+  z-index: 1;
+  height: 100%;
 }
 
 .toparea .btn {
@@ -4257,6 +4288,15 @@ a:not([class]):hover {
   letter-spacing: 0.1em;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.toparea-gallery {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .group-title {

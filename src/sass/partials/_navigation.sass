@@ -14,6 +14,13 @@
       margin-left: 25px
   .top-line-cc &
     color: white
+  .has-red-line &
+    color: white
+    a:hover
+      color: $color-black
+  .has-red-line.top-line-cc &
+    a:hover
+      color: red
 
 .language
   position: fixed
@@ -35,8 +42,13 @@
     .language__link
       &:after
         color: red
-  .no-js &
+  .has-red-line &
     color: white
+    a:hover
+      color: $color-black
+  .has-red-line.middle-line-cc &
+    a:hover
+      color: red
 
 .language__inner
   position: absolute
@@ -205,7 +217,8 @@
     .menu__tile
       opacity: 1
       transform: scale(1)
-    .menu-button:not(:hover)
+    .menu-button:not(:hover),
+    .menu-logo:not(:hover)
       color: $color-red
   .menu.is-active &
     color: black
@@ -245,8 +258,6 @@
   .menu-open &
     &:not(:hover)
       color: $color-black
-  .no-js &
-    color: white
 
 .menu-button__piece
   float: left
@@ -305,3 +316,10 @@
       transform: translateX(0)
       opacity: 1
       visibility: visible
+
+.no-js .has-toparea
+  .menu-logo,
+  .menu-button,
+  .language,
+  .nav-links
+    color: white
