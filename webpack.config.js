@@ -16,7 +16,8 @@ function createConfig(env) {
         context: path.join(__dirname, config.src.js),
         entry: {
             'main-page': './main-page.js',
-            'common-page': './common-page.js'
+            'common-page': './common-page.js',
+            'where-to-buy-page': './where-to-buy-page.js'
         },
         output: {
             path: path.join(__dirname, config.dest.js),
@@ -43,6 +44,11 @@ function createConfig(env) {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     loader: 'babel'
+                },
+                {
+                    test: /\.(nunj|nunjucks)$/,
+                    include: __dirname + '/src',
+                    loader: 'nunjucks'
                 }
             ]
         }

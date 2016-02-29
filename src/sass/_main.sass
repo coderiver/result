@@ -451,6 +451,19 @@
   .select
     margin-top: 10px
 
+.contacts-list
+  height: calc(100vh - 275px)
+  overflow: hidden
+  margin-bottom: -80px
+  position: relative
+  +smooth-scroll
+  +scrollbar
+    width: 2px
+    background: white
+  +scrollbar-thumb
+    width: 2px
+    background: $color-red
+
 .contacts-item
   +clr
   &_hover

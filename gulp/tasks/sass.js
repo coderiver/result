@@ -22,7 +22,8 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
-            precision: 5
+            precision: 5,
+            includePaths: ['node_modules']
         }).on('error', config.errorHandler))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('./'))

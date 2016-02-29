@@ -1,7 +1,7 @@
 ---
 title: Where to buy
 SCRIPTS:
-  - common-page
+  - where-to-buy-page
 
 shops:
   - name: Новая линия на Троещине
@@ -102,25 +102,27 @@ shops:
           </div>
         </div>
 
-        {% for shop in shops %}
-          <div class="contacts-item contact contact_action">
-            <div class="contacts-item__inner">
-              <strong class="contact__title">{{shop.name}}</strong>
-              <p>{{shop.address}}</p>
-              <p><strong><em>{{shop.time}}</em></strong></p>
-              {% for phone in shop.phones %}
-                <dl>
-                  <dt>{{phone.label}}:</dt>
-                  <dd><a href="tel:{{phone.number | replace(' ', '') | replace('-', '')}}">{{phone.number}}</a></dd>
-                </dl>
-              {% endfor %}
+        <div class="contacts-list">
+          {% for shop in shops %}
+            <div class="contacts-item contact contact_action">
+              <div class="contacts-item__inner">
+                <strong class="contact__title">{{shop.name}}</strong>
+                <p>{{shop.address}}</p>
+                <p><strong><em>{{shop.time}}</em></strong></p>
+                {% for phone in shop.phones %}
+                  <dl>
+                    <dt>{{phone.label}}:</dt>
+                    <dd><a href="tel:{{phone.number | replace(' ', '') | replace('-', '')}}">{{phone.number}}</a></dd>
+                  </dl>
+                {% endfor %}
+              </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
 
       <div class="contacts__right">
-        <div id="contacts-map" style="background: url('img/contacts-map.jpg'); background-size: cover;"></div>
+        <div id="contacts-map"></div>
       </div>
     </div>
   </div>

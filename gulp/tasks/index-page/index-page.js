@@ -1,25 +1,24 @@
-'use strict';
-const gulp        = require('gulp');
-const consolidate = require('gulp-consolidate');
-const fs          = require('fs');
-const path        = require('path');
-const config      = require('../../config');
-const allowExt    = ['.html', '.jade'];
+var gulp        = require('gulp');
+var consolidate = require('gulp-consolidate');
+var fs          = require('fs');
+var path        = require('path');
+var config      = require('../../config');
+var allowExt    = ['.html', '.jade'];
 
-gulp.task('index-page', function(cb) {
-    const fullList = fs.readdirSync(config.src.templates);
-    const pages = fullList.reduce((acc, val) => {
-        const parsed = path.parse(val);
-        const name = parsed.name;
-        const ext = parsed.ext;
+gulp.task('index-page', function() {
+    var fullList = fs.readdirSync(config.src.templates);
+    var pages = fullList.reduce((acc, val) => {
+        var parsed = path.parse(val);
+        var name = parsed.name;
+        var ext = parsed.ext;
         if (~allowExt.indexOf(ext)) {
-            return acc.concat(`${name}.html`);
+            return acc.concat(name + '.html');
         }
         return acc;
     }, []);
 
     return gulp
-        .src(`${__dirname}/__index.html`)
+        .src(__dirname + '/__index.html')
         .pipe(consolidate('lodash', {
             pages: pages
         }))

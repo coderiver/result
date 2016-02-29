@@ -89,6 +89,50 @@ table { border-spacing: 0; border-collapse: collapse; width: 100%; }
 
 .icon-wood { width: 0.78em; height: 1em; fill: #4A4A4A; stroke: initial; }
 
+.ps-container { -ms-touch-action: none; touch-action: none; overflow: hidden !important; -ms-overflow-style: none; }
+
+@supports (-ms-overflow-style: none) { .ps-container { overflow: auto !important; } }
+
+.ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail { display: block; background-color: transparent; }
+
+.ps-container.ps-in-scrolling { pointer-events: none; }
+
+.ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail { background-color: #eee; opacity: 0.9; }
+
+.ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x { background-color: #999; }
+
+.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail { background-color: #eee; opacity: 0.9; }
+
+.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y { background-color: #999; }
+
+.ps-container > .ps-scrollbar-x-rail { display: none; position: absolute; /* please don't change 'position' */ border-radius: 4px; opacity: 0; transition: background-color .2s linear, opacity .2s linear; bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x-rail */ height: 8px; }
+
+.ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x { position: absolute; /* please don't change 'position' */ background-color: #aaa; border-radius: 4px; transition: background-color .2s linear; bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */ height: 8px; }
+
+.ps-container > .ps-scrollbar-y-rail { display: none; position: absolute; /* please don't change 'position' */ border-radius: 4px; opacity: 0; transition: background-color .2s linear, opacity .2s linear; right: 3px; /* there must be 'right' for ps-scrollbar-y-rail */ width: 8px; }
+
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y { position: absolute; /* please don't change 'position' */ background-color: #aaa; border-radius: 4px; transition: background-color .2s linear; right: 0; /* there must be 'right' for ps-scrollbar-y */ width: 8px; }
+
+.ps-container:hover.ps-in-scrolling { pointer-events: none; }
+
+.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail { background-color: #eee; opacity: 0.9; }
+
+.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x { background-color: #999; }
+
+.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail { background-color: #eee; opacity: 0.9; }
+
+.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y { background-color: #999; }
+
+.ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail { opacity: 0.6; }
+
+.ps-container:hover > .ps-scrollbar-x-rail:hover { background-color: #eee; opacity: 0.9; }
+
+.ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x { background-color: #999; }
+
+.ps-container:hover > .ps-scrollbar-y-rail:hover { background-color: #eee; opacity: 0.9; }
+
+.ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y { background-color: #999; }
+
 /* Slider */
 .slick-slider { position: relative; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
 
@@ -1343,6 +1387,12 @@ a:not([class]):hover { color: red; }
 
 .contatcs__section-head .select { margin-top: 10px; }
 
+.contacts-list { height: calc(100vh - 275px); overflow: hidden; margin-bottom: -80px; position: relative; -webkit-overflow-scrolling: touch; }
+
+.contacts-list::-webkit-scrollbar { width: 2px; background: white; }
+
+.contacts-list::-webkit-scrollbar-thumb { width: 2px; background: #EB2024; }
+
 .contacts-item { *zoom: 1; }
 
 .contacts-item:after { content: " "; display: table; clear: both; }
@@ -1391,5 +1441,8 @@ a:not([class]):hover { color: red; }
 
 @media only screen and (max-width: 1300px) {
  .l-catalog-item-aside .calc { margin-left: 0; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+ .ps-container { overflow: auto !important; } }
 
 /*# sourceMappingURL=app.css.map */

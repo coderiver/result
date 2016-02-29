@@ -1,0 +1,19 @@
+{% for shop in shops %}
+  <div class="contacts-item contact contact_action" data-id="{{ shop.id }}">
+    <div class="contacts-item__inner">
+      <strong class="contact__title">{{ shop.name }}</strong>
+      <p>{{ shop.postal_code + ', ' if shop.postal_code else '' }}{{ shop.city }}, {{ shop.street }}</p>
+      <p><strong><em>{{ shop.work_time }}</em></strong></p>
+      {#{% for phone in shop.phones %}#}
+        {#<dl>#}
+          {#<dt>{{phone.label}}:</dt>#}
+          {#<dd><a href="tel:{{phone.number | replace(' ', '') | replace('-', '')}}">{{phone.number}}</a></dd>#}
+        {#</dl>#}
+      {#{% endfor %}#}
+      <dl>
+        <dt>Phone label:</dt>
+        <dd><a href="tel:{{ shop.phone }}">{{ shop.phone }}</a></dd>
+      </dl>
+    </div>
+  </div>
+{% endfor %}
