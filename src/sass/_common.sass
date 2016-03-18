@@ -241,6 +241,10 @@ a:not([class])
         opacity: 0
         visibility: hidden
 
+  &_semi
+    &:not(:hover)
+      opacity: 0.5
+
 
 .tooltip
   display: block
@@ -365,6 +369,9 @@ a:not([class])
   display: block
   +f(36,42)
   font-weight: 700
+  .h4
+    display: inline-block
+    line-height: 1.16
 
 .tile__subtitle
   display: block
@@ -426,7 +433,7 @@ a:not([class])
 .select
   display: inline-block
   position: relative
-  z-index: 1
+  z-index: 2
   max-width: 230px
   text-align: left
   user-select: none
@@ -462,6 +469,8 @@ a:not([class])
       pointer-events: none
       &:after
         border-color: currentColor
+  &_fw
+    max-width: none
 
 .select__button
   display: block
@@ -529,7 +538,7 @@ a:not([class])
     content: ""
     position: absolute
     top: 50%
-    right: 20px
+    right: 15px
     margin-top: -2px
     +arr(5,6,currentColor,l)
     +trans
@@ -630,6 +639,11 @@ a:not([class])
   p
     margin: 1em 0
 
+%table-label
+  +f(14,24)
+  font-style: italic
+  font-weight: normal
+  color: $color-label
 
 .table
   table-layout: fixed
@@ -637,14 +651,48 @@ a:not([class])
   font-weight: 700
   td
     padding: 20px 0 0
+  th
+    @extend %table-label
   tr
     &:first-child
       td
         padding-top: 0
+
   &_features
     margin-top: 70px
     width: auto
     min-width: 410px
+
+  &_striped
+    width: calc(100% + 30px)
+    margin-left: -30px
+    margin-top: 70px
+    text-align: right
+    line-height: 1.2
+    .table__caption
+      padding-left: 30px
+      &:before
+        left: 0
+    td, th
+      padding: 8px 5px
+      &:first-child
+        text-align: left
+        padding-left: 30px
+      &:last-child
+        padding-right: 30px
+    th
+      padding-top: 0
+      padding-bottom: 12px
+    tr
+      &:nth-child(odd)
+        td
+          background: white
+          padding-top: 8px
+          padding-bottom: 8px
+      &:nth-child(even)
+        td
+          padding-top: 12px
+          padding-bottom: 12px
 
 .table__caption
   position: relative
@@ -665,11 +713,8 @@ a:not([class])
 
 
 .table__label
+  @extend %table-label
   display: block
-  +f(14,24)
-  font-style: italic
-  font-weight: normal
-  color: #A8ACB0
 
 
 .checkbox

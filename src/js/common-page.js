@@ -7,7 +7,7 @@ import ScrollMagic from 'scrollmagic';
 
 import './modules/menu';
 import './modules/calculator';
-import './modules/footer-map';
+//import './modules/footer-map';
 
 import initSelectPlugin from './plugins/select';
 import navColorChange from './plugins/nav-color-change';
@@ -79,13 +79,5 @@ navColorChange();
     });
 
 })();
-
-//(() => {
-//
-//    /**
-//     * Filtration on where to buy page
-//     */
-//
-//})();
 
 $('html').removeClass('no-js');

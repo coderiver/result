@@ -67,10 +67,10 @@ shops:
         number: +380 44 206-37-77
 ---
 
-{% extends "layouts/_layout.html" %}
+{% extends "./layouts/_layout.html" %}
 
 {% block content %}
-  {% include "partials/_navigation.html" %}
+  {% include "./partials/_navigation.html" %}
 
   <div class="out">
     <div class="contacts">
@@ -127,5 +127,5 @@ shops:
     </div>
   </div>
 
-  {% include "partials/_footer.html" %}
+  {% include "./partials/_footer.html" %}
 {% endblock %}

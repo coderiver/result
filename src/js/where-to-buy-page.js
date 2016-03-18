@@ -1,3 +1,4 @@
+/*global google*/
 import $ from 'jquery';
 import 'svgxuse';
 import ps from 'perfect-scrollbar/jquery';
@@ -6,7 +7,7 @@ import './modules/menu';
 
 import initSelectPlugin from './plugins/select';
 import navColorChange from './plugins/nav-color-change';
-const tpl = require('../templates/tpl/shops.nunj');
+const tpl = require('../templates/tpl/shops.nunjucks');
 
 const listContainer    = $('.contacts-list');
 const mapContainer     = $('#contacts-map');
@@ -30,7 +31,7 @@ Promise.all([
     loadGmapApi()
 ]).then(results => {
 
-    const [ collection, e ] = results;
+    const [ collection ] = results;
 
     mapData(collection);
     renderData(collection);
@@ -55,7 +56,7 @@ function loadData(url) {
     });
 }
 
-function loadGmapApi(data) {
+function loadGmapApi() {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = 'https://maps.googleapis.com/maps/api/js?signed_in=true';

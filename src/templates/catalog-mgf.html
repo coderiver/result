@@ -1,0 +1,55 @@
+---
+title: Catalog MDF
+SCRIPTS:
+  - common-page
+---
+
+{% extends "./layouts/_layout.html" %}
+
+{% block content %}
+  {% include "./partials/_navigation.html" %}
+
+  <div class="out">
+    <!-- BEGIN catalog -->
+    <section class="section l">
+      <div class="section-header">
+        <h1 class="h1 uppercase">Продукция</h1>
+      </div>
+
+      <div class="section-filters">
+        <div class="section-filters__cell">
+          <div class="select select_fw">
+            <button class="select__button uppercase spacing-100">Настенные панели</button>
+            <div class="select__button-overlay"></div>
+            <ul class="select__list">
+              <li class="select__item" data-value="laminat_1">Настенные панели</li>
+              <li class="select__item" data-value="laminat_2">Настенные панели 2</li>
+              <li class="select__item" data-value="laminat_3">Настенные панели 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <a href="catalog-item-mdf.html" class="tile tile_2x2" style="background-image: url('img/tile-1.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title"><span class="h4">Шлифованный<br>МДФ</span></strong>
+            <span class="tile__info">16–22 мм</span>
+          </div>
+        </a>
+
+        <a href="catalog-item-mdf.html" class="tile tile_2x2" style="background-image: url('img/tile-2.jpg')">
+          <div class="tile__inner">
+            <strong class="tile__title"><span class="h4">Ламинированный<br>МДФ</span></strong>
+            <span class="tile__info">16–22 мм</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- END catalog -->
+
+    {% include "./partials/_about-product.html" %}
+    {% include "./partials/_map.html" %}
+    {% include "./partials/_footer.html" %}
+  </div>
+{% endblock %}

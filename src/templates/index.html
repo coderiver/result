@@ -5,11 +5,11 @@ SCRIPTS:
   - main-page
 ---
 
-{% extends "layouts/_layout.html" %}
+{% extends "./layouts/_layout.html" %}
 
 {% block content %}
 
-  {% include "partials/_navigation.html" %}
+  {% include "./partials/_navigation.html" %}
 
   <div class="out">
     <div class="parallax-logotype">
@@ -17,14 +17,14 @@ SCRIPTS:
     </div>
 
     <div class="content-wrapper">
-      {% include "partials/_hero.html" %}
-      {% include "partials/_promo-text.html" %}
-      {% include "partials/_gallery.html" %}
-      {% include "partials/_products.html" %}
-      {% include "partials/_map.html" %}
-      {% include "partials/_footer.html" %}
+      {% include "./partials/_hero.html" %}
+      {% include "./partials/_promo-text.html" %}
+      {% include "./partials/_gallery.html" %}
+      {% include "./partials/_products.html" %}
+      {% include "./partials/_map.html" %}
+      {% include "./partials/_footer.html" %}
     </div>
   </div>
 
-  {% include "partials/_modal-video.html" %}
+  {% include "./partials/_modal-video.html" %}
 {% endblock %}
