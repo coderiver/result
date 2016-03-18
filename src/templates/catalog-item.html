@@ -5,10 +5,10 @@ SCRIPTS:
   - common-page
 ---
 
-{% extends "layouts/_layout.html" %}
+{% extends "./layouts/_layout.html" %}
 
 {% block content %}
-  {% include "partials/_navigation.html" %}
+  {% include "./partials/_navigation.html" %}
 
   <div class="out">
     <!-- BEGIN toparea -->
@@ -77,7 +77,7 @@ SCRIPTS:
         </div>
 
         <div class="l-catalog-item-aside">
-          {% include "partials/_calculator.html" %}
+          {% include "./partials/_calculator.html" %}
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@ SCRIPTS:
     </section>
 
 
-    {% include "partials/_map.html" %}
-    {% include "partials/_footer.html" %}
+    {% include "./partials/_map.html" %}
+    {% include "./partials/_footer.html" %}
   </div>
 {% endblock %}
