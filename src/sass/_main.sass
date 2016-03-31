@@ -121,6 +121,18 @@
       right: 0
       border-top: 1px solid $color-red
 
+.logos
+  margin-bottom: 50px 
+.logos__container
+  padding: 30px 100px
+  text-align: center 
+  img
+    vertical-align: middle
+    margin-right: 30px  
+    height: 40px 
+.logos__wrap
+  display: flex
+  justify-content: space-between 
 .map
   margin: 115px 0 0
 
@@ -433,7 +445,13 @@
   right: 0
   height: 100%
   width: 50%
-
+  &.bg
+    position: fixed
+    background: url(../img/contacts.jpg) no-repeat 50% 0
+    background-size: cover
+    top: 58px 
+    *
+      display: none 
 .contacts__head
   padding-bottom: 25px
   border-bottom: 1px solid #E0E4E9
@@ -481,6 +499,11 @@
   max-width: 495px
   box-sizing: border-box
   padding-right: 40px
+  .h3
+    padding: 10px 0 
+  h4
+    padding: 30px 0 0 0
+    margin: 0 
 
 .contact
   position: relative

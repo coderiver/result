@@ -4,29 +4,49 @@ SCRIPTS:
   - common-page
 
 managers:
-  - name: Константин Константинопольский
-    phone: +380 44 220-43-11
-    email: konstantin.k@rezult.com.ua
+  - name: Лисович Роман Владимирович
+    phone: +380 (67) 465-7728
+    email: roman.lisovich@kmm.ua
 
-  - name: Николай Стецько
-    phone: +380 44 220-43-11
-    email: nikolay.s@rezult.com.ua
+  - name: Лисович Роман Владимирович
+    phone: +380 (67) 465-7728
+    email: roman.lisovich@kmm.ua
 
-  - name: Арсений Любознавцев
-    phone: +380 44 220-43-11
-    email: arseny.l@rezult.com.ua
+  - name: Розумець Валентин Николаевич
+    phone: +380 (67) 465-7568
+    email: rozumec.v@ukr.net
 
-  - name: Александр Красный
-    phone: +380 44 220-43-11
-    email: alex.k@rezult.com.ua
+  - name: Воропаев Максим Игоревич
+    phone: +380 (67) 440-9179
+    email: Maxim.Voropaev@rezult.pro
 
-  - name: Лев Толстой
-    phone: +380 44 220-43-11
-    email: lev.t@rezult.com.ua
+  - name: Сапов Александр Васильевич
+    phone: +380 (67) 557-8528
+    email: Aleksandr.Sapov@rezult.pro
 
-  - name: Евгений Васильевич
-    phone: +380 44 220-43-11
-    email: evgen.v@rezult.com.ua
+  - name: Карягин Владимир Владимирович
+    phone: +380 (67) 433-7141
+    email: vladimir.karyahin@kmm.ua
+
+  - name: Зинченко Артем Анатольевич
+    phone: +380 (67) 465-7567
+    email: artem.zinchenko@kmm.ua
+
+  - name: Башкисер Аркадий Витальевич 
+    phone: +380 (67) 402-4882
+    email: trade.korosten@gmail.com
+
+  - name: Токмаков Виктор Валерьевич
+    phone: +7 (985) 698-0255
+    email: Ln76@bk.ru
+
+  - name: Арутюнов Владимир Аркадьевич
+    phone: +7 (967) 022-2110, +7 (918) 447-7774
+    email:  laminat21@bk.ru
+    
+  - name: Карягин Владимир Владимирович
+    phone: +7 (967) 022-2110, +7 (918) 447-7774
+    email: vladimir.karyahin@kmm.ua
 ---
 
 {% extends "./layouts/_layout.html" %}
@@ -42,6 +62,7 @@ managers:
           <div class="contacts-item">
             <div class="contacts-item__inner">
               <h1 class="h1 uppercase">Контакты</h1>
+              
             </div>
           </div>
 
@@ -77,9 +98,17 @@ managers:
               </p>
             </div>
           </div>
+          <div class="contacts-item">
+            <div class="contacts-item__inner">
+              <h1 class="h3 uppercase">Контакты</h1>
+              
+            </div>
+          </div>
 
           <div class="contacts-item contact contact_action">
+
             <div class="contacts-item__inner">
+
               <strong class="contact__title">Отдел продаж</strong>
               <p>
                 04070
@@ -89,6 +118,7 @@ managers:
               <p>тел./факс: <strong><a href="tel:+380442204311">+380 44 220-43-11</a></strong></p>
             </div>
           </div>
+
         </section>
 
         <section class="contacts__section">
@@ -111,7 +141,7 @@ managers:
             <div class="contacts-item contact">
               <div class="contacts-item__inner">
                 <div class="contact__pic">
-                  <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt="">
+                  <!-- <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt=""> -->
                 </div>
                 <div class="contact__actions">
                   <a class="contact__action-btn" href="mailto:{{manager.email}}">{{mixins.icon('bubles')}}</a>

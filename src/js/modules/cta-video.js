@@ -22,6 +22,7 @@ const fakeVideoDuration = 123;
 
 const videoTrigger = $('.hero__logo');
 const container = $('.modal-video');
+const preloader = $('.modal-video__overlay');
 const overlay = container.find('.modal-video__overlay');
 const videoSections = container.find('.video-section');
 const muteBtn = container.find('.controll-btn-volume');
@@ -53,6 +54,7 @@ const state = {
 
 video.on(VIDEO_READY, () => {
     console.info('Video ready');
+    preloader.fadeOut();
     _bindEvents();
     progressbar.setupPoints(video.getBreakpoints());
     dispatcher.trigger(VIDEO_READY);
@@ -460,6 +462,7 @@ function _bindEvents() {
 }
 
 function showModalVideo() {
+    preloader.fadeIn();
     dispatcher.trigger(MODAL_BEFORE_OPEN);
     playShowModalVideoAnim()
         .then(() => video.goToBreakpoint(0))
