@@ -22,7 +22,7 @@ const fakeVideoDuration = 123;
 
 const videoTrigger = $('.hero__logo');
 const container = $('.modal-video');
-const preloader = $('.modal-video__overlay');
+const preloader = $('.modal-video__preloader');
 const overlay = container.find('.modal-video__overlay');
 const videoSections = container.find('.video-section');
 const muteBtn = container.find('.controll-btn-volume');
@@ -54,7 +54,6 @@ const state = {
 
 video.on(VIDEO_READY, () => {
     console.info('Video ready');
-    preloader.fadeOut();
     _bindEvents();
     progressbar.setupPoints(video.getBreakpoints());
     dispatcher.trigger(VIDEO_READY);
@@ -407,6 +406,7 @@ function _bindEvents() {
     videoTrigger.on('click', showModalVideo);
 
     closeBtn.on('click', hideModalVideo);
+    preloader.on('click', hideModalVideo);
 
     muteBtn.on('click', () => {
         muteBtn.toggleClass('is-muted');
@@ -462,7 +462,6 @@ function _bindEvents() {
 }
 
 function showModalVideo() {
-    preloader.fadeIn();
     dispatcher.trigger(MODAL_BEFORE_OPEN);
     playShowModalVideoAnim()
         .then(() => video.goToBreakpoint(0))
@@ -470,10 +469,14 @@ function showModalVideo() {
 }
 
 function hideModalVideo() {
+    console.log('hide modal video');
     const bp = state.get('activeBp');
 
+
     dispatcher.trigger(MODAL_BEFORE_CLOSE);
+    preloader.fadeOut();
     video.pause();
+
 
     if (bp !== null) {
         hideVideoSection()

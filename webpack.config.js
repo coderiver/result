@@ -45,11 +45,11 @@ function createConfig(env) {
                     exclude: /node_modules/,
                     loader: 'babel'
                 },
-                {
-                    test: /\.(nunj|nunjucks)$/,
-                    include: __dirname + '/src',
-                    loader: 'nunjucks'
-                }
+                 {
+                     test: /\.(nunj|nunjucks)$/,
+                     include: __dirname + '/src',
+                     loader: 'nunjucks'
+                 }
             ]
         }
     };

@@ -30,12 +30,16 @@ navColorChange(controller);
 // Download video module on demand
 $('.hero__logo').one('click', function() {
     console.info('Now we need to show some preloader for video');
+    $('.modal-video__preloader').fadeIn();
+    // alert('show preloader');
     require.ensure([], function(require) {
         require('./modules/cta-video');
     }, 'video');
 });
 
 dispatcher.on(VIDEO_READY, () => {
+    $('.modal-video__preloader').fadeOut();
+    // alert('hide preloader');
     console.info('And yet we should hide preloader and show modal with video');
 });
 
