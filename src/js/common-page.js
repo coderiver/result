@@ -3,6 +3,8 @@ import $ from 'jquery';
 import 'svgxuse';
 import 'gsap';
 import 'slick-carousel';
+import 'magnific-popup';
+import initTooltipster from './lib/tooltipster';
 import ScrollMagic from 'scrollmagic';
 
 import './modules/menu';
@@ -14,7 +16,23 @@ import navColorChange from './plugins/nav-color-change';
 import Gallery from './classes/gallery';
 
 initSelectPlugin($);
+initTooltipster($, window, window.document);
 $('.select').select();
+$('.js-tooltip').tooltipster();
+$('.js-fancy').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    fixedContentPos: true,
+    mainClass: 'mfp-no-margins mfp-with-zoom',
+    image: {
+        verticalFit: true
+    },
+    zoom: {
+        enabled: true,
+        duration: 300
+    }
+});
 
 navColorChange();
 

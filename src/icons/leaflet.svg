@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>leaflet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7.17427731,27.7513113 L0.225,33.77 C0.019261702,33.9476271 -0.0542294425,34.2345127 0.040768716,34.4891791 C0.135766875,34.7438455 0.379192391,34.9125117 0.651,34.912 L0.651,34.912 C0.807183557,34.9118653 0.958080225,34.8554121 1.076,34.753 L8.03536109,28.7258966 L8.312,29.039 C12.7815111,33.2213584 19.5933392,33.6349217 24.536,30.024 C30.217,25.87 35.091,12.989 34.912,0 C25.141,5.622 15.178,5.3 9.5,9.453 C3.82210254,13.6052833 2.58389366,21.5735111 6.734,27.253 L7.17427731,27.7513113 Z" id="leaflet" fill="#231F20"></path>
+    </g>
+</svg>

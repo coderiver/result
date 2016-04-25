@@ -602,4 +602,39 @@
     display: block
     padding-bottom: percentage(300/1240)
 
+.preview
+  display: block
+  position: relative
+  cursor: pointer
+  margin: 40px 0
+  img
+    display: block
+    max-width: 100%
 
+.preview__icon
+  position: absolute
+  top: 10px
+  right: 10px
+  .icon
+    fill: white
+    font-size: 38px
+
+.features-block
+  margin: 60px 0
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+
+.features-group
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: space-between
+  > *
+    display: inline-block
+    vertical-align: middle
+  .icon
+    font-size: 36px
+    vertical-align: top
