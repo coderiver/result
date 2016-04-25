@@ -8,7 +8,7 @@ import ScrollMagic from 'scrollmagic';
 import debounce from 'lodash/debounce';
 
 // selectors for sections on page that may trigger changes of color
-const sections = ['.hero', '.footer', '.toparea'];
+const sections = ['.hero-group', '.footer', '.toparea'];
 const root = $('body');
 
 const createController = () => new ScrollMagic.Controller({ container: 'body' });
