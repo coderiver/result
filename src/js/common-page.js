@@ -57,13 +57,12 @@ navColorChange();
     if (!toparea.length) return;
 
     const topareaGallery = new Gallery(toparea.find('.toparea-gallery'));
-    const navButtons = $('.select-buttons-group').first().find('.btn');
+    const navButtons = toparea.find('.select-buttons-group').find('.btn');
     const title = toparea.find('.toparea__subtitle');
 
     navButtons.on('click', function(e) {
-        const $this = $(this);
         e.preventDefault();
-        topareaGallery.slickApiCall('slickGoTo', $this.index());
+        topareaGallery.slickApiCall('slickGoTo', navButtons.index(this));
     });
 
     topareaGallery.getElement().on('beforeChange', (e, slick, current, next) => {

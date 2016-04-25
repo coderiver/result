@@ -24,7 +24,7 @@ h3:not([class]), .h3
 
 h4:not([class]), .h4
   +f(24,36)
-  line-height: 1.3 
+  line-height: 1.3
 
 h5:not([class]), .h5
   +f(12,24,100)
@@ -241,6 +241,15 @@ a:not([class])
       &:before
         opacity: 0
         visibility: hidden
+
+  &_white
+    border-color: rgba(white, 0.5)
+    color: white
+    &.is-selected
+      border-color: white
+      background: white
+      color: black
+
 
   &_semi
     &:not(:hover)
