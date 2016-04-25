@@ -90,19 +90,17 @@ dispatcher.on(MODAL_AFTER_CLOSE, () => {
     let timeout = null;
 
     [{
-        el: $('.promo-text'),
-        offset: -145
+        el: $('.subhero'),
+        offset: 0
     }, {
         el: $('.gallery'),
         offset: 0
     }, {
         el: $('.products'),
         offset: -70
-    }, {
-        el: $('.map'),
-        offset: -70
     }].forEach((section) => {
         const { el, offset } = section;
+        if (!el.length) return;
 
         new ScrollMagic.Scene({
             triggerElement: el[0],

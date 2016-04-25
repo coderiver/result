@@ -17,24 +17,31 @@ import Gallery from './classes/gallery';
 
 initSelectPlugin($);
 initTooltipster($, window, window.document);
+navColorChange();
 $('.select').select();
 $('.js-tooltip').tooltipster();
-$('.js-fancy').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: false,
-    fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom',
-    image: {
-        verticalFit: true
-    },
-    zoom: {
-        enabled: true,
-        duration: 300
-    }
-});
 
-navColorChange();
+(() => {
+
+    const fancy = $('.js-fancy');
+    if (!fancy.length) return;
+
+    fancy.magnificPopup({
+        type: 'image',
+        closeOnContentClick: true,
+        closeBtnInside: false,
+        fixedContentPos: true,
+        mainClass: 'mfp-no-margins mfp-with-zoom',
+        image: {
+            verticalFit: true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300
+        }
+    });
+
+})();
 
 (() => {
 
