@@ -28,7 +28,7 @@ navColorChange(controller);
 
 
 // Download video module on demand
-$('.hero__logo').one('click', function() {
+$('.js-video').one('click', function() {
     console.info('Now we need to show some preloader for video');
     $('.modal-video__preloader').fadeIn();
     // alert('show preloader');

@@ -20,7 +20,8 @@ import {
 const videoBreakpoints = [24, 52, 81];
 const fakeVideoDuration = 123;
 
-const videoTrigger = $('.hero__logo');
+const videoTrigger = $('.js-video');
+// const videoTrigger = $('.hero__logo');
 const container = $('.modal-video');
 const preloader = $('.modal-video__preloader');
 const overlay = container.find('.modal-video__overlay');
