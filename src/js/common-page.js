@@ -84,16 +84,20 @@ $('.js-tooltip').tooltipster();
     const topareaGallery = new Gallery(toparea.find('.toparea-gallery'));
     const navButtons = toparea.find('.select-buttons-group').find('.btn');
     const title = toparea.find('.toparea__subtitle');
+    const previews = $('body').find('.preview');
 
     navButtons.on('click', function(e) {
         e.preventDefault();
         topareaGallery.slickApiCall('slickGoTo', navButtons.index(this));
     });
     title.text(navButtons.eq(0).text());
-
+    previews.hide();
+    previews.eq(0).show();
 
     topareaGallery.getElement().on('beforeChange', (e, slick, current, next) => {
         const clicked = navButtons.eq(next);
+        previews.hide()
+        previews.eq(next).show();
 
         navButtons.filter('.is-selected').removeClass('is-selected');
         clicked.addClass('is-selected');
