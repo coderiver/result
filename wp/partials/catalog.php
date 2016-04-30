@@ -52,9 +52,11 @@ if ($queryObject->have_posts()) {
   while ($queryObject->have_posts()) {
     $queryObject->the_post();
     $image = get_field('photo');
+    $image = $image[sizes][medium_large];
     $mat = get_field('material');
     $tile = get_field('tile');
     $terms = get_the_terms( $post->ID , 'class' );
+    // print_r($image);
     ?>
     <a href="<? echo get_permalink();?>" class="tile tile_<? echo $tile;?>" style="background-image: url('<? echo $image;?>')">
       <div class="tile__inner">

@@ -20,7 +20,6 @@ get_header(); ?>
     </div>
     <?php while ( have_posts() ) : the_post(); ?>
                 <?php get_template_part( 'content', 'page' ); ?>
-                <?php comments_template( '', true ); ?>
             
 
     <div class="section-header">

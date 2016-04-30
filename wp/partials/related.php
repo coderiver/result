@@ -1,43 +1,44 @@
-<section class="section l">
+<section class="section l related" style="margin-bottom:40px">
     <div class="section-header">
       <h3 class="h4 uppercase spacing-100">Другие коллекции</h3>
     </div>
 
     <div class="clearfix">
-      <a href="#" class="tile" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-1.jpg')">
-        <div class="tile__inner">
-          <strong class="tile__title">Elegant</strong>
-          <span class="tile__subtitle">дуб</span>
-          <span class="tile__number">2</span>
-          <span class="tile__info">32 класс (АС4)</span>
-        </div>
-      </a>
+  <?
+      $term = $wp_query->queried_object;
+      $act =  $term->term_id;
 
-      <a href="#" class="tile" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-2.jpg')">
-        <div class="tile__inner">
-          <strong class="tile__title">Legna</strong>
-          <span class="tile__subtitle">дуб</span>
-          <span class="tile__number">2</span>
-          <span class="tile__info">32 класс (АС4)</span>
-        </div>
-      </a>
+      $my_query = new WP_Query(array(
+          'post__not_in' => array($act),
+          'post_type' => 'collection',
+          'posts_per_page'=> 4,
+          'order'=> ASC,
+          'orderby'=> menu_order
+      ));
 
-      <a href="#" class="tile" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-3.jpg')">
-        <div class="tile__inner">
-          <strong class="tile__title">Diamond</strong>
-          <span class="tile__subtitle">дуб</span>
-          <span class="tile__number">2</span>
-          <span class="tile__info">32 класс (АС4)</span>
-        </div>
-      </a>
+      if ( $my_query->have_posts() ) {
+      while ($my_query->have_posts()) { 
+        $my_query->the_post(); 
 
-      <a href="#" class="tile" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-4.jpg')">
-        <div class="tile__inner">
-          <strong class="tile__title">Floor</strong>
-          <span class="tile__subtitle">дуб</span>
-          <span class="tile__number">2</span>
-          <span class="tile__info">32 класс (АС4)</span>
-        </div>
-      </a>
+          $image = get_field('photo');
+          $mat = get_field('material');
+          $tile = get_field('tile');
+          $terms = get_the_terms( $post->ID , 'class' );
+          ?>
+          <a href="<? echo get_permalink();?>" class="tile" style="background-image: url('<? echo $image;?>')">
+            <div class="tile__inner">
+              <strong class="tile__title"><? the_title();?></strong>
+              <span class="tile__subtitle"><? echo $mat;?></span>
+              <span class="tile__number">2</span>
+              <span class="tile__info"><? echo $terms[0]->name;?></span>
+            </div>
+          </a>
+
+
+      <?  }
+
+      }
+      ?>
+
     </div>
   </section>

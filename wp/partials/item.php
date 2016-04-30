@@ -1,68 +1,160 @@
-<!-- BEGIN toparea -->
-  <div class="toparea">
-    <div class="toparea-gallery gs">
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/toparea.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/hero-1.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/toparea.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/hero-2.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/toparea.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/hero-1.jpg')"></div>
-    </div>
-    <div class="l">
-      <a href="catalog.html" class="btn btn_sm"><span>назад в каталог</span></a>
-      <h1 class="toparea__title">Premium</h1>
-      <strong class="toparea__small-subtitle">декор покрытия</strong>
-      <h3 class="toparea__subtitle">Дуб французский</h3>
-    </div>
-  </div>
-  <!-- END toparea -->
+<?php 
+$term = $wp_query->queried_object;
+$slug_title = $term->slug;
+?>
 
-  <div class="l-center">
-    <div class="clearfix">
-      <div class="l-catalog-item-main">
+<!-- BEGIN toparea -->
+<div class="toparea">
+  <div class="toparea-gallery gs">
+    <?php 
+    $args_fp = array(
+      'posts_per_page' => -1,
+      'post_type' => 'items',
+      $term->taxonomy => $term->slug
+    );
+    $queryObject = new WP_Query( $args_fp );
+    // The Loop!
+    if ($queryObject->have_posts()) {
+
+      while ($queryObject->have_posts()) {
+        $queryObject->the_post();
+        $image = get_field('foto');
+        echo '<div class="gs-slide" style="background-image: url('.$image.')"></div>';
+      }
+
+    }
+    ?>
+
+  </div>
+  <div class="l">
+    <a href="catalog.html" class="toparea__nav-btn btn btn_sm"><span>назад в каталог</span></a>
+    <h1 class="toparea__title"><? echo get_the_title($term->term_id);?></h1>
+    <strong class="toparea__small-subtitle">декор покрытия</strong>
+    <h3 class="toparea__subtitle">
+    <!-- Дуб французский -->
+    </h3>
+
+    <div class="toparea__footer">
+      <div class="l-center">
         <span class="group-title">декоры покрытия</span>
 
         <div class="select-buttons-group">
-          <a class="btn btn_select is-selected" href="#"><span>Дуб<br> французский</span></a>
-          <a class="btn btn_select" href="#"><span>Венге</span></a>
-          <a class="btn btn_select" href="#" data-text="ДУБ СВЕТЛЫЙ ОЧЕНЬ"><span>Дуб<br> светлый</span></a>
-          <a class="btn btn_select" href="#"><span>Дуб<br> белёный</span></a>
-          <a class="btn btn_select" href="#"><span>Дуб<br> кубинский</span></a>
-          <a class="btn btn_select" href="#"><span>Афцелия</span></a>
-        </div>
+          <?
+            if ($queryObject->have_posts()) {
+              $i = 0;
+              while ($queryObject->have_posts()) {
+                $queryObject->the_post();
+                $i++;
+                if($i==1){$cl = 'is-selected';}else{$cl = '';}
+                echo '<a class="btn btn_select '.$cl.'" href="#"><span>'.get_the_title().'</span></a>';
+              }
+            }
+            wp_reset_query();
+          ?>
 
-        <div class="l-col-620 text">
-          <p>
-            Ламинат Balterio серии Axion — это сочетание настоящего Бельгийского качестваи вполне доступной цены, среди которого Вы сможете подобрать то покрытиео котором мечтали и которое дополнит Ваш интерьер. Цветовая гамма данной коллекции, представлена в стандартных классических цветах. Данная коллекция предназначена для мест c легкой нагрузкой и небольшим наплывом людей, часто применяется в гостиничных номерах, небольших офисных помещениях и конечно в домашних условиях.
-          </p>
-          <p>
-            Гарантия производителя до 15 лет в домашних условиях при правильной эксплуатации. Износоустойчивость и ударопрочность обусловлена наличием HDF плиты (плита высочайшей плотности). Покрытие не скользит, влагоустойчивои соблюдает стабильные геометрические размеры. Благодаря технологии Pearl structure гладкая поверхность ламинатной доски легко очищается.
-          </p>
-
-          <table class="table table_features">
-            <caption class="table__caption">Характеристики</caption>
-            <tbody>
-              <tr>
-                <td><em class="table__label">Тон дерева</em> Светлый</td>
-                <td><em class="table__label">Декор</em> Дуб</td>
-              </tr>
-              <tr>
-                <td><em class="table__label">Площадь в упаковке</em> 2,109 м²</td>
-                <td><em class="table__label">Толщина</em> 8мм</td>
-              </tr>
-              <tr>
-                <td><em class="table__label">Планок в упаковке</em> 8 шт</td>
-                <td><em class="table__label">Класс нагрузки</em> 32</td>
-              </tr>
-              <tr>
-                <td><em class="table__label">Формат планки</em> 1380 × 191 мм</td>
-                <td><em class="table__label">Фаска</em> —</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<!-- END toparea -->
 
+<?php 
+    query_posts(array( 
+        'post_type' => 'collection',
+        'p' => $term->term_id
+    ) );  
+?>
+<?php while (have_posts()) : the_post(); ?>
+
+
+
+  <div class="l-center">
+        <div class="clearfix">
+          <div class="l-catalog-item-main">
+
+            <div class="l-col-620 text">
+              <? the_content();?>
+
+              <div class="features-block">
+                <div class="features-group">
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-leaflet">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-leaflet"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-e1">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-e1"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-mop">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-mop"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-cigarette">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-cigarette"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-wineglass">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-wineglass"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-temp">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-temp"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-lock">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-lock"></use>
+</svg>
+</span>
+                  <span class="js-tooltip" title="Экологически чистый"><svg class="icon icon-labuten">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-labuten"></use>
+</svg>
+</span>
+                </div>
+
+                <a class="preview js-fancy" href="<?php bloginfo('template_directory'); ?>/img/hero-2.jpg">
+                  <span class="preview__icon"><svg class="icon icon-loupe">
+  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-loupe"></use>
+</svg>
+</span>
+                  <img src="<?php bloginfo('template_directory'); ?>/img/preview.jpg">
+                </a>
+              </div>
+
+              <table class="table table_features">
+                <caption class="table__caption">Характеристики</caption>
+                <tbody>
+                  <tr>
+                    <td><em class="table__label">Тон дерева</em> Светлый</td>
+                    <td><em class="table__label">Декор</em> Дуб</td>
+                  </tr>
+                  <tr>
+                    <td><em class="table__label">Площадь в упаковке</em> <? the_field('ploshad');?></td>
+                    <td><em class="table__label">Толщина</em> <? the_field('thickness');?>мм</td>
+                  </tr>
+                  <tr>
+                    <td><em class="table__label">Планок в упаковке</em> <? the_field('planok');?> шт</td>
+                    <td><em class="table__label">Вес упаковок</em> <? the_field('weight');?></td>
+                  </tr>
+                  <tr>
+                    <td><em class="table__label">Формат планки</em> <? the_field('format');?></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table_features">
+                <caption class="table__caption">Нормы отгрузки</caption>
+                <tbody>
+                  <tr>
+                    <td>22 палетт</td>
+                    <td>2783,404 м²</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+<?php endwhile;?>
       <div class="l-catalog-item-aside">
         <?php get_template_part( 'partials/calculator' ); ?>
       </div>

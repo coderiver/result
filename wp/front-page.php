@@ -10,8 +10,8 @@
 		<?php get_template_part( 'partials/promo-text' ); ?>
 		<?php get_template_part( 'partials/gallery' ); ?>
 		<?php get_template_part( 'partials/products' ); ?>
-		<?php get_template_part( 'partials/map' ); ?>
-		<?php get_template_part( 'partials/partners' ); ?>
+		<?php //get_template_part( 'partials/map' ); ?>
+		<?php //get_template_part( 'partials/partners' ); ?>
 		<?php get_template_part( 'partials/footer-links' ); ?>
 	</div>
 </div>

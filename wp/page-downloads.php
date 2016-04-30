@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Downloads page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -19,101 +19,54 @@ get_header(); ?>
 
   <section class="section l">
     <div class="l-center">
-      <h1 class="h1 uppercase align-center title-margin">Раздаточные материалы</h1>
-      <h2 class="h4">
-        Качество REZULT базируется на семи основных принципах.
-        <br>Благодаря этим жестким стандартам, REZULT довел качество
-        ламината&nbsp;до&nbsp;совершенства.
-      </h2>
+      <?php while ( have_posts() ) : the_post(); ?>
+      <h1 class="h1 uppercase align-center title-margin">
+        <? the_title(); ?>
+      </h1>
+      <div class="h4">
+        <? the_content();?>
+      </div>
     </div>
-
+    <?php endwhile; // end of the loop. ?>
+  <?
+  if(is_page('downloads-lumber')){
+    $cat = 'lumber';
+  }
+  else{
+    $cat = 'mdf';
+  }
+  ?>
     <div class="tiles-group">
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">Ламинат<br>Elegant <br>33 класс AC5</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">20.11.2015</span>
-        </div>
-      </a>
+    <?
+    query_posts(array('showposts' => -1,
+      'post_type' => 'download',
+      'downloadtype' => $cat,
+      'orderby'=>'menu_order',
+      'order'=>'ASC'));
+    while (have_posts()) { the_post(); 
+      
+    ?>
+    <a href="<? the_field('file');?>" class="tile tile_simple">
+      <div class="tile__inner">
+        <strong class="tile__title"><? the_field('title');?></strong>
+        <span class="tile__subtitle">скачать каталог</span>
+        <span class="tile__badge">PDF</span>
+        <span class="tile__info"><? the_field('date');?></span>
+      </div>
+    </a>
 
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">Ламинат <br>Legna <br>32 класс АС4</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">20.11.2015</span>
-        </div>
-      </a>
+    <? } ?>
+      
 
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">Ламинат<br> Floor<br>33 класс AC4</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">20.11.2015</span>
-        </div>
-      </a>
+      
 
       <div class="tile tile_simple tile_static" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-4.jpg')"></div>
 
-      <div class="tile  tile_2x2 tile_simple tile_static" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-1.jpg')"></div>
+      <!-- <div class="tile  tile_2x2 tile_simple tile_static" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-1.jpg')"></div> -->
 
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">МДФ<br> Ламинированная</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">18.11.2015</span>
-        </div>
-      </a>
+      
 
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">МДФ <br>все виды</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">18.11.2015</span>
-        </div>
-      </a>
-
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">МДФ <br>Шлифованная</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">18.11.2015</span>
-        </div>
-      </a>
-
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">МДФ <br>все виды</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">18.11.2015</span>
-        </div>
-      </a>
-
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">Ламинат <br>Elegant <br>33 класс AC5</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">20.11.2015</span>
-        </div>
-      </a>
-
-      <a href="#" class="tile tile_simple">
-        <div class="tile__inner">
-          <strong class="tile__title">Ламинат <br>Все виды</strong>
-          <span class="tile__subtitle">скачать каталог</span>
-          <span class="tile__badge">PDF</span>
-          <span class="tile__info">20.11.2015</span>
-        </div>
-      </a>
-
-      <div class="tile  tile_2x1 tile_simple tile_static" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-3.jpg')"></div>
+      <!-- <div class="tile  tile_2x1 tile_simple tile_static" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/tile-3.jpg')"></div> -->
     </div>
   </section>
 

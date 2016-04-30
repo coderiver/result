@@ -30,7 +30,7 @@ get_header(); ?>
         </h4>
 
         <div class="figure">
-          <div class="figure__img">
+          <!-- <div class="figure__img">
             <iframe
               src="https://player.vimeo.com/video/110034637"
               width="820"
@@ -38,7 +38,7 @@ get_header(); ?>
               frameborder="0"
               webkitallowfullscreen mozallowfullscreen allowfullscreen
             ></iframe>
-          </div>
+          </div> -->
         </div>
 
         <h4 class="h4">

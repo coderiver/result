@@ -1,14 +1,16 @@
-<!-- BEGIN navigation -->
+<!--BEGIN navigation -->
 <div class="nav-links">
-  <a href="/catalog/">Каталог продукции</a>
-  <a href="/wheretobuy/">Где купить</a>
+  <a href="/mdf/">Продукция MDF</a>
+  <a href="/lumber/">Продукция Lumber</a>
+  <a href="/contacts/">Контакты</a>
+  <!-- <a href="/wheretobuy/">Где купить</a> -->
 </div>
 
-<div class="language" style="display:none">
+<div class="language">
   <div class="language__inner">
-    <a class="language__link is-active" href="/ru">RU</a>
-    <a class="language__link" href="/en">EN</a>
-    <a class="language__link" href="ua">UA</a>
+    <?php 
+    qtranxf_generateLanguageSelectCode('both');
+    ?>
   </div>
 </div>
 
@@ -78,50 +80,47 @@
       <div class="menu__list-container">
         <ul class="menu__list">
           <li class="menu__list-item">
-            <h4><a href="index.html">Rezult</a></h4></li>
+            <h4><a href="/">REZULT</a></h4></li>
+          <li class="menu__list-item"><a href="/mission/">Миссия REZULT</a></li>
+          <li class="menu__list-item"><a href="/mdf-factory/">Производство REZULT МДФ</a></li>
+          <li class="menu__list-item"><a href="/lumber-factory/">Производство REZULT Lumber</a></li>
+          <li class="menu__list-item"><a href="/reallife/">Продукция REZULT в жизни</a></li>
           <li class="menu__list-item"><a href="/quality/">Стандарты качества</a></li>
-          <li class="menu__list-item"><a href="/factory/">Завод</a></li>
+          <li class="menu__list-item">
+            <h4><a href="/contacts/">Контакты</a></h4></li>
+          <li class="menu__list-item">
+            <h4><a href="/jobs/">Карьера</a></h4></li>
           <!-- <li class="menu__list-item"><a href="#">Миссия Rezult</a></li> -->
         </ul>
 
         <ul class="menu__list">
           <li class="menu__list-item">
-            <h4><a href="#">Продукция</a></h4></li>
-          <li class="menu__list-item"><a href="#">Ламинат</a></li>
-          <li class="menu__list-item"><a href="#">МДФ</a></li>
-          <li class="menu__list-item"><a href="#">Настенные панели</a></li>
-          <li class="menu__list-item"><a href="#">Другая продукция</a></li>
+            <h4><a href="/mdf">Продукция<br>МДФ</a></h4></li>
+          <li class="menu__list-item"><a href="/mdf/laminate/">Ламинированные напольные
+покрытия</a></li>
+          <li class="menu__list-item"><a href="/mdf/mdf/">МДФ</a></li>
+          <li class="menu__list-item"><a href="/mdf/panels/">Настенные панели</a></li>
+          <li class="menu__list-item"><a href="/mdf/complects/">Сопутствующие товары</a></li>
+          <li class="menu__list-item"><a href="/downloads-mdf/">Раздаточные материалы</a></li>
         </ul>
 
         <ul class="menu__list">
           <li class="menu__list-item">
-            <h4><a href="/partnership/">Для партнеров</a></h4></li>
-          <li class="menu__list-item"><a href="/partnership/">Условия для партнёров</a></li>
-          <li class="menu__list-item"><a href="/otgruzka/">Нормы отгрузки</a></li>
-          <li class="menu__list-item"><a href="/download/">Раздаточные материалы</a></li>
+            <h4><a href="/lumber/">Продукция<br> Lumber</a></h4></li>
+          <li class="menu__list-item"><a href="/lumber/materials/">Пиломатериалы</a></li>
+          <li class="menu__list-item"><a href="/lumber/pellets/">Пеллеты</a></li>
+          <li class="menu__list-item"><a href="/downloads-lumber/">Раздаточные материалы</a></li>
         </ul>
 
-        <ul class="menu__list" style="display: none">
+        <!-- <ul class="menu__list">
           <li class="menu__list-item">
-            <h4><a href="#">Решения</a></h4></li>
-          <li class="menu__list-item"><a href="#"><em><small>Продукция REZULT в жизни</small></em></a></li>
-        </ul>
+            <h4><a href="/downloads/">Раздаточные материалы</a></h4></li>
+        </ul> -->
       </div>
 
-      <hr class="menu__hr">
 
-      <div class="menu__list-container">
-        <ul class="menu__list">
-          <li class="menu__list-item">
-            <h4><a href="/contacts/">Контакты</a></h4></li>
-          <li class="menu__list-item">
-            <h4><a href="/wheretobuy/">Где купить</a></h4></li>
-        </ul>
 
-        <ul class="menu__list">
-          <li class="menu__list-item"><a href="/instruction/">Инструкция по сборке<br> ламината</a></li>
-        </ul>
-      </div>
+      
     </div>
   </div>
 </div>

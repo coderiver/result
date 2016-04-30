@@ -12,41 +12,48 @@
 
   <div class="footer__row">
     <ul class="footer__list">
-      <li class="footer__list-item"><strong class="h4"><a href="#">Rezult</a></strong></li>
-      <li class="footer__list-item"><a href="/quality/">Стандарты качества</a></li>
-      <li class="footer__list-item"><a href="/factory/">Завод</a></li>
-      <!-- <li class="footer__list-item"><a href="#">Миссия Rezult</a></li> -->
+      <li class="footer__list-item"><strong class="h4"><a href="/">REZULT</a></strong></li>
+      <li class="footer__list-item"><a href="/mission/">Миссия REZULT</a></li>
+      <li class="footer__list-item"><a href="/mdf-factory/">Производство REZULT МДФ</a></li>
+      <li class="footer__list-item"><a href="/lumber-factory/">Производство REZULT Lumber</a></li>
+      <li class="footer__list-item"><a href="/reallife">Продукция REZULT в жизни</a></li>
+      <li class="footer__list-item"><a href="/quality">Стандарты качества</a></li>
+      <li class="footer__list-item"><strong class="h4"><a href="/jobs/">Карьера</a></strong></li>
+      <li class="footer__list-item"><strong class="h4"><a href="/contacts/">Контакты</a></strong></li>
     </ul>
 
     <ul class="footer__list">
-      <li class="footer__list-item"><strong class="h4"><a href="#">Продукция</a></strong></li>
-      <li class="footer__list-item"><a href="#">Ламинат</a></li>
-      <li class="footer__list-item"><a href="#">МДФ</a></li>
-      <li class="footer__list-item"><a href="#">Настенные панели</a></li>
-      <li class="footer__list-item"><a href="#">Комплектующие</a></li>
+      <li class="footer__list-item"><strong class="h4"><a href="/mdf/">Продукция<br> МДФ</a></strong></li>
+      <li class="footer__list-item"><a href="/mdf/laminate/">Ламинированные напольные
+покрытия</a></li>
+      <li class="footer__list-item"><a href="/mdf/mdf/">МДФ</a></li>
+      <li class="footer__list-item"><a href="/mdf/panels/">Настенные панели</a></li>
+      <li class="footer__list-item"><a href="/mdf/complects/">Сопутствующие товары</a></li>
+      <li class="footer__list-item"><a href="/downloads-mdf/">Раздаточные материалы</a></li>
     </ul>
 
     <ul class="footer__list">
-      <li class="footer__list-item"><strong class="h4"><a href="/partnership/">Для партнеров</a></strong></li>
-      <li class="footer__list-item"><a href="/partnership/">Условия для партнёров</a></li>
-      <li class="footer__list-item"><a href="/otgruzka/">Нормы отгрузки</a></li>
-      <li class="footer__list-item"><a href="/download/">Раздаточные материалы</a></li>
+      <li class="footer__list-item"><strong class="h4"><a href="/lumber/">Продукция<br>
+Lumber</a></strong></li>
+      <li class="footer__list-item"><a href="/lumber/materials/">Пиломатериалы</a></li>
+      <li class="footer__list-item"><a href="/lumber/pellets/">Пеллеты</a></li>
+      <li class="footer__list-item"><a href="/downloads-lumber/">Раздаточные материалы</a></li>
     </ul>
-
-    <ul class="footer__list" style="display: none">
-      <li class="footer__list-item"><strong class="h4"><a href="#">Решения</a></strong></li>
-      <li class="footer__list-item"><a href="#"><em><small>Продукция REZULT в жизни</small></em></a></li>
-    </ul>
+<!-- 
+    <ul class="footer__list">
+      <li class="footer__list-item"><strong class="h4"><a href="/downloads/">Раздаточные<br> материалы</a></strong></li>
+      
+    </ul> -->
   </div>
 
-  <div class="footer__row">
+  <div class="footer__row" style="display:none">
     <ul class="footer__list">
       <li class="footer__list-item"><strong class="h4"><a href="/contacts/">Контакты</a></strong></li>
-      <li class="footer__list-item"><strong class="h4"><a href="/wheretobuy">Где купить</a></strong></li>
+      <!-- <li class="footer__list-item"><strong class="h4"><a href="/wheretobuy">Где купить</a></strong></li> -->
     </ul>
 
     <ul class="footer__list">
-      <li class="footer__list-item"><a href="#">Инструкция по сборке <br>ламината</a></li>
+      <li class="footer__list-item"><a href="/instruction/">Инструкция по сборке <br>ламината</a></li>
     </ul>
   </div>
 
