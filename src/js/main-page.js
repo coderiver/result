@@ -37,6 +37,13 @@ $('.js-video').one('click', function() {
     }, 'video');
 });
 
+$('.js-catalog').click(function(event) {
+    $('html, body').animate({
+       scrollTop: $(".to-catalog").offset().top
+   }, 500);
+    return false;
+});
+
 dispatcher.on(VIDEO_READY, () => {
     $('.modal-video__preloader').fadeOut();
     // alert('hide preloader');

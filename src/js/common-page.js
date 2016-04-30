@@ -89,6 +89,8 @@ $('.js-tooltip').tooltipster();
         e.preventDefault();
         topareaGallery.slickApiCall('slickGoTo', navButtons.index(this));
     });
+    title.text(navButtons.eq(0).text());
+
 
     topareaGallery.getElement().on('beforeChange', (e, slick, current, next) => {
         const clicked = navButtons.eq(next);
