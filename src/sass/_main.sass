@@ -454,19 +454,21 @@
 .contacts
   position: relative
   margin-top: 87px
+  +clr
   .h1
     margin-bottom: 35px
 
 .contacts__left
+  float: left
   width: 50%
   padding-bottom: 80px
+  box-sizing: border-box
 
 .contacts__right
-  position: absolute
-  top: 0
-  right: 0
-  height: 100%
+  float: right
   width: 50%
+  padding-left: 30px
+  box-sizing: border-box
   &.bg
     position: fixed
     background: url(../img/contacts.jpg) no-repeat 50% 0
@@ -474,6 +476,7 @@
     top: 58px
     *
       display: none
+
 .contacts__head
   padding-bottom: 25px
   border-bottom: 1px solid #E0E4E9
@@ -513,6 +516,11 @@
     cursor: pointer
     &:hover
       background: #F7F9FB
+  &_right
+    padding-left: 100px
+    .contacts-item__inner
+      float: none
+
 
 .contacts-item__inner
   position: relative

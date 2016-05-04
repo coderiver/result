@@ -32,7 +32,7 @@ managers:
     phone: +380 (67) 465-7567
     email: artem.zinchenko@kmm.ua
 
-  - name: Башкисер Аркадий Витальевич 
+  - name: Башкисер Аркадий Витальевич
     phone: +380 (67) 402-4882
     email: trade.korosten@gmail.com
 
@@ -43,7 +43,7 @@ managers:
   - name: Арутюнов Владимир Аркадьевич
     phone: +7 (967) 022-2110, +7 (918) 447-7774
     email:  laminat21@bk.ru
-    
+
   - name: Карягин Владимир Владимирович
     phone: +7 (967) 022-2110, +7 (918) 447-7774
     email: vladimir.karyahin@kmm.ua
@@ -62,7 +62,12 @@ managers:
           <div class="contacts-item">
             <div class="contacts-item__inner">
               <h1 class="h1 uppercase">Контакты</h1>
-              
+            </div>
+          </div>
+
+          <div class="contacts-item">
+            <div class="contacts-item__inner">
+              <h2 class="h4">REZULT МДФ</h2>
             </div>
           </div>
 
@@ -98,17 +103,9 @@ managers:
               </p>
             </div>
           </div>
-          <div class="contacts-item">
-            <div class="contacts-item__inner">
-              <h1 class="h3 uppercase">Контакты</h1>
-              
-            </div>
-          </div>
 
           <div class="contacts-item contact contact_action">
-
             <div class="contacts-item__inner">
-
               <strong class="contact__title">Отдел продаж</strong>
               <p>
                 04070
@@ -141,7 +138,7 @@ managers:
             <div class="contacts-item contact">
               <div class="contacts-item__inner">
                 <div class="contact__pic">
-                  <!-- <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt=""> -->
+                  <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt="">
                 </div>
                 <div class="contact__actions">
                   <a class="contact__action-btn" href="mailto:{{manager.email}}">{{mixins.icon('bubles')}}</a>
@@ -220,7 +217,90 @@ managers:
       </div>
 
       <div class="contacts__right">
-        <div id="contacts-map" style="background: url('img/contacts-map.jpg'); background-size: cover;"></div>
+        <section class="contacts__section">
+          <div class="contacts-item contacts-item_right">
+            <div class="contacts-item__inner">
+              <div class="h1 uppercase">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="contacts-item contacts-item_right">
+            <div class="contacts-item__inner">
+              <h2 class="h4">REZULT Lumber</h2>
+            </div>
+          </div>
+
+          <div class="contacts-item contacts-item_right contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Адрес для корреспонденции</strong>
+              <p>
+                11501
+                <br>Украина, Житомирская обл.
+                <br>г. Коростень, ул. Октябрьская, 11-Б
+              </p>
+            </div>
+          </div>
+
+          <div class="contacts-item contacts-item_right contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Британский офис</strong>
+              <p>
+                High Bank Lane, Lostock Bolton,
+                <br>Greater Manchester United Kingdom,
+                <br>BL6 4DT
+              </p>
+            </div>
+          </div>
+
+          <div class="contacts-item contacts-item_right contact contact_action">
+            <div class="contacts-item__inner">
+              <strong class="contact__title">Отдел продаж</strong>
+              <p>
+                04070
+                <br>Украина
+                <br>Киев, ул. П.Сагайдачного, 11
+              </p>
+              <p>тел./факс: <strong><a href="tel:+380442204311">+380 44 220-43-11</a></strong></p>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="contacts__section">
+          <div class="contacts-item contacts-item_right contatcs__section-head">
+            <div class="contacts-item__inner">
+              <h4 class="uppercase spacing-100">Наши менеджеры</h4>
+              <div class="select">
+                <button class="select__button">в Киеве</button>
+                <div class="select__button-overlay"></div>
+                <ul class="select__list">
+                  <li class="select__item" data-value="laminat_1">Laminat 1</li>
+                  <li class="select__item" data-value="laminat_2">Laminat 2</li>
+                  <li class="select__item" data-value="laminat_3">Laminat 3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {% for manager in managers %}
+            <div class="contacts-item contacts-item_right contact">
+              <div class="contacts-item__inner">
+                <div class="contact__pic">
+                  <img src="http://api.adorable.io/avatars/100/abtt{{loop.index}}@adorable.io.png" alt="">
+                </div>
+                <div class="contact__actions">
+                  <a class="contact__action-btn" href="mailto:{{manager.email}}">{{mixins.icon('bubles')}}</a>
+                  <a class="contact__action-btn" href="tel:{{manager.phone | replace('-', '') | replace(' ', '')}}">{{mixins.icon('call')}}</a>
+                </div>
+                <span class="contact__title">{{manager.name}}</span>
+                <p>
+                  тел./факс: {{manager.phone}}
+                  <br>{{manager.email}}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </section>
       </div>
     </div>
   </div>
