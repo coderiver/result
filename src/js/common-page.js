@@ -96,7 +96,7 @@ $('.js-tooltip').tooltipster();
 
     topareaGallery.getElement().on('beforeChange', (e, slick, current, next) => {
         const clicked = navButtons.eq(next);
-        previews.hide()
+        previews.hide();
         previews.eq(next).show();
 
         navButtons.filter('.is-selected').removeClass('is-selected');

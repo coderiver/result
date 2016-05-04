@@ -1,0 +1,203 @@
+---
+title: Index page
+SCRIPTS:
+  - common-page
+---
+
+{% extends "./layouts/_layout.html" %}
+
+{% block content %}
+
+  {% include "./partials/_navigation.html" %}
+
+  <div class="out">
+    <section class="section l">
+      <div class="section-header">
+        <h1 class="h1 uppercase">Детальный выбор ламината</h1>
+        <ul class="mdfnav">
+          <li class="page_item current_page_item"><a href="#">Ламинат</a></li>
+          <li class="page_item"><a href="#">МДФ</a></li>
+          <li class="page_item"><a href="#">Стеновые панели МДФ</a></li>
+          <li class="page_item"><a href="#">Комплектующие МДФ</a></li>
+        </ul>
+      </div>
+
+      <div class="tab-btn-group">
+        <button class="btn btn_sm btn_tab"><span>Выбор по коллекциям</span></button>
+        <button class="btn btn_sm btn_tab is-active"><span>Выбор по коллекциям</span></button>
+      </div>
+
+      <div class="filtered-tiles">
+        <div class="filtered-tiles__main">
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-2.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Бризак</strong>
+              <span class="tile__subtitle">Legna</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-1.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Усадьба</strong>
+              <span class="tile__subtitle">Elegant</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-4.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Афцелия</strong>
+              <span class="tile__subtitle">Floor</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-1.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Усадьба</strong>
+              <span class="tile__subtitle">Elegant</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-5.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Афцелия</strong>
+              <span class="tile__subtitle">Floor</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-2.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Бризак</strong>
+              <span class="tile__subtitle">Legna</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-5.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Усадьба</strong>
+              <span class="tile__subtitle">Elegant</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+
+          <a href="catalog-item.html" class="tile tile_1-3 tile_small" style="background-image: url('img/tile-2.jpg')">
+            <div class="tile__inner">
+              <strong class="tile__title">Дуб Бризак</strong>
+              <span class="tile__subtitle">Legna</span>
+              <span class="tile__info">32 класс (АС4)</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="filtered-tiles__aside">
+          <strong>Подбор по параметрам</strong>
+          <div class="check-group">
+            <strong>Класс</strong>
+            <ul>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>21</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>24</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>35</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>40</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="check-group">
+            <strong>Толщина, мм</strong>
+            <ul>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>10</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>12</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>21</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span>35</span>
+                </label>
+              </li>
+            </ul>
+
+            <div class="check-group">
+              <strong>Оттенок дерева</strong>
+              <ul>
+                <li>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Светлый</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Темный</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Серый</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Светлый коричневый</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Темный коричневый</span>
+                  </label>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include "./partials/_about-product.html" %}
+    {% include "./partials/_partners.html" %}
+    {% include "./partials/_footer.html" %}
+  </div>
+
+
+{% endblock %}

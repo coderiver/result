@@ -1527,6 +1527,31 @@ a:not([class]):hover {
   opacity: 0.5;
 }
 
+.btn_tab {
+  font-size: 12px;
+}
+
+.btn_tab.is-active {
+  background: #A6ADB3;
+  border-color: #A6ADB3;
+  color: white;
+  cursor: default;
+}
+
+.btn_tab.is-active:before {
+  display: none;
+}
+
+.tab-btn-group {
+  margin-bottom: 40px;
+  font-size: 0;
+  text-align: center;
+}
+
+.tab-btn-group .btn {
+  vertical-align: top;
+}
+
 .tooltip {
   display: block;
   position: absolute;
@@ -1666,6 +1691,22 @@ a:not([class]):hover {
 }
 
 .tile_2x1:before {
+  padding-bottom: 50%;
+}
+
+.tile_1-3 {
+  width: 33.33%;
+}
+
+.tile_2-3 {
+  width: 66.66%;
+}
+
+.tile_2-3x1 {
+  width: 66.66%;
+}
+
+.tile_2-3x1:before {
   padding-bottom: 50%;
 }
 
@@ -2681,6 +2722,51 @@ a:not([class]):hover {
 
 .mdfnav .current_page_item a {
   border-color: #fc0d1b;
+}
+
+.filtered-tiles {
+  *zoom: 1;
+}
+
+.filtered-tiles:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.filtered-tiles__main {
+  float: left;
+  width: 75%;
+}
+
+.filtered-tiles__aside {
+  float: right;
+  width: 25%;
+  box-sizing: border-box;
+  padding-left: 50px;
+  font-size: 18px;
+}
+
+.check-group {
+  margin: 30px 0;
+}
+
+.check-group > ul {
+  margin-top: 15px;
+}
+
+.check-group > ul > li {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.check-group:first-child {
+  margin-top: 0;
+}
+
+.check-group:last-child {
+  margin-bottom: 0;
 }
 
 .hero {
@@ -5092,6 +5178,10 @@ a:not([class]):hover {
 
 .section-header .h2 {
   line-height: 1;
+}
+
+.section-header .mdfnav {
+  margin-top: 40px;
 }
 
 .section-header_top-margin {
