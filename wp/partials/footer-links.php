@@ -35,7 +35,7 @@
     <ul class="footer__list">
       <li class="footer__list-item"><strong class="h4"><a href="/lumber/">Продукция<br>
 Lumber</a></strong></li>
-      <li class="footer__list-item"><a href="/lumber/materials/">Пиломатериалы</a></li>
+      <li class="footer__list-item"><a href="/lumber/pilomaterials/">Пиломатериалы</a></li>
       <li class="footer__list-item"><a href="/lumber/pellets/">Пеллеты</a></li>
       <li class="footer__list-item"><a href="/downloads-lumber/">Раздаточные материалы</a></li>
     </ul>
@@ -57,7 +57,7 @@ Lumber</a></strong></li>
     </ul>
   </div>
 
-  <div class="footer__copyright">© Rezult, 2015</div>
-  <div class="footer__made-by">made by <a href="#">MadCats</a> in Kyiv</div>
+  <div class="footer__copyright">© Rezult, 2016</div>
+  <div class="footer__made-by">made by <a href="http://madcats.agency/">MadCats</a> in Kyiv</div>
 </footer>
 <!-- END footer -->

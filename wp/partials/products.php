@@ -6,7 +6,9 @@
 </style>
 <section class="products l">
   <div class="section-header">
-    <h2 class="h1 uppercase">Продукция</h2>
+    <h2 class="h1 uppercase">Продукция
+
+    </h2>
     <div class="section-header__subtitle">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis iste fuga fugit maxime quas, earum nemo, rerum? Debitis error nemo, asperiores, quo perspiciatis, porro ipsam at quaerat similique neque quas.
     </div>
@@ -28,6 +30,7 @@
     while ($queryObject->have_posts()) {
       $queryObject->the_post();
       $image = get_field('catalogfoto');
+
       $image = $image[sizes][medium_large];
       ?>
       <a href="<? echo get_permalink();?>" class="tile tile_small tile_<? echo $tile;?>" style="background-image: url('<? echo $image;?>')">

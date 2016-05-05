@@ -1,6 +1,6 @@
 <!--BEGIN navigation -->
 <div class="nav-links">
-  <a href="/mdf/">Продукция MDF</a>
+  <a href="/mdf-catalog/">Продукция MDF</a>
   <a href="/lumber/">Продукция Lumber</a>
   <a href="/contacts/">Контакты</a>
   <!-- <a href="/wheretobuy/">Где купить</a> -->
@@ -95,12 +95,12 @@
 
         <ul class="menu__list">
           <li class="menu__list-item">
-            <h4><a href="/mdf">Продукция<br>МДФ</a></h4></li>
-          <li class="menu__list-item"><a href="/mdf/laminate/">Ламинированные напольные
+            <h4><a href="/mdf-catalog">Продукция<br>МДФ</a></h4></li>
+          <li class="menu__list-item"><a href="/mdf-catalog/laminat/">Ламинированные напольные
 покрытия</a></li>
-          <li class="menu__list-item"><a href="/mdf/mdf/">МДФ</a></li>
-          <li class="menu__list-item"><a href="/mdf/panels/">Настенные панели</a></li>
-          <li class="menu__list-item"><a href="/mdf/complects/">Сопутствующие товары</a></li>
+          <li class="menu__list-item"><a href="/mdf-catalog/mdf/">МДФ</a></li>
+          <li class="menu__list-item"><a href="/mdf-catalog/panels/">Настенные панели</a></li>
+          <li class="menu__list-item"><a href="/mdf-catalog/complects/">Сопутствующие товары</a></li>
           <li class="menu__list-item"><a href="/downloads-mdf/">Раздаточные материалы</a></li>
         </ul>
 

@@ -2,10 +2,31 @@
 <div class="hero">
   <div class="hero__gallery">
     <div class="gs">
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h1.jpg')"></div>
+          <?
+          $queryObject = new WP_Query(array(
+          'post_type'      => 'hero',                             
+          'orderby'           => 'menu_order',
+          'posts_per_page'    => -1
+
+      ));
+      if ($queryObject->have_posts()) {
+
+        
+        while ($queryObject->have_posts()) {
+          $queryObject->the_post();
+          $image = get_field('foto');
+          // print_r($image);
+          $image = $image[sizes][large];
+          ?>
+          <div class="gs-slide" style="background-image: url('<? echo $image;?>')"></div>
+        <? }
+
+      }
+      ?>
+    <!--   <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h1.jpg')"></div>
       <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h2.jpg')"></div>
       <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h3.jpg')"></div>
-      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h4.jpg')"></div>
+      <div class="gs-slide" style="background-image: url('<?php bloginfo('template_directory'); ?>/img/h4.jpg')"></div> -->
     </div>
   </div>
   <div class="hero__inner l-center">

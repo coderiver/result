@@ -90,9 +90,22 @@ $('.js-tooltip').tooltipster();
         e.preventDefault();
         topareaGallery.slickApiCall('slickGoTo', navButtons.index(this));
     });
-    title.text(navButtons.eq(0).text());
+    var goto = 0;
+    if(window.location.hash) {
+      var nomer = window.location.hash.substring(1);
+      var bl = $('#nomer'+nomer);
+      goto = navButtons.index(bl);
+    }
+    console.log(goto);
+
+    //initial
+    title.text(navButtons.eq(goto).text());
     previews.hide();
-    previews.eq(0).show();
+    previews.eq(goto).show();
+    navButtons.filter('.is-selected').removeClass('is-selected');
+    navButtons.eq(goto).addClass('is-selected');
+    topareaGallery.getElement().slick('slickGoTo',goto);
+    
 
     topareaGallery.getElement().on('beforeChange', (e, slick, current, next) => {
         const clicked = navButtons.eq(next);
@@ -109,5 +122,58 @@ $('.js-tooltip').tooltipster();
     });
 
 })();
+
+(() => {
+
+    /**
+     * Filter and tabs on catalog page
+     */
+
+    const tabs = $('.js-laminat');
+    // const tabs = $('.tab-btn-group');
+
+    tabs.children('button').click(function(event) {
+        $(this).siblings().removeClass('is-active');
+        $(this).addClass('is-active');
+        $('.tab1,.tab2').hide();
+        $('.'+$(this).data('tab')).show();
+    });
+
+    var array;
+    function getval(group){
+        array = [];
+        $("."+group+" input:checkbox[name="+group+"]:checked").each(function(){
+            array.push($(this).val());
+        });
+        return array;
+    }
+
+    $('.check-group input').change(function(event) {
+        var ton = getval('ton');
+        var thickness = getval('thickness');
+        var classes = getval('class');
+        console.log(ton,thickness,classes);
+        $('.tile_1-3').each(function(index, el) {
+            var this_ton = $(this).data('ton')+'';
+            var this_thickness = $(this).data('thick')+'';
+            var this_classes = $(this).data('class')+'';
+            console.log(this_ton,this_thickness,this_classes,ton,thickness,classes,ton.indexOf(this_ton));
+            // if(ton.indexOf(this_ton) !== -1){
+            if(ton.indexOf(this_ton) !== -1 && thickness.indexOf(this_thickness) !== -1 && classes.indexOf(this_classes) !== -1){
+                $(this).show();
+                // alert('show');
+            }
+            else{
+                $(this).hide();
+            }
+        });
+    });
+
+})();
+
+
+
+
+
 
 $('html').removeClass('no-js');

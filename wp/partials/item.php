@@ -19,6 +19,8 @@ $slug_title = $term->slug;
       while ($queryObject->have_posts()) {
         $queryObject->the_post();
         $image = get_field('foto');
+        // print_r($image);
+        $image = $image[sizes][large];
         echo '<div class="gs-slide" style="background-image: url('.$image.')"></div>';
       }
 
@@ -49,7 +51,7 @@ $slug_title = $term->slug;
                 echo '<a class="btn btn_select '.$cl.'" href="#"><span>'.get_the_title().'</span></a>';
               }
             }
-            wp_reset_query();
+            // wp_reset_query();
           ?>
 
         </div>
@@ -58,6 +60,25 @@ $slug_title = $term->slug;
   </div>
 </div>
 <!-- END toparea -->
+
+<?
+  $previews = '';
+  if ($queryObject->have_posts()) {
+    $i = 0;
+    while ($queryObject->have_posts()) {
+      $queryObject->the_post();
+      $image = get_field('foto_zoomable');
+      $image1 = $image[sizes][large];
+      $image2 = $image[sizes][medium_large];
+      
+                 $previews .= '<a class="preview js-fancy" href="'.$image1.'">
+                        <span class="preview__icon"><svg class="icon icon-loupe">
+        <use xlink:href="'.get_bloginfo('template_directory').'/img/sprite.svg#icon-loupe"></use></svg></span><img src="'.$image2.'"></a>';
+      
+    }
+  }
+  wp_reset_query();
+?>
 
 <?php 
     query_posts(array( 
@@ -111,23 +132,17 @@ $slug_title = $term->slug;
 </svg>
 </span>
                 </div>
-
-                <a class="preview js-fancy" href="<?php bloginfo('template_directory'); ?>/img/hero-2.jpg">
-                  <span class="preview__icon"><svg class="icon icon-loupe">
-  <use xlink:href="<?php bloginfo('template_directory'); ?>/img/sprite.svg#icon-loupe"></use>
-</svg>
-</span>
-                  <img src="<?php bloginfo('template_directory'); ?>/img/preview.jpg">
-                </a>
+                <? echo $previews;?>
+                
               </div>
 
               <table class="table table_features">
                 <caption class="table__caption">Характеристики</caption>
                 <tbody>
-                  <tr>
+              <!--     <tr>
                     <td><em class="table__label">Тон дерева</em> Светлый</td>
                     <td><em class="table__label">Декор</em> Дуб</td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <td><em class="table__label">Площадь в упаковке</em> <? the_field('ploshad');?></td>
                     <td><em class="table__label">Толщина</em> <? the_field('thickness');?>мм</td>
